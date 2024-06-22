@@ -1,4 +1,4 @@
-#include "keycodes.h"
+//#include "keycodes.h"
 #include QMK_KEYBOARD_H
 
 #include "moutis.h"
@@ -34,13 +34,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MT(MOD_LSFT, KC_BSPC),  RCTL_T(KC_A), RALT_T(KC_S), RGUI_T(KC_D), RSFT_T(KC_F), LT(L_NUM,KC_G), LT(L_FUN,KC_H), RSFT_T(KC_J), RGUI_T(KC_K), RALT_T(KC_L), RCTL_T(KC_SCLN), MT(MOD_RSFT, KC_QUOTE),
     KC_LEFT_GUI, MT(MOD_LALT, KC_Z), KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, MT(MOD_RALT, KC_SLASH), KC_RIGHT_CTRL,
                 LT(L_NAV,KC_TAB), LT(L_FUN,KC_BSPC),          LT(L_NAV,KC_ENT), LT(L_SYM,KC_SPC)),
+                //LT(L_NAV,KC_TAB), LT(L_FUN,KC_BSPC),          LT(L_CFG,KC_ENT), LT(L_SYM,KC_SPC)),
 
 [L_HD] = LAYOUT(
     KC_ESC, KC_1,   KC_2,   KC_3,   KC_4,   KC_5,     KC_6,  KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,
 
-    TG(L_FUN),  HD_LT4, HD_LT3, HD_LT2, HD_LT1, HD_LT0,  HD_RT0, HD_RT1, HD_RT2, HD_RT3, HD_RT4,  TG(L_SYM),
+    TG(L_NUM),  HD_LT4, HD_LT3, HD_LT2, HD_LT1, HD_LT0,  HD_RT0, HD_RT1, HD_RT2, HD_RT3, HD_RT4,  TG(L_FUN),
     TT(L_CFG),  HD_LM4, HD_LM3, HD_LM2, HD_LM1, HD_LM0,  HD_RM0, HD_RM1, HD_RM2, HD_RM3, HD_RM4,  KC_TAB ,
-    TG(L_NAV),  HD_LB4, HD_LB3, HD_LB2, HD_LB1, HD_LB0,  HD_RB0, HD_RB1, HD_RB2, HD_RB3, HD_RB4,  TG(L_NUM),
+    TG(L_NAV),  HD_LB4, HD_LB3, HD_LB2, HD_LB1, HD_LB0,  HD_RB0, HD_RB1, HD_RB2, HD_RB3, HD_RB4,  TG(L_SYM),
                                HD_LH1, HD_LH2,                  HD_RH2, HD_RH1),
 
 [L_SYM] = LAYOUT(
