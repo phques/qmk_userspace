@@ -1,5 +1,5 @@
-
 //#include "keycodes.h"
+#include "keycodes.h"
 #include QMK_KEYBOARD_H
 
 #include "moutis.h"
@@ -26,7 +26,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //     ╰───────────╮ LH2 LH1 │ LH0 LHA  RHA RH0 │ RH1 RH2 ╭───────────╯
 //     LH5 LH4 LH3 ╰─────────╯                  ╰─────────╯ RH3 RH4 RH5
 
-#ifdef L_QWERTY
 [L_QWERTY] = LAYOUT(
     //## pq using default voyager + thumbs & layers access based +- on HandsDown
     //TD(DANCE_0),  KC_1,  KC_2,  KC_3,  KC_4,  KC_5,    KC_6,  KC_7,  KC_8,  KC_9,  KC_0,  KC_MINS,
@@ -35,22 +34,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     HD_CAPSWORD, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P,  KC_BSLS,
     MT(MOD_LSFT, KC_BSPC),  RCTL_T(KC_A), RALT_T(KC_S), RGUI_T(KC_D), RSFT_T(KC_F), LT(L_NUM,KC_G), LT(L_FUN,KC_H), RSFT_T(KC_J), RGUI_T(KC_K), RALT_T(KC_L), RCTL_T(KC_SCLN), MT(MOD_RSFT, KC_QUOTE),
     KC_LEFT_GUI, MT(MOD_LALT, KC_Z), KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, MT(MOD_RALT, KC_SLASH), KC_RIGHT_CTRL,
+                // I have BS and CR swapped on hands down layer, so do the same here
 //                LT(L_NAV,KC_TAB), LT(L_CFG,KC_ENT),          LT(L_NAV,KC_BSPC), LT(L_SYM,KC_SPC)),
                 LT(L_NAV,KC_TAB), LT(L_FUN,KC_BSPC),          LT(L_NAV,KC_ENT), LT(L_SYM,KC_SPC)),
-#endif
+
 [L_HD] = LAYOUT(
-    // KC_EQL,  KC_1,   KC_2,   KC_3,   KC_4,   KC_5,     KC_6,  KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,
-   TG(L_NUM), KC_1,   KC_2,   KC_3,   KC_4,   KC_5,     KC_6,  KC_7,   KC_8,   KC_9,   KC_0,   TG(L_CFG),
-// TG(L_NAV)
-    HD_LT5,  HD_LT4, HD_LT3, HD_LT2, HD_LT1, HD_LT0,  HD_RT0, HD_RT1, HD_RT2, HD_RT3, HD_RT4,  HD_RT5, //TT(L_FUN),
-    HD_LM5,  HD_LM4, HD_LM3, HD_LM2, HD_LM1, HD_LM0,  HD_RM0, HD_RM1, HD_RM2, HD_RM3, HD_RM4,  HD_RM5,
+    KC_EQL,  KC_1,   KC_2,   KC_3,   KC_4,   KC_5,     KC_6,  KC_7,   KC_8,   KC_9,   KC_0,   TG(L_FUN),//KC_MINS,
+
+    HD_LT5,  HD_LT4, HD_LT3, HD_LT2, HD_LT1, HD_LT0,  HD_RT0, HD_RT1, HD_RT2, HD_RT3, HD_RT4,  TG(L_NAV),
+    HD_LM5,  HD_LM4, HD_LM3, HD_LM2, HD_LM1, HD_LM0,  HD_RM0, HD_RM1, HD_RM2, HD_RM3, HD_RM4,  TT(L_CFG),
     HD_LB5,  HD_LB4, HD_LB3, HD_LB2, HD_LB1, HD_LB0,  HD_RB0, HD_RB1, HD_RB2, HD_RB3, HD_RB4,  HD_RB5,
-            //##!! Swapping inner/outer thumbs since the inner keys are more accessible than the outer ones for me.
                                HD_LH1, HD_LH2,                  HD_RH2, HD_RH1),
-//                             HD_LH2, HD_LH1,                  HD_RH1, HD_RH2),
 
 [L_SYM] = LAYOUT(
-   TG(L_NAV), KC_1,   KC_2,   KC_3,   KC_4,   KC_5,     KC_6,  KC_7,   KC_8,   KC_9,   KC_0,   TT(L_FUN),
+    KC_EQL, KC_1,   KC_2,   KC_3,   KC_4,   KC_5,     KC_6,  KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,
 
     _______,    LS_LT4, LS_LT3, LS_LT2, LS_LT1, LS_LT0,  LS_RT0, LS_RT1, LS_RT2, LS_RT3, LS_RT4,   _______,
     _______,    LS_LM4, LS_LM3, LS_LM2, LS_LM1, LS_LM0,  LS_RM0, LS_RM1, LS_RM2, LS_RM3, LS_RM4,   _______,
@@ -59,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 //##pq don't reverse left two thumbs since they are Del word left/right
 
 [L_FUN] = LAYOUT(
-   TG(L_NAV), KC_1,   KC_2,   KC_3,   KC_4,   KC_5,     KC_6,  KC_7,   KC_8,   KC_9,   KC_0,   TT(L_FUN),
+    KC_EQL, KC_1,   KC_2,   KC_3,   KC_4,   KC_5,     KC_6,  KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,
 
     _______,    LF_LT4, LF_LT3, LF_LT2, LF_LT1, LF_LT0,  LF_RT0, LF_RT1, LF_RT2, LF_RT3, LF_RT4,  _______,
     _______,    LF_LM4, LF_LM3, LF_LM2, LF_LM1, LF_LM0,  LF_RM0, LF_RM1, LF_RM2, LF_RM3, LF_RM4,  _______,
@@ -67,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 LF_LH1, LF_LH2,                  LF_RH2, LF_RH1),
 
 [L_NUM] = LAYOUT(
-   TG(L_NAV), KC_1,   KC_2,   KC_3,   KC_4,   KC_5,     KC_6,  KC_7,   KC_8,   KC_9,   KC_0,   TT(L_FUN),
+    KC_EQL, KC_1,   KC_2,   KC_3,   KC_4,   KC_5,     KC_6,  KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,
 
     _______,    LN_LT4, LN_LT3, LN_LT2, LN_LT1, LN_LT0,  LN_RT0, LN_RT1, LN_RT2, LN_RT3, LN_RT4,  _______,
     _______,    LN_LM4, LN_LM3, LN_LM2, LN_LM1, LN_LM0,  LN_RM0, LN_RM1, LN_RM2, LN_RM3, LN_RM4,  _______,
@@ -75,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 LN_LH1, LN_LH2,                  LN_RH2, LN_RH1),
 
 [L_NAV] = LAYOUT(
-   TG(L_NAV), KC_1,   KC_2,   KC_3,   KC_4,   KC_5,     KC_6,  KC_7,   KC_8,   KC_9,   KC_0,   TT(L_FUN),
+    KC_EQL, KC_1,   KC_2,   KC_3,   KC_4,   KC_5,     KC_6,  KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,
 
     _______,    LV_LT4, LV_LT3, LV_LT2, LV_LT1, LV_LT0,  LV_RT0, LV_RT1, LV_RT2, LV_RT3, LV_RT4,  _______,
     _______,    LV_LM4, LV_LM3, LV_LM2, LV_LM1, LV_LM0,  LV_RM0, LV_RM1, LV_RM2, LV_RM3, LV_RM4,  _______,
@@ -84,8 +81,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [L_CFG] = LAYOUT(
     //KC_ESC, KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,   KC_F6,  KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11,
-    // =+       1         2        3        4        5       6
-     UG_TOGG, UG_NEXT, UG_SPDU, UG_VALU, UG_SATU, UG_HUEU, KC_LEFT_SHIFT, _______, _______, _______, _______, _______,
+    //RGB_TOG, RGB_MODE_PLAIN, RGB_MODE_REVERSE, RGB_MODE_FORWARD, RGB_VAD, RGB_VAI, RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, TOGGLE_LAYER_COLOR, _______,
+    // =+       1               2               3         4         5       6                     7
+     RGB_TOG, RGB_MODE_PLAIN, RGB_MODE_FORWARD, RGB_VAI, RGB_HUI, RGB_SAI, TOGGLE_LAYER_COLOR, KC_LEFT_SHIFT, _______, _______, _______, _______,
 
     _______,    LC_LT4, LC_LT3, LC_LT2, LC_LT1, LC_LT0,  LC_RT0, LC_RT1, LC_RT2, LC_RT3, LC_RT4,  _______,
     _______,    LC_LM4, LC_LM3, LC_LM2, LC_LM1, LC_LM0,  LC_RM0, LC_RM1, LC_RM2, LC_RM3, LC_RM4,  _______,
