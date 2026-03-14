@@ -11,12 +11,12 @@ GRAVE_ESC_ENABLE = no
 AUTO_SHIFT_ENABLE = no  # requires 1936 bytes!
 
 NKRO_ENABLE = no         # USB Nkey Rollover
-KEY_OVERRIDE_ENABLE = no
+KEY_OVERRIDE_ENABLE = yes
 TAP_DANCE_ENABLE = no
 EXTRAKEY_ENABLE = yes   # Audio control and System control
 COMBO_ENABLE = yes      # chording
-MAGIC_ENABLE = no
-RGB_MATRIX_ENABLE =yes
+MAGIC_ENABLE = yes
+RGB_MATRIX_ENABLE = yes
 
 LTO_ENABLE = yes		# optimize at link time
 EXTRAFLAGS += -flto

@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [L_CFG] = LAYOUT(
     //KC_ESC, KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,   KC_F6,  KC_F7,  KC_F8,  KC_F9,  KC_F10, KC_F11,
     // =+       1         2        3        4        5       6
-     UG_TOGG, UG_NEXT, UG_SPDU, UG_VALU, UG_SATU, UG_HUEU, KC_LEFT_SHIFT, _______, _______, _______, _______, _______,
+     RM_TOGG, RM_NEXT, RM_SPDU, RM_VALU, RM_SATU, RM_HUEU, KC_LEFT_SHIFT, _______, _______, _______, _______, _______,
 
     _______,    LC_LT4, LC_LT3, LC_LT2, LC_LT1, LC_LT0,  LC_RT0, LC_RT1, LC_RT2, LC_RT3, LC_RT4,  _______,
     _______,    LC_LM4, LC_LM3, LC_LM2, LC_LM1, LC_LM0,  LC_RM0, LC_RM1, LC_RM2, LC_RM3, LC_RM4,  _______,
