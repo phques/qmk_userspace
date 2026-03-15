@@ -21,7 +21,7 @@ RGB_MATRIX_ENABLE = yes
 LTO_ENABLE = yes		# optimize at link time
 EXTRAFLAGS += -flto
 
-SRC += phques.c sendstr.c
+SRC += phques.c sendstr.c moutis_semantickeys.c processRecord.c
 
 CFLAGS += -fcommon
 

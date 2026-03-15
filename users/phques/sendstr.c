@@ -19,7 +19,3 @@ void SendCapString(const char* str) {
     send_string(str + 1);
 }
 
-void SendLocalCapString(uint16_t keycode) {
-    const char* str = myStrings[keycode - PQ_SEND_STR_START];
-    SendCapString(str);
-}

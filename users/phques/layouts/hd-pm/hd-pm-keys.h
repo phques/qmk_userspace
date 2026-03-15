@@ -1,6 +1,7 @@
 #pragma once
-
 // From HandsDown Promethium keymap, adapted for use in my keymaps as a layer of keycodes
+
+#include <keycodes.h>
 
 //
 // First, let's define HD alpha keycodes with any hold-taps/custom keycodes
@@ -102,7 +103,7 @@
 #define HD_LM2 HD_T
 #define HD_LM1 HD_H
 #define HD_LM0 HD_K
-#define HD_LMA G(KC_V) //PQ xbows nature, was KC_RPRN
+#define HD_LMA SK_PSTE //PQ xbows nature, was KC_RPRN
 #define HD_RMA KC_NO  // PQ xbows nature, was KC_LPRN
 #define HD_RM0 HD_COMM
 #define HD_RM1 HD_A
@@ -117,7 +118,7 @@
 #define HD_LB2 HD_D
 #define HD_LB1 HD_L
 #define HD_LB0 HD_X
-#define HD_LBA G(KC_C)  // PQ xbows nature
+#define HD_LBA SK_COPY  // PQ xbows nature
 #define HD_LBB KC_NO    // PQ xbows nature
 #define HD_RBB KC_NO    // PQ xbows nature
 #define HD_RBA KC_NO    // PQ xbows nature

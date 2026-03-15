@@ -11,9 +11,15 @@
 #define LAYBIT(layer) ((layer_state_t)1 << (layer))
 
 
+// ---- layers ----
+
+#define HAS_QWERTY_LAYER
+
 // enum my_layers for layout layers
 enum my_layers {// must be difined before semantickeys.h
+#ifdef HAS_QWERTY_LAYER
     L_QWERTY,   // QWERTY compatibility layer
+#endif
     L_HD,       // Hands Down Alpha layer
     // L_SYM,      // symbols, punctuation, off-map alphas
     // L_FUN,      // function (left) & number rows (right)
@@ -22,22 +28,48 @@ enum my_layers {// must be difined before semantickeys.h
     L_CFG,      // Media/Consumer controls; Keyboard settings
     L_count
 };
+#ifdef HAS_QWERTY_LAYER
+#define L_BASELAYER HD_L_QWERTY
+#else
+#define L_BASELAYER HD_L_ALPHA
+#endif
 
 
+// ---- platforms ----
 
-// enum for custom keycodes, starting at safe range (QK_KB_0..QK_KB_255)
-enum custom_keycodes {
-    PQ_SEND_STR_START = QK_KB_0,
-
-    PQ_SEND_STR_CAPI_1 = PQ_SEND_STR_START,
-    PQ_SEND_STR_CAPI_2,
-
-    PQ_SEND_MACRO_1,
+enum OS_Platform { // Used for platform support via SemKeys
+    OS_Mac,     // Mac with ANSI_US_EXTENDED layout
+    OS_Win,     // Win with default English/ANSI layout?
+#ifdef INCLUDE_SK_Lux
+    OS_Lux,     // Linux (Gnome?/KDE?/Boox Android?)
+#endif
+//    OS_iOS,     // iOS?
+//    OS_And,     // Android (flavors?)
+    OS_count
 };
+
+
+// ---- other ----
+
+typedef union {
+    uint32_t raw;
+    struct {
+        uint8_t OSIndex; // index of platforms (0=mac, 1=win, 2=lux)? // used by semantickeys
+        bool AdaptiveKeys; // Adaptive Keys On? (and advanced combos)
+    };
+} user_config_t; // used for persistent memory of settings (only 16 bytes avail on AVR?)
+
+
+//----------
 
 // temp 'strings' for testing string sending via custom keycodes
 extern const char* const myStrings[];
 
+// global user config variable, stored in EEPROM
+extern user_config_t user_config;
+
+extern void saveUserConfig(void);
 
 // layout definition header
-#define LAYOUT_HEADER "hd-pm-keys.h" // HandsDown Promethium
+#define LAYOUT_HEADER_H "layouts/hd-pm/hd-pm-keys.h" // HandsDown Promethium
+
