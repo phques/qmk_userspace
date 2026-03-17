@@ -5,23 +5,31 @@
 LEADER_ENABLE = no       # Enable the Leader Key feature
 MOUSEKEY_ENABLE = no     # Mouse keys
 UNICODE_ENABLE = no      # will need this for HD Polyglot
-CONSOLE_ENABLE = no
+
 SPACE_CADET_ENABLE = no
 GRAVE_ESC_ENABLE = no
 AUTO_SHIFT_ENABLE = no  # requires 1936 bytes!
-
 NKRO_ENABLE = no         # USB Nkey Rollover
-KEY_OVERRIDE_ENABLE = yes
+
 TAP_DANCE_ENABLE = no
+
+# xbows nature freezes on startup with this!?
+# will have to go the moutis way and do it manually.
+KEY_OVERRIDE_ENABLE = no 
+
 EXTRAKEY_ENABLE = yes   # Audio control and System control
 COMBO_ENABLE = yes      # chording
-MAGIC_ENABLE = yes
+MAGIC_ENABLE = yes		#  for swap gui/ctrl and more.
 RGB_MATRIX_ENABLE = yes
+CAPS_WORD_ENABLE = yes
+
+#pq debugging, must also set debug_enable=true in keyboard_post_init_user
+CONSOLE_ENABLE = no
 
 LTO_ENABLE = yes		# optimize at link time
 EXTRAFLAGS += -flto
 
-SRC += phques.c sendstr.c moutis_semantickeys.c processRecord.c
+SRC += phques.c sendstr.c semantickeys.c processRecord.c processCombo.c matrixScanUser.c
 
 CFLAGS += -fcommon
 

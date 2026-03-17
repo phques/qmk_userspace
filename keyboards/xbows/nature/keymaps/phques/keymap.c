@@ -3,6 +3,7 @@
 #include <keycodes.h>
 
 #include "phques.h"
+#include "processCombo.h"
 
 // this defines the actual layout, as far as main keys go, see diagram below.
 #include LAYOUT_HEADER_H
@@ -86,8 +87,10 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
         'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R'
     );
 
+
 #ifdef COMBO_ENABLE
-combo_t key_combos[] = {};
+#include HD_combo_def
 #endif
 
 #include "keyOverrides.h"
+

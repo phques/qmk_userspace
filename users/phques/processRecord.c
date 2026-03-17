@@ -1,13 +1,18 @@
-// ** Adapted from [moutis Hands Down QMK implementation](https://github.com/moutis/HandsDown)
+// ** Taken/Adapted from [moutis Hands Down QMK implementation](https://github.com/moutis/HandsDown)
 // This file is for handling custom keycodes and other record processing.
 
+#include "action_util.h"
+#include "keycodes.h"
+#include "phques.h"
 #include "processRecord.h"
-#include "moutis_semantickeys.h"
+#include "quantum.h"
+#include "semantickeys.h"
 
+//-----------
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     bool return_state = true;
-    uint8_t saved_mods;
+
     saved_mods = get_mods(); // preserve mods
 
     // Do we need to filter multi-function keys?
@@ -36,7 +41,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     // ----------------
 
+    //## PQ, no linger keys for now. Might want to add some later.
     if (record->event.pressed) {
+
         switch (keycode) { // only handling normal, SHFT or ALT cases.
             case SK_Lux: // switch to linux (or Win if not defined)
 #ifdef INCLUDE_HD_Lux
@@ -63,6 +70,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case HD_AdaptKeyToggle: // toggle AdaptiveKeys (& LingerKeys, linger combos)
 #ifdef ADAPTIVE_ENABLE
                 user_config.AdaptiveKeys = !user_config.AdaptiveKeys;
+                //#pq debug
+                if (user_config.AdaptiveKeys) {
+                    dprint("dbg Adaptive Keys On\n");
+                }
+                else {
+                    dprint("dbg Adaptive Keys Off\n");
+                }
                 saveUserConfig();
 #endif
                 return_state = false; // stop processing this record.
@@ -81,8 +95,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
     }
     else { // (record->event.pressed) / // key up event
+
         switch (keycode) { // only handling normal, SHFT or ALT cases.
         } // end switch (keycode)
+
     } // end key up event
 
     return return_state;

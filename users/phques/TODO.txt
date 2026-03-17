@@ -1,0 +1,21 @@
+
+- layers: 
+  - nav, sym, 
+  - num / fun ?
+  - adjust cfg and/or others
+
+- override keys
+  - get MYMODMORPH working?
+
+- adaptives!
+
+- sem key for gui/alt-tab 
+
+- linger keys?
+  - linger-',' => ", "
+   (still not a fan of ',' on middle row, specially ", ")
+   maybe moutis magic ',' shift?
+
+- check that all combos work.
+
+- still having probs with HRMs, "nt": † or nothing (press n, press t, wait .. let go)

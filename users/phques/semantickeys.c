@@ -56,7 +56,7 @@
 */
 
 #include "phques.h"
-#include "moutis_semantickeys.h"
+#include "semantickeys.h"
 
 const uint16_t SemKeys_t[SK_count][OS_count] = {
 // Mac, Win, (Phase 3, add others if necessary, expand to multi-key?)

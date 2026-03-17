@@ -1,7 +1,7 @@
 #pragma once
 
 #include "phques.h"
-#include "moutis_semantickeys.h"
+#include "semantickeys.h"
 
 //     Key Position Names for a 34 (-54) key split form factor
 //        Should cover ergo boards Ferris through Atreus-Kyria-Ergodox

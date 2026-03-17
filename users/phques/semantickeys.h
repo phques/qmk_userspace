@@ -152,3 +152,6 @@ enum my_keycodes {
 extern const uint16_t SemKeys_t[SK_count][OS_count];
 
 bool process_semkey(uint16_t keycode, const keyrecord_t *record);
+void tap_SemKey(uint16_t sk);
+void register_SemKey(uint16_t sk);
+void unregister_SemKey(uint16_t sk);

@@ -54,7 +54,7 @@
 //        Should cover Ferris through Atreus-Kyria-Ergodox
 //     ╭─────────────────────╮                  ╭─────────────────────╮
 // LT5 │ LT4 LT3 LT2 LT1 LT0 │ LTA          RTA │ RT0 RT1 RT2 RT3 RT4 │ RT5
-// LM5 │ LM4 LM3 LM2 LM1 LM0 | LMA          RMA | RT0 RM1 RM2 RM3 RM4 │ RM5
+// LM5 │ LM4 LM3 LM2 LM1 LM0 | LMA          RMA | RM0 RM1 RM2 RM3 RM4 │ RM5
 // LB5 │ LB4 LB3 LB2 LB1 LB0 │ LBA LBB  RBB RBA │ RB0 RB1 RB2 RB3 RB4 │ RB5
 //     ╰───────────╮ LH2 LH1 │ LH0 LHA  RHA RH0 │ RH1 RH2 ╭───────────╯
 //     LH5 LH4 LH3 ╰─────────╯                  ╰─────────╯ RH3 RH4 RH5
@@ -145,3 +145,129 @@
 #define HD_RH3 KC_RALT      // PQ xbows nature
 #define HD_RH4 MO(L_CFG)    // PQ xbows nature, Keep Fn key as access to CFG layer
 #define HD_RH5 KC_RCTL
+
+//
+// We want to be able to define a combo by location
+// for variation independent, spatial referencing, or
+// by letter for mnemonic/phonetic referencing (variation dependent)
+// but this sort of obscures the definitions…so…
+//
+// BE CAREFUL to not double define a combo!
+//
+// Combo definitions that rely on phonetics/mnemonics for their locations.
+//
+// Combos that are spacially organized don't need to be redefined
+// to match the base alpha layer, so they are not included here.
+//
+// These few spatial combos may move to accommodate some mnemonic combos,
+// notably the H-digraph combos that inhabit close areas.
+//
+// SEMANTIC FUNCTIONS  ** uses SemKeys **
+// Spatially arranged on the QWERTY ZXCV locations
+// independent of the HD Alphas, though since some of
+// the above combos may compete for the same locations,
+// we'll define them all here.
+//
+#ifdef COMBO_ENABLE
+
+#define HD_new_keys   HD_LB0, HD_LM0   // new -- Since cmd/ctrl is on middle
+#define HD_open_keys  HD_RB0, HD_RM0   // open -- these must be 2 handed, so combo
+#define HD_close_keys HD_RT0, HD_RM0   // close -- not strictly necessary?
+#define HD_quit_keys  HD_LT0, HD_LM0   // quit -- because q is on symbol layer
+#define HD_find_keys  HD_LM4, HD_LM0   // find selection
+#define HD_sall_keys  HD_LB4, HD_LB1   // select all
+#define HD_swrd_keys  HD_LB4, HD_LB0   // select word
+#define HD_undo_keys  HD_LB4, HD_LB3   // undo
+#define HD_redo_keys  HD_LB4, HD_LB3, HD_LB2   // redo
+#define HD_copy_keys  HD_LB3, HD_LB2   // copy (hold for cut)
+#define HD_pste_keys  HD_LB2, HD_LB1   // paste (hold for paste-match)
+
+#define HD_tab_keys  HD_LT4, HD_LT3     // tab
+#define HD_stab_keys HD_LT4, HD_LT3, HD_LT2  // Shift-tab
+#define HD_spc_keys  HD_LM1, HD_LM0     // SPACE
+#define HD_ent_keys  HD_LB0, HD_LB1     // ENTER
+#define HD_ent2_keys HD_LB0, HD_LB1, HD_LB2 // hard-ENTER/page break
+#define APPMENU_keys  HD_LT1, HD_LT0  // APPMENU on alpha layer
+#define APPMENU_nav_keys  LV_LT1, LV_LT0  // APPMENU on Nav layer
+
+// TEXT ENTRY - off map standard alphas (also on Layer L_SYM @ Z=LT4 & Q=LT3)
+//
+#define HD_Qu_keys HD_LT3, HD_LT1 // TYPE "q" (Qu & Linger deletes u)
+#define HD_L1_keys HD_LM3, HD_LM1 // ex. TYPE "z"
+#define HD_L1 HD_Z
+//#define HD_L2_keys HD_LM3, HD_LM1 // ex. TYPE "x"
+//#define HD_L2 HD_X
+//#define HD_L3_keys HD_LM3, HD_LM1 // ex. TYPE "j"
+//#define HD_L3 HD_J
+
+//
+// H digraph combos -- strictly optional! In fact,
+// Promethium was designed to maximize H digraph rolling,
+// and thereby reduce demand for the combos.
+// try to make these use the lead letter and a neighbor.
+// (listed here in order of frequency as per Mayzner: https://norvig.com/mayzner.html)
+//
+#define HD_Th_keys HD_LM2, HD_LM1 // TYPE "th"
+#ifndef EN_PRONOUN_COMBOS
+#define HD_Ch_keys HD_RM3, HD_RM4 // TYPE "ch" // same as "I" HD_Icap_keys
+#else
+#define HD_Ch_keys HD_LM3, HD_LM2 // TYPE "ch" // so keep as in Vibranium
+#endif
+#define HD_Wh_keys HD_LT3, HD_LT2 // TYPE "wh"
+#define HD_Sh_keys HD_LM4, HD_LM3 // TYPE "sh"
+#ifndef EN_PRONOUN_COMBOS
+#define HD_Ph_keys HD_RB3, HD_RB4 // TYPE "ph" // default position
+#else
+#define HD_Ph_keys HD_LB3, HD_LB1 // TYPE "ph"  // keep as in Vibranium
+#endif
+#define HD_Gh_keys HD_LT2, HD_LT1 // TYPE "gh"
+#define HD_Sch_keys HD_LM4, HD_LM3, HD_LM2 // TYPE "Sch"
+
+// Should we put all the diacritic keys here?
+// or get keep them all in the common area (if they all share
+// HD Neu vowel block)?
+#define HD_OE_lig_keys HD_RM2, HD_RB2 // Œ
+#define HD_AE_lig_keys HD_RM1, HD_RB1 // Æ
+
+#ifdef EN_PRONOUN_COMBOS
+// the entirely unnecessary pronoun combo shenanigans
+
+// PRONOUNS Fast 4-7grams
+#define HD_Icap_keys  HD_I, HD_C  // TYPE "I"
+#define HD_Id_keys    HD_I, HD_D  // TYPE "I'd"+"'ve "
+#define HD_Ill_keys   HD_I, HD_L  // TYPE "I'll"+"'ve "
+#define HD_Im_keys    HD_I, HD_M  // TYPE "I'm "
+#define HD_Iv_keys    HD_I, HD_V  // TYPE "I've "
+
+#ifdef EN_PRONOUN_COMBOS_ALL // Admittedly of questionable value
+#define HD_youd_keys  HD_Y, HD_D  // TYPE "you'd" + 've
+#define HD_youll_keys HD_Y, HD_L  // TYPE "you'll" + 've
+#define HD_youre_keys HD_Y, HD_F  // TYPE "you're"
+#define HD_youve_keys HD_Y, HD_V  // TYPE "you've"
+#define HD_your_keys  HD_Y, HD_R  // TYPE "your"
+
+#define HD_their_keys HD_T, HD_R  // TYPE "their" #6 (R on same finger in Neu)
+#define HD_theyre_keys HD_T, HD_F // "they're"  (R on same finger in Neu)
+#define HD_they_keys  HD_T, HD_W  // "they" #23 + 've (near they)
+//PQ #define HD_theyll_keys HD_T, HD_M // "they'll" #23 + 've (M is easier to combo, also in We'll)
+#define HD_theyll_keys HD_T, HD_L // "they'll" #23 + 've (PQ L is easier to combo, also in We'll)
+//PQ DUP! #define HD_theyd_keys HD_T, HD_F  // "they'd" #23 + 've (no rationale for this, but no SFCombo)
+#define HD_theyd_keys HD_T, HD_P  // "they'd" #23 + 've (no rationale for this, but no SFCombo)
+
+// deictics. Are these really necessary? (never used them regularly)
+//PQ #define HD_there_keys HD_T, HD_F  // TYPE "there" #7 + 's
+#define HD_there_keys HD_T, HD_M  // TYPE "there" #7 + 's
+#define HD_here_keys  HD_H, HD_F  // TYPE "here" #5 + 's
+
+#ifdef EN_W_PRONOUNS
+#define HD_where_keys HD_V, HD_R  // "where" + 's
+#define HD_were_keys  HD_V, HD_QUOT  // TYPE "we're"
+#define HD_wed_keys   HD_V, HD_G  // TYPE "we'd" + 've
+#define HD_well_keys  HD_V, HD_M  // TYPE "we'll" + 've
+#define HD_weve_keys  HD_V, HD_J  // TYPE "we've"
+#endif // EN_W_PRONOUNS
+
+#endif // EN_PRONOUNS_ALL
+#endif // EN_PRONOUNS // the entirely unnecessary pronoun combo shenanigans
+
+#endif // COMBO_ENABLE
