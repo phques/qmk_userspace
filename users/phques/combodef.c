@@ -1,3 +1,4 @@
+// ** Taken from [moutis Hands Down QMK implementation](https://github.com/moutis/HandsDown)
 
 // ** Note: this is to be #included in your keymap.c
 

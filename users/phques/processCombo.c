@@ -1,3 +1,5 @@
+// ** Taken from [moutis Hands Down QMK implementation](https://github.com/moutis/HandsDown)
+
 /*
  Combos
 

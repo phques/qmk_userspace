@@ -26,6 +26,11 @@ CAPS_WORD_ENABLE = yes
 #pq debugging, must also set debug_enable=true in keyboard_post_init_user
 CONSOLE_ENABLE = no
 
+#pq, xbows nature mhrms gettingStuck .. try this suggestion
+# also, it is suggested to connect directly to the usb port, not through a hub, to avoid this problem.
+# or #define DEBOUNCE 5 in config.h
+DEBOUNCE_TYPE = sym_eager_pk
+
 LTO_ENABLE = yes		# optimize at link time
 EXTRAFLAGS += -flto
 

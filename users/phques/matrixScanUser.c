@@ -1,11 +1,24 @@
 // ** Taken from [moutis Hands Down QMK implementation](https://github.com/moutis/HandsDown)
+// Moved it to housekeeping_task_user, hoping to avoid problems I've been having.
 
+#include "keyboard.h"
 #include "phques.h"
 // #include "semantickeys.h"
 #include "processCombo.h"
 
+void housekeeping_task_user(void) {
+    // Custom code to run on every cycle of the main loop
+    // Good for checking status of things or performing regular actions
+#if defined(COMBO_ENABLE)
+// Is a combo_action being held for delayed action/linger combos)?
+    if (combo_on) {
+        matrix_scan_user_process_combo();
+    }
+#endif
+}
+
 __attribute__ ((unused))
-void matrix_scan_user(void) {
+void __matrix_scan_user(void) {
 
 #if defined(COMBO_ENABLE)
 // Is a combo_action being held for delayed action/linger combos)?

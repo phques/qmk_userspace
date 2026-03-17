@@ -21,10 +21,10 @@ enum my_layers {// must be defined before semantickeys.h
     L_QWERTY,   // QWERTY compatibility layer
 #endif
     L_HD,       // Hands Down Alpha layer
-    // L_SYM,      // symbols, punctuation, off-map alphas
-    // L_FUN,      // function (left) & number rows (right)
+    L_SYM,      // symbols, punctuation, off-map alphas
+    L_FUN,      // function (left) & number rows (right)
     // L_NUM,      // navpad (left) & numpad (right)
-    // L_NAV,      // meta keys (left) & nav pad (right)
+    L_NAV,      // meta keys (left) & nav pad (right)
     L_CFG,      // Media/Consumer controls; Keyboard settings
     L_count
 };
@@ -99,9 +99,6 @@ typedef union {
 
 
 //----------
-
-// temp 'strings' for testing string sending via custom keycodes
-extern const char* const myStrings[];
 
 // global user config variable, stored in EEPROM
 extern user_config_t user_config;

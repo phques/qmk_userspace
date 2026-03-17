@@ -1,3 +1,4 @@
+// ** Taken from [moutis Hands Down QMK implementation](https://github.com/moutis/HandsDown)
 #pragma once
 
 #include "phques.h"
@@ -79,15 +80,15 @@
 #define LC_LH5 KC_F13 // also left encoder CCW (remap on host)
 #define LC_LH4 KC_F14 // also left encoder CW  (remap on host)
 #define LC_LH3 KC_MUTE
-#define LC_LH2 SK_ZOOMOUT
-#define LC_LH1 SK_ZOOMIN
+#define LC_LH2 KC_TRNS // PQ layer access key, leave trans, was SK_ZOOMOUT
+#define LC_LH1 KC_TRNS // PQ layer access key, leave trans, was SK_ZOOMIN
 #define LC_LH0 KC_NO
 #define LC_LHA KC_NO
 
 #define LC_RHA KC_NO
 #define LC_RH0 KC_NO
-#define LC_RH1 SK_ZOOMIN
-#define LC_RH2 SK_ZOOMOUT
+#define LC_RH1 KC_TRNS // PQ layer access key, leave trans, was SK_ZOOMIN
+#define LC_RH2 KC_TRNS // PQ layer access key, leave trans, was SK_ZOOMOUT
 #define LC_RH3 KC_RALT      // PQ xbows nature, was TG(L_NAV)
 #define LC_RH4 SK_ZOOMOUT // also right encoder CCW
 #define LC_RH5 SK_ZOOMIN // also right encoder CW

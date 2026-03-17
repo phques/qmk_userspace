@@ -3,6 +3,10 @@
 // which rgb animations to keep (well..remove!)
 #include "rgbUndefs.h"  // IWYU pragma: export
 
+// PQ trying to solve probs on xbows nature.
+#undef DEBOUNCE
+#define DEBOUNCE 5
+
 #ifndef NO_DEBUG
 #define NO_DEBUG
 #endif // !NO_DEBUG
@@ -29,9 +33,9 @@
 #define TAPPING_TOGGLE 2
 #ifdef TAPPING_TERM
 #undef TAPPING_TERM
-#define TAPPING_TERM 170 // Mod TAP VS HOLD timing in milliseconds
+#define TAPPING_TERM 200 //PQ 170 // Mod TAP VS HOLD timing in milliseconds
 #else
-#define TAPPING_TERM 170
+#define TAPPING_TERM 200 //PQ 170
 #endif
 
 // Pick good defaults for enabling homerow modifiers
@@ -39,7 +43,8 @@
 //#define PERMISSIVE_HOLD
 //#define IGNORE_MOD_TAP_INTERRUPT
 
-// PQ, having difficulty with HRMs mod-taps triggering when I want to roll, so trying these:
+// PQ, having difficulty with HRMs mod-taps triggering when I want to roll, so trying this:
+//  doesn't seem to be working!? not for rolls on home row modifiers anyway.
 #define CHORDAL_HOLD
 
 #ifdef TAP_CODE_DELAY

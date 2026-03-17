@@ -15,11 +15,6 @@ uint32_t linger_timer = 0; // time to hold a key before something else happens.
 uint8_t  combo_on = 0;           // for combo actions with hold behaviors
 bool  combo_triggered = false;   // for one-shot-combo-actions
 
-//PQ test debug
-const char* const myStrings[] = {
-    "philippe",
-    "quesnel"
-};
 
 //-------------------
 
