@@ -63,8 +63,6 @@ const uint16_t SemKeys_t[SK_count][OS_count] = {
         // System-wide controls
 
     [SK_ndx(SK_KILL)] = {LAG(KC_ESC),LCA(KC_DEL)},        // Force quit / ctrl-alt-del
-    [SK_ndx(SK_HENK)] = {KC_LNG1, C(S(KC_1))},            // 変換/かな
-    [SK_ndx(SK_MHEN)] = {KC_LNG2, C(S(KC_0))},            // 無変換/英数
     [SK_ndx(SK_DKT8)] = {C(S(KC_3)),G(KC_H)},             // Dictate speech to text
     [SK_ndx(SK_AIVC)] = {C(S(KC_4)),G(KC_C)},             // AI voice control (mac Siri/Win Cortana)
         // extended characters/ editing commands
@@ -292,14 +290,6 @@ bool process_semkey(uint16_t keycode, const keyrecord_t *record) {
                     tap_code16(KC_N);
                     // set_mods(held_mods); // restore mods just in case? (not necessary?)
                 }
-                break;
-            case SK_HENK: // Japanese
-                tap_SemKey(SK_HENK); // Mac/Win/iOS all different?
-//                    return_state = false; // stop processing this record.
-                break;
-            case SK_MHEN: // English
-                tap_SemKey(SK_MHEN); // Mac/Win/iOS/Lux all different?
-//                    return_state = false; // stop processing this record.
                 break;
             default: // default keydown event (from the semkey table)
                 register_SemKey(keycode);

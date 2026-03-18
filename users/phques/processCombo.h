@@ -17,23 +17,11 @@
 #ifndef LeftComboHeldE
 #define LeftComboHeldE "LeftCombo held"
 #endif
-#ifndef LeftComboTapJ
-#define LeftComboTapJ "hidarikombotappu"
-#endif
-#ifndef LeftComboHeldJ
-#define LeftComboHeldJ "hidarikombochouosi"
-#endif
 #ifndef RightComboTapE
 #define RightComboTapE "RightCombo tapped"
 #endif
 #ifndef RightComboHeldE
 #define RightComboHeldE "RightCombo held"
-#endif
-#ifndef RightComboTapJ
-#define RightComboTapJ "migikombotappu"
-#endif
-#ifndef RightComboHeldJ
-#define RightComboHeldJ "migikombochouosi"
 #endif
 
 
@@ -47,8 +35,6 @@ enum my_combos {
     HC_LNl_num, // TOGGLE nav / numpad layer
     HC_CAPW, // CAPS WORD for all others
     FC_CAPS, // CAPS LOCK (others)
-    FC_LANG2, // eisuu/mhen (others)
-    FC_LANG1, // kana/henk (others)
 
     HC_TAB,
     HC_STAB,
@@ -164,65 +150,6 @@ enum my_combos {
 #endif // EN_PRONOUN_COMBOS_ALL
 #endif // EN_PRONOUN_COMBOS
 
-
-// Japanese contract consonants.
-
-#ifdef JP_MODE_ENABLE  // Japanese mode switching
-#ifdef JP_YOUON_COMBOS  // Japanese contracted sounds as combos
-    jp_kya,  // きゃ
-    jp_kyu,  // きゅ
-    jp_kyo,  // きょ
-    jp_sya,  // しゃ
-    jp_syu,  // しゅ
-    jp_sye,  // しぇ
-    jp_syo,  // しょ
-    jp_zya,  // じゃ
-    jp_zyu,  // じゅ
-    jp_zyo,  // じょ
-    jp_tya,  // ちゃ
-    jp_tyu,  // ちゅ
-    jp_tye,  // ちぇ
-    jp_tyo,  // ちょ
-    jp_pya,  // ぴゃ
-    jp_pyu,  // ぴゅ
-    jp_pyo,  // ぴょ
-
-#ifdef JP_YOUON_COMBOS_ALL
-    jp_gya,  // ぎゃ
-    jp_gyu,  // ぎゅ
-    jp_gyo,  // ぎょ
-    jp_tha,  // てゃ
-    jp_thi,  // てぃ
-    jp_thu,  // てょ
-    jp_the,  // てぇ
-    jp_tho,  // てょ
-    jp_dha,  // でゃ
-#ifndef EN_PRONOUN_COMBOS
-    jp_dhi,  // でぃ conflicts with I'd (so handle it there if present)
-#endif
-    jp_dhu,  // でょ
-    jp_dhe,  // でぇ
-    jp_dho,  // でょ
-    jp_nya,  // にゃ
-    jp_nyu,  // にゅ
-    jp_nyo,  // にょ
-//    jp_hya,  // ひゃ // conflicts with diacritic combo, handled individually
-    jp_hyu,  // ひゅ
-    jp_hyo,  // ひょ
-    jp_bya,  // びゃ
-    jp_byu,  // びゅ
-    jp_byo,  // びょ
-    jp_mya,  // みゃ
-    jp_myu,  // みゅ
-    jp_myo,  // みょ
-    jp_rya,  // りゃ
-    jp_ryu,  // りゅ
-    jp_ryo,  // りょ
-#endif // JP_YOUON_COMBOS_ALL
-#endif // JP_YOUON_COMBOS
-#endif // JP_MODE_ENABLE
-
-// END Japanese contract consonants.
 
     //
     // DELAYED ACTION COMBOS -- this block must be contiguous!!

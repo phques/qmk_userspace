@@ -69,8 +69,6 @@ const uint16_t PROGMEM F_SRCH_combo[] = {HD_LM2, HD_LM1, HD_LM0, COMBO_END}; // 
 
 const uint16_t PROGMEM H_CAPW_combo[] = {HD_RB3, HD_RB4, COMBO_END}; // CAPS WORD (on until word delimiter)
 const uint16_t PROGMEM F_CAPS_combo[] = {HD_RB2, HD_RB3, HD_RB4, COMBO_END}; // CAPS LOCK (on until hit again)
-const uint16_t PROGMEM H_EISUU_combo[] = {HD_LM3, HD_LM2, HD_LM1, COMBO_END}; // KC_MHEN
-const uint16_t PROGMEM H_KANA_combo[] = {HD_RM3, HD_RM2, HD_RM1, COMBO_END}; // KC_HENK
 
 
 
@@ -214,107 +212,6 @@ const uint16_t PROGMEM H_weve_combo[] = {HD_weve_keys, COMBO_END}; // TYPE "we'v
 
 // TWO HANDS
 
-// 53 Japanese contract consonant combos.
-// Some of these will conflict with diacritics (noted below),
-// so some sort of mode-switch is necessary for both to be used on the same board.
-//
-// Also, these should be coded phonetically, not spatially, but there is risk of
-// conflict with spatial and phonetically/mnemonically coded combos.
-// already, some conflicts with diacritic or pronoun combos
-// that are also phonetically/mnemonically (noted here).
-//
-
-#ifdef JP_MODE_ENABLE
-#ifdef JP_YOUON_COMBOS  // Major Japanese contracted sounds as combos
-const uint16_t PROGMEM kya_combo[] = {JP_kya_keys, COMBO_END};  // きゃ
-const uint16_t PROGMEM kyu_combo[] = {JP_kyu_keys, COMBO_END};  //　きゅ
-const uint16_t PROGMEM kyo_combo[] = {JP_kyo_keys, COMBO_END};  //　きょ
-const uint16_t PROGMEM sya_combo[] = {JP_sya_keys, COMBO_END};  // しゃ
-const uint16_t PROGMEM syu_combo[] = {JP_syu_keys, COMBO_END};  //　しゅ
-const uint16_t PROGMEM sye_combo[] = {JP_sye_keys, COMBO_END};  //　しぇ
-const uint16_t PROGMEM syo_combo[] = {JP_syo_keys, COMBO_END};  //　しょ
-const uint16_t PROGMEM zya_combo[] = {JP_zya_keys, COMBO_END};  // じゃ
-const uint16_t PROGMEM zyu_combo[] = {JP_zyu_keys, COMBO_END};  //　じゅ
-const uint16_t PROGMEM zyo_combo[] = {JP_zyo_keys, COMBO_END};  //　じょ
-const uint16_t PROGMEM tya_combo[] = {JP_tya_keys, COMBO_END};  // ちゃ
-const uint16_t PROGMEM tyu_combo[] = {JP_tyu_keys, COMBO_END};  //　ちゅ
-const uint16_t PROGMEM tye_combo[] = {JP_tye_keys, COMBO_END};  // ちぇ
-const uint16_t PROGMEM tyo_combo[] = {JP_tyo_keys, COMBO_END};  //　ちょ
-const uint16_t PROGMEM pya_combo[] = {JP_pya_keys, COMBO_END};  // ぴゃ
-const uint16_t PROGMEM pyu_combo[] = {JP_pyu_keys, COMBO_END};  //　ぴゅ
-const uint16_t PROGMEM pyo_combo[] = {JP_pyo_keys, COMBO_END};  //　ぴょ
-
-#ifdef JP_YOUON_COMBOS_ALL // All Japanese contracted sounds
-
-const uint16_t PROGMEM gya_combo[] = {JP_gya_keys, COMBO_END};  // ぎゃ
-const uint16_t PROGMEM gyu_combo[] = {JP_gyu_keys, COMBO_END};  //　ぎゅ
-const uint16_t PROGMEM gyo_combo[] = {JP_gyo_keys, COMBO_END};  //　ぎょ
-const uint16_t PROGMEM tha_combo[] = {JP_tha_keys, COMBO_END};  // てゃ
-const uint16_t PROGMEM thi_combo[] = {JP_thi_keys, COMBO_END};  // てぃ
-const uint16_t PROGMEM thu_combo[] = {JP_thu_keys, COMBO_END};  //　てゅ
-const uint16_t PROGMEM the_combo[] = {JP_the_keys, COMBO_END};  // てぇ
-const uint16_t PROGMEM tho_combo[] = {JP_tho_keys, COMBO_END};  //　てょ
-const uint16_t PROGMEM dha_combo[] = {JP_dha_keys, COMBO_END};  // でゃ
-#ifndef EN_PRONOUN_COMBOS
-const uint16_t PROGMEM dhi_combo[] = {JP_dhi_keys, COMBO_END};  // でぃ conflicts with I'd
-#endif
-const uint16_t PROGMEM dhu_combo[] = {JP_dhu_keys, COMBO_END};  //　でゅ
-const uint16_t PROGMEM dhe_combo[] = {JP_dhe_keys, COMBO_END};  // でぇ
-const uint16_t PROGMEM dho_combo[] = {JP_dho_keys, COMBO_END};  //　でょ
-const uint16_t PROGMEM nya_combo[] = {JP_nya_keys, COMBO_END};  // にゃ
-const uint16_t PROGMEM nyu_combo[] = {JP_nyu_keys, COMBO_END};  //　にゅ
-const uint16_t PROGMEM nyo_combo[] = {JP_nyo_keys, COMBO_END};  //　にょ
-
-//fconst uint16_t PROGMEM hya_combo[] = {JP_hya_keys, COMBO_END};  // ひゃ　conflicts with diacritic?
-const uint16_t PROGMEM hyu_combo[] = {JP_hyu_keys, COMBO_END};  //　ひゅ
-const uint16_t PROGMEM hyo_combo[] = {JP_hyo_keys, COMBO_END};  //　ひょ
-
-const uint16_t PROGMEM bya_combo[] = {JP_bya_keys, COMBO_END};  // びゃ
-const uint16_t PROGMEM byu_combo[] = {JP_byu_keys, COMBO_END};  //　びゅ  potential conflict?
-const uint16_t PROGMEM byo_combo[] = {JP_byo_keys, COMBO_END};  //　びょ
-const uint16_t PROGMEM mya_combo[] = {JP_mya_keys, COMBO_END};  // みゃ
-const uint16_t PROGMEM myu_combo[] = {JP_myu_keys, COMBO_END};  //　みゅ
-const uint16_t PROGMEM myo_combo[] = {JP_myo_keys, COMBO_END};  //　みょ
-const uint16_t PROGMEM rya_combo[] = {JP_rya_keys, COMBO_END};  // りゃ
-const uint16_t PROGMEM ryu_combo[] = {JP_ryu_keys, COMBO_END};  //　りゅ
-const uint16_t PROGMEM ryo_combo[] = {JP_ryo_keys, COMBO_END};  //　りょ
-#endif // JP_YOUON_COMBOS_ALL
-#endif // JP_YOUON_COMBOS
-#endif // JP_MODE_ENABLE
-
-
-//
-//  (22) keypad combos
-// These are not abstracted to location, as they are not on an HD alpha layer
-//
-const uint16_t PROGMEM PNLCK_combo[] = {RSFT_T(KC_P4), RGUI_T(KC_P5), RALT_T(KC_P6), COMBO_END}; // toggle numlck from num layer
-const uint16_t PROGMEM P0E_combo[] = {KC_P0, KC_PEQL, COMBO_END};
-const uint16_t PROGMEM PCME_combo[] = {KC_PDOT, KC_PEQL, COMBO_END};
-const uint16_t PROGMEM PCM1_combo[] = {KC_PDOT, KC_P1, COMBO_END};
-const uint16_t PROGMEM PCM2_combo[] = {KC_PDOT, KC_P2, COMBO_END};
-const uint16_t PROGMEM P01_combo[] = {KC_P0, KC_P1, COMBO_END};
-const uint16_t PROGMEM P02_combo[] = {KC_P0, KC_P2, COMBO_END};
-const uint16_t PROGMEM P04_combo[] = {KC_P0, RSFT_T(KC_P4), COMBO_END};
-const uint16_t PROGMEM P05_combo[] = {KC_P0, RGUI_T(KC_P5), COMBO_END};
-const uint16_t PROGMEM P12_combo[] = {KC_P1, KC_P2, COMBO_END};
-const uint16_t PROGMEM P23_combo[] = {KC_P2, KC_P3, COMBO_END};
-const uint16_t PROGMEM P13_combo[] = {KC_P1, KC_P3, COMBO_END};
-const uint16_t PROGMEM P1E_combo[] = {KC_P1, KC_PEQL, COMBO_END};
-const uint16_t PROGMEM P2E_combo[] = {KC_P2, KC_PEQL, COMBO_END};
-const uint16_t PROGMEM P3E_combo[] = {KC_P3, KC_PEQL, COMBO_END};
-const uint16_t PROGMEM P45_combo[] = {RSFT_T(KC_P4), RGUI_T(KC_P5), COMBO_END};
-const uint16_t PROGMEM P56_combo[] = {RGUI_T(KC_P5), RALT_T(KC_P6), COMBO_END};
-const uint16_t PROGMEM P46_combo[] = {RSFT_T(KC_P4), RALT_T(KC_P6), COMBO_END};
-const uint16_t PROGMEM P5PLS_combo[] = {RGUI_T(KC_P5), RCTL_T(KC_PPLS), COMBO_END};
-const uint16_t PROGMEM P6PLS_combo[] = {RALT_T(KC_P6), RCTL_T(KC_PPLS), COMBO_END};
-const uint16_t PROGMEM PS7_combo[] = {KC_PSLS, KC_P7, COMBO_END};
-const uint16_t PROGMEM P78_combo[] = {KC_P7, KC_P8, COMBO_END};
-const uint16_t PROGMEM P79_combo[] = {KC_P7, KC_P9, COMBO_END};
-const uint16_t PROGMEM P89_combo[] = {KC_P8, KC_P9, COMBO_END};
-const uint16_t PROGMEM P9M_combo[] = {KC_P9, KC_PMNS, COMBO_END};
-const uint16_t PROGMEM PSLT_combo[] = {KC_P7, KC_PMNS, COMBO_END};
-const uint16_t PROGMEM PPLMN_combo[] = {RSFT_T(KC_P4), RCTL_T(KC_PPLS), COMBO_END};
-
 //## crashing, try with no combos
 // combo_t key_combos[] = {
 // };
@@ -357,100 +254,12 @@ combo_t key_combos[] = {
     [HC_OE] = COMBO_ACTION(HOE_lig_combo),  // Œ
     [HC_AE] = COMBO_ACTION(HAE_lig_combo),  // Æ
 
-// Japanese contract consonants
-#ifdef JP_MODE_ENABLE  // Japanese contracted sounds as combos
-#ifdef JP_YOUON_COMBOS  // Japanese contracted sounds as combos
-    [jp_kya] = COMBO_ACTION(kya_combo),  // きゃ
-    [jp_kyu] = COMBO_ACTION(kyu_combo),  // きゅ
-    [jp_kyo] = COMBO_ACTION(kyo_combo),  // きょ
-    [jp_sya] = COMBO_ACTION(sya_combo),  // しゃ
-    [jp_syu] = COMBO_ACTION(syu_combo),  // しゅ
-    [jp_sye] = COMBO_ACTION(sye_combo),  // しぇ
-    [jp_syo] = COMBO_ACTION(syo_combo),  // しょ
-    [jp_zya] = COMBO_ACTION(zya_combo),  // じゃ
-    [jp_zyu] = COMBO_ACTION(zyu_combo),  // じゅ
-    [jp_zyo] = COMBO_ACTION(zyo_combo),  // じょ
-    [jp_tya] = COMBO_ACTION(tya_combo),  // ちゃ
-    [jp_tyu] = COMBO_ACTION(tyu_combo),  // ちゅ
-    [jp_tye] = COMBO_ACTION(tye_combo),  // ちぇ
-    [jp_tyo] = COMBO_ACTION(tyo_combo),  // ちょ
-    [jp_pya] = COMBO_ACTION(pya_combo),  // ぴゃ
-    [jp_pyu] = COMBO_ACTION(pyu_combo),  // ぴゅ
-    [jp_pyo] = COMBO_ACTION(pyo_combo),  // ぴょ
-
-#ifdef JP_YOUON_COMBOS_ALL // JP_YOUON_COMBOS_ALL
-    [jp_gya] = COMBO_ACTION(gya_combo),  // ぎゃ
-    [jp_gyu] = COMBO_ACTION(gyu_combo),  // ぎゅ
-    [jp_gyo] = COMBO_ACTION(gyo_combo),  // ぎょ
-    [jp_tha] = COMBO_ACTION(tha_combo),  // てゃ
-    [jp_thi] = COMBO_ACTION(thi_combo),  // てぃ
-    [jp_thu] = COMBO_ACTION(thu_combo),  // てゅ
-    [jp_the] = COMBO_ACTION(the_combo),  // てぇ
-    [jp_tho] = COMBO_ACTION(tho_combo),  // てょ
-    [jp_dha] = COMBO_ACTION(dha_combo),  // でゃ
-#ifndef EN_PRONOUN_COMBOS
-    [jp_dhi] = COMBO_ACTION(dhi_combo),  // でぃ conflicts with I'd
-#endif
-    [jp_dhu] = COMBO_ACTION(dhu_combo),  // でゅ
-    [jp_dhe] = COMBO_ACTION(dhe_combo),  // でぇ
-    [jp_dho] = COMBO_ACTION(dho_combo),  // でょ
-    [jp_nya] = COMBO_ACTION(nya_combo),  // にゃ
-    [jp_nyu] = COMBO_ACTION(nyu_combo),  // にゅ
-    [jp_nyo] = COMBO_ACTION(nyo_combo),  // にょ
-//    [jp_hya] = COMBO_ACTION(hya_combo),  // ひゃ conflicts with diactric combos
-    [jp_hyu] = COMBO_ACTION(hyu_combo),  // ひゅ
-    [jp_hyo] = COMBO_ACTION(hyo_combo),  // ひょ
-    [jp_bya] = COMBO_ACTION(bya_combo),  // びゃ
-    [jp_byu] = COMBO_ACTION(byu_combo),  // びゅ
-    [jp_byo] = COMBO_ACTION(byo_combo),  // びょ
-    [jp_mya] = COMBO_ACTION(mya_combo),  // みゃ
-    [jp_myu] = COMBO_ACTION(myu_combo),  // みゅ
-    [jp_myo] = COMBO_ACTION(myo_combo),  // みょ
-    [jp_rya] = COMBO_ACTION(rya_combo),  // りゃ
-    [jp_ryu] = COMBO_ACTION(ryu_combo),  // りゅ
-    [jp_ryo] = COMBO_ACTION(ryo_combo),  // りょ
-
-#endif // JP_YOUON_COMBOS_ALL  // All Japanese contracted sounds
-#endif // JP_YOUON_COMBOS  // Japanese contracted sounds as combos
-#endif // JP_MODE_ENABLE
-
-    [PC_PENT] = COMBO(P3E_combo, KC_PENT), // <enter> on num
-    [PC_BSPC] = COMBO(P01_combo, KC_BSPC), // <bksp> on num
-    [PC_DEL] = COMBO(P02_combo, KC_DEL), // <del> on num
-    [PC_TAB] = COMBO(PCM1_combo, KC_TAB), // <tab> on num
-
     // action combos below
     // This group have custom actions on trigger (no hold-delay), repeat if held
 
     // this block should be contiguous,
     // Delayed action (COMBO_HOLD threshold). No repeat if held (tap_code)
     // should send the underlying combo keys if COMBO_HOLD is not met.
-
-    // Keypad combos (all need actions or mods, so must be here)
-    [PC_STAB] = COMBO_ACTION(PCM2_combo), // shift-<tab> on num
-
-    [HC_EQL] = COMBO_ACTION(Hequal_combo), // =  (hold for %)
-    [PC_SENT] = COMBO_ACTION(P2E_combo), // shift-<enter> on num
-    [PC_TGNM] = COMBO(PNLCK_combo, KC_NUM), // toggle num lock
-    [PC_DASH] = COMBO_ACTION(P12_combo), // – for time span on number layer
-    [PC_TILD] = COMBO_ACTION(P13_combo), // ~ for time span on number layer
-    [PC_ELIP] = COMBO_ACTION(P23_combo), // … for time span on number layer
-    [PC_LPRN] = COMBO_ACTION(P45_combo), // ( on number layer
-    [PC_RPRN] = COMBO_ACTION(P56_combo), // ) on number layer
-    [PC_COLN] = COMBO_ACTION(P46_combo), // : on number layer for time 12:30xx
-    [PC_PERC] = COMBO_ACTION(P6PLS_combo), // % on numbers
-    [PC_DEG] = COMBO_ACTION(P5PLS_combo), // degree symbol on number layer
-    [PC_JYEN] = COMBO_ACTION(PS7_combo), // €
-    [PC_DOLR] = COMBO_ACTION(P78_combo), // $
-    [PC_CENT] = COMBO_ACTION(P79_combo), // ¢
-    [PC_EURO] = COMBO_ACTION(P89_combo), // ¥
-    [PC_BPND] = COMBO_ACTION(P9M_combo), // £
-    [PC_DIV] = COMBO_ACTION(PSLT_combo), // ÷
-    [PC_PLMN] = COMBO_ACTION(PPLMN_combo), // ±
-    [PC_NEQL] = COMBO_ACTION(P1E_combo), // ≠
-    [PC_CLR] = COMBO(P0E_combo, KC_C), // C for "CLEAR"
-    [PC_AC] = COMBO(PCME_combo, KC_ESC), // ESC for "ALL CLEAR"
-    [PC_PLMN] = COMBO_ACTION(PPLMN_combo), // ±
 
     [FC_ESC] = COMBO(F_ESC_combo, KC_ESC),    // ESCape
     [FC_KILL] = COMBO(F_KILL_combo, SK_KILL), // Force quit
@@ -460,9 +269,6 @@ combo_t key_combos[] = {
     [FC_CAPS] = COMBO(F_CAPS_combo, KC_CAPS), // CAPS LOCK
     // [HC_CAPW] = COMBO_ACTION(H_CAPW_combo),   // CAPS_WORD, moutis
     [HC_CAPW] = COMBO(H_CAPW_combo, CW_TOGG),   // CAPS_WORD, QMK
-
-    [FC_LANG2] = COMBO(H_EISUU_combo, SK_MHEN), // eisuu (others)
-    [FC_LANG1] = COMBO(H_KANA_combo, SK_HENK), // kana (others)
 
     [HC_NDSH] = COMBO_ACTION(Hndsh_combo), // – N-DASH (hold for M-dash)
 

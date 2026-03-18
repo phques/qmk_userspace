@@ -50,8 +50,6 @@ enum my_keycodes {
         // everything from SK_KILL on has SemKeys_t table entry.
         // System-wide controls
     SK_KILL,    // SK_KILL must be the first of contiguous block of SKs
-    SK_HENK,    // kana
-    SK_MHEN,    // eisuu
     SK_DKT8,    // speech to text
     SK_AIVC,    // AI voice control (mac Siri/Win cortana)
         // extended characters/ editing commands
