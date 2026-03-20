@@ -7,6 +7,7 @@
 #include "processCombo.h"
 
 void housekeeping_task_user(void) {
+    
     // Custom code to run on every cycle of the main loop
     // Good for checking status of things or performing regular actions
 #if defined(COMBO_ENABLE)
@@ -15,10 +16,28 @@ void housekeeping_task_user(void) {
         matrix_scan_user_process_combo();
     }
 #endif
+
+//
+// quick check in with the APP_MENU process
+//
+    if (appmenu_on) { // App menu up, (no mods) check if it needs to be cleared
+        if (timer_elapsed(appmenu_timer) > STATE_RESET_TIME) {// menu up time elapsed?
+            if (user_config.OSIndex) { // Y. stop the menu by lifting the mods
+                unregister_code(KC_RALT); // Win
+            } else {
+                unregister_code(KC_RGUI); // Mac
+            }
+            layer_off(L_NAV);
+            appmenu_on = false;
+            appmenu_timer = mods_held = 0; // stop the timer
+            return;
+        }
+    }
 }
 
+#if 0
 __attribute__ ((unused))
-void __matrix_scan_user(void) {
+void matrix_scan_user(void) {
 
 #if defined(COMBO_ENABLE)
 // Is a combo_action being held for delayed action/linger combos)?
@@ -95,3 +114,4 @@ goto_pushspaceshere:
     }
 #endif
 }
+#endif

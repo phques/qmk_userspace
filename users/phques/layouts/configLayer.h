@@ -21,14 +21,14 @@
 
 /*   L_CFG Keyboard Configuration (left) and Media Settings (right)
          ╭───────────────────────────────────────────────╮                            ╭────────────────────────────────────────────────╮
-      __ │  SK_Lux  SK_Win  SK_Mac  QK_RBT      SK_KILL  │                            │ SK_ZOOMRST KC_NUM  KC_EJCT KC_LALT (C(A(del))) │ RM_NEXT
- RM_VALU │  HD_AKTg L_0     L_1     KC_VOLU     KC_BRIU  |                            | SK_ZOOMOUT KC_MPRV KC_MUTE KC_MNXT EE_CLR      │ RM_SATU
- RM_HUEU │  QK_BOOT AG_SWAP AG_NORM KC_VOLD     KC_BRID  │ RM_VALD  __    __  RM_SATD │ SK_ZOOMIN  KC_MRWD KC_MPLY KC_MFFD QK_BOOT     │ RM_HUED
-         ╰──────────────────╮ __    SK_ZOOMOUT SK_ZOOMIN │ __                     __  │ SK_ZOOMIN  SK_ZOOMOUT  --  ╭───────────────────╯
-                    __   __ ╰────────────────────────────╯                            ╰────────────────────────────╯   __     __
+ RM_TOGG │  SK_Lux  SK_Win  SK_Mac  QK_RBT      SK_KILL  │                            │ SK_ZOOMRST KC_NUM  KC_EJCT KC_LALT (C(A(del))) │ RM_NEXT
+ RM_HUEU │  HD_AKTg L_0     L_1     KC_VOLU     KC_BRIU  |                            | SK_ZOOMOUT KC_MPRV KC_MUTE KC_MNXT EE_CLR      │ RM_SATU
+ RM_HUED │  QK_BOOT AG_SWAP AG_NORM KC_VOLD     KC_BRID  │ RM_VALU  __    __      __  │ SK_ZOOMIN  KC_MRWD KC_MPLY KC_MFFD QK_BOOT     │ RM_SATD
+         ╰──────────────────╮ __    SK_ZOOMOUT SK_ZOOMIN │ RM_VALD                __  │ SK_ZOOMIN  SK_ZOOMOUT  --  ╭───────────────────╯
+            RM_SPDD RM_SPDU ╰────────────────────────────╯                            ╰────────────────────────────╯   __     __
 */
 
-#define LC_LT5 KC_NO
+#define LC_LT5 RM_TOGG
 #define LC_LT4 KC_NO    //SK_Lux
 #define LC_LT3 SK_Win
 #define LC_LT2 SK_Mac
@@ -41,7 +41,7 @@
 #define LC_RT4 LCA(KC_DEL)
 #define LC_RT5 RM_NEXT // was RGB_MOD
 
-#define LC_LM5 RM_VALU // was RGB_VAI
+#define LC_LM5 RM_HUEU // was RGB_VAI
 #define LC_LM4 HD_AdaptKeyToggle
 #ifdef HAS_QWERTY_LAYER
 #define LC_LM3 HD_L_QWERTY
@@ -52,7 +52,7 @@
 #endif
 #define LC_LM1 KC_VOLU
 #define LC_LM0 KC_BRIU
-#define LC_LMA KC_NO
+#define LC_LMA RM_VALU
 #define LC_RM0 SK_ZOOMOUT
 #define LC_RM1 KC_MPRV
 #define LC_RM2 KC_MUTE
@@ -60,7 +60,7 @@
 #define LC_RM4 EE_CLR
 #define LC_RM5 RM_SATU // was RGB_SAI
 
-#define LC_LB5 RM_HUEU // was RGB_HUI
+#define LC_LB5 RM_HUED // was RGB_HUI
 #define LC_LB4 QK_BOOT
 #define LC_LB3 AG_SWAP
 #define LC_LB2 AG_NORM
@@ -69,16 +69,16 @@
 #define LC_LBA RM_VALD // was RGB_VAD
 #define LC_LBB SK_ZOOMIN
 #define LC_RBB SK_ZOOMOUT
-#define LC_RBA RM_SATD // was RGB_SAD
+#define LC_RBA KC_NO // was RGB_SAD
 #define LC_RB0 SK_ZOOMIN
 #define LC_RB1 KC_MRWD
 #define LC_RB2 KC_MPLY
 #define LC_RB3 KC_MFFD
 #define LC_RB4 QK_BOOT
-#define LC_RB5 RM_HUED // was RGB_HUD
+#define LC_RB5 RM_SATD // was RGB_HUD
 
-#define LC_LH5 KC_F13 // also left encoder CCW (remap on host)
-#define LC_LH4 KC_F14 // also left encoder CW  (remap on host)
+#define LC_LH5 RM_SPDD
+#define LC_LH4 RM_SPDU
 #define LC_LH3 KC_MUTE
 #define LC_LH2 KC_TRNS // PQ layer access key, leave trans, was SK_ZOOMOUT
 #define LC_LH1 KC_TRNS // PQ layer access key, leave trans, was SK_ZOOMIN

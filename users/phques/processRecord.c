@@ -7,6 +7,7 @@
 #include "processRecord.h"
 #include "quantum.h"
 #include "semantickeys.h"
+#include "app_menu.h"
 
 //-----------
 
@@ -32,6 +33,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     // Do we handle a semantic key? Combos or adaptives could have sent one.
     if (!process_semkey(keycode, record)) {
+        return false; // took care of that key
+    }
+
+        // APP_MENU gets special treatment (no adaptive handling, separate timers)
+
+    if  (keycode == KC_APP) {  // mimic windows app key behavior (only better?) also in scan_matrix
+        process_APP_MENU(record);
         return false; // took care of that key
     }
 
@@ -88,8 +96,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case HD_L_ALPHA:
 #ifdef ADAPTIVE_ENABLE
                 user_config.AdaptiveKeys = keycode != HD_L_QWERTY; // no adaptive keys on QWERTY
+#endif  // ADAPTIVE_ENABLE
+#ifdef HAS_QWERTY_LAYER
+                user_config.BaseLayer = keycode - L_BASELAYER; // set the base layer index (0 or 1)
+#else
+                user_config.BaseLayer = 0; // only one base layer, so always 0
+#endif  // HAS_QWERTY_LAYER
                 saveUserConfig();
-#endif
+
                 return_state = false; // don't do more with this record.
                 set_single_persistent_default_layer(keycode-L_BASELAYER);// Remember default layer after powerdown
         }

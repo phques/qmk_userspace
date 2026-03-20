@@ -51,18 +51,28 @@ enum OS_Platform { // Used for platform support via SemKeys
 
 // ---- other ----
 
+// typedef union {
+//     uint32_t raw;
+//     struct {
+//         uint8_t OSIndex; // index of platforms (0=mac, 1=win, 2=lux)? // used by semantickeys
+//         bool AdaptiveKeys; // Adaptive Keys On? (and advanced combos)
+//     };
+// } user_config_t; // used for persistent memory of settings (only 16 bytes avail on AVR?)
 typedef union {
     uint32_t raw;
     struct {
-        uint8_t OSIndex; // index of platforms (0=mac, 1=win, 2=lux)? // used by semantickeys
-        bool AdaptiveKeys; // Adaptive Keys On? (and advanced combos)
+        uint32_t OSIndex : 2;       // index of platforms (0=mac, 1=win, 2=lux)? // used by semantickeys
+        uint32_t AdaptiveKeys : 1;  // Adaptive Keys On? (and advanced combos) 
+        uint32_t BaseLayer : 1;     // which is the default (base) layer (0=QWERTY, 1=HD, always 0 if no QWERTY layer)
+        uint32_t reserved : 28;     // reserved for future use (padding to fill 32 bits)
     };
 } user_config_t; // used for persistent memory of settings (only 16 bytes avail on AVR?)
 
 
 #define LINGER_TIME TAPPING_TERM * 1.2 // how long to hold before a time-depentant behavior begins
 // how long to leave a state active before resetting like APPMENU or CAPSWORD
-#define STATE_RESET_TIME LINGER_TIME * 3
+//#define STATE_RESET_TIME LINGER_TIME * 3
+#define STATE_RESET_TIME (1000*3) // 3 seconds, which is long enough for app menu navigation.
 
 // Adaptive (or MAGIC) keys are like a QMK Leader Key, but after (Adaptive Trailer)
 #define ADAPTIVE_ENABLE
@@ -106,6 +116,9 @@ extern uint8_t  saved_mods; // to pass state between process_record_user and mat
 
 extern uint16_t linger_key;  // keycode for linger actions (ex. "Qu")
 extern uint32_t linger_timer; // time to hold a key before something else happens.
+extern uint32_t appmenu_timer;  // time to leave appmenu active before shutting it down automatically.
+extern bool appmenu_on;  // appmenu triggered (after holding key)
+extern bool mods_held;  // need to remember how we entered the appmenu state
 
 extern uint8_t  combo_on;           // for combo actions with hold behaviors
 extern bool  combo_triggered;   // for one-shot-combo-actions

@@ -1,11 +1,38 @@
 #pragma once
 
-// which rgb animations to keep (well..remove!)
+// which rgb animations we want
 #include "rgbUndefs.h"  // IWYU pragma: export
 
+// I think this is always ON 
+#define ENABLE_RGB_MATRIX_SOLID_COLOR
+
+// #define ENABLE_RGB_MATRIX_ALPHAS_MODS
+// #define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
+// #define ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT
+// #define ENABLE_RGB_MATRIX_BREATHING
+
 // PQ trying to solve probs on xbows nature.
-#undef DEBOUNCE
-#define DEBOUNCE 5
+// #undef DEBOUNCE
+// #define DEBOUNCE 5
+
+// [---... trying chatgpt fix for xbows nature probs with rgb_matrix + 3-4> layers:
+
+// #undef RGB_MATRIX_MAXIMUM_BRIGHTNESS
+// #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 120       //? how does that influence cost!??, def=200
+
+#undef RGB_MATRIX_LED_PROCESS_LIMIT
+#define RGB_MATRIX_LED_PROCESS_LIMIT 4          // def=18
+
+#define RGB_MATRIX_LED_FLUSH_LIMIT 10
+// #define RGB_MATRIX_DISABLE_KEYCODES             //? i'd like to have this : at least :(
+
+#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_COLOR
+
+// --- MEMORY REDUCTION ---
+#define LAYER_STATE_8BIT
+
+// ..----]
+
 
 #ifndef NO_DEBUG
 #define NO_DEBUG

@@ -26,11 +26,11 @@ const uint16_t PROGMEM H_menu_combo[] = {APPMENU_keys, COMBO_END}; // AppMENU
 #else
 const uint16_t PROGMEM H_menu_combo[] = {HD_LB3, HD_LB1, COMBO_END}; // AppMENU // default Appmenu location
 #endif
-// #ifdef APPMENU_nav_keys
-// const uint16_t PROGMEM H_menu_nav_combo[] = {APPMENU_nav_keys, COMBO_END}; // AppMENU on Nav layer
-// #else
-// const uint16_t PROGMEM H_menu_nav_combo[] = {LV_LT1, LV_LT0, COMBO_END}; // AppMENU on Nav layer
-// #endif
+#ifdef APPMENU_nav_keys
+const uint16_t PROGMEM H_menu_nav_combo[] = {APPMENU_nav_keys, COMBO_END}; // AppMENU on Nav layer
+#else
+const uint16_t PROGMEM H_menu_nav_combo[] = {LV_LT1, LV_LT0, COMBO_END}; // AppMENU on Nav layer
+#endif
 const uint16_t PROGMEM H_HDl_num_combo[] = {HD_LH1, HD_RH1, COMBO_END}; // Toggle num layer
 // const uint16_t PROGMEM H_LNl_num_combo[] = {LN_LH1, LN_RH1, COMBO_END}; // Toggle num layer
 
@@ -221,8 +221,8 @@ combo_t key_combos[] = {
     [HC_CFG] = COMBO(HC_cfg_combo, MO(L_CFG)), // keyboard/media settings/config layer
     [HC_CFG2] = COMBO(HC_cfg_combo2, MO(L_CFG)), // keyboard/media settings/config layer
     //PQ use semkey for this: gui-tab / alt-tab :
-    // [HC_APP] = COMBO(H_menu_combo, KC_APP), // app menu moutis
-    // [HC_APPNAV] = COMBO(H_menu_nav_combo, KC_APP), // app menu moutis
+    [HC_APP] = COMBO(H_menu_combo, KC_APP), // app menu moutis
+    [HC_APPNAV] = COMBO(H_menu_nav_combo, KC_APP), // app menu moutis
     // [HC_HDl_num] = COMBO(H_HDl_num_combo, TG(L_NUM)), // toggle num layer
     // [HC_LNl_num] = COMBO(H_LNl_num_combo, TG(L_NUM)), // toggle num layer
     [HC_SCLN] = COMBO(Hscln_combo, KC_SCLN), // ;
@@ -235,6 +235,8 @@ combo_t key_combos[] = {
     [HC_DOLR] = COMBO(Hdolr_combo, KC_DLR), // $
     [HC_HASH] = COMBO(Hhash_combo, SK_SECT), // # hijacked for §
     [HC_AT] = COMBO_ACTION(Hat_combo), // @ (hold for alanreiser.com)
+    [HC_EQL] = COMBO_ACTION(Hequal_combo), // =  (hold for %)
+
     [HC_TAB] = COMBO(Htab_combo, KC_TAB),
     [HC_STAB] = COMBO(Hstab_combo, S(KC_TAB)),
 

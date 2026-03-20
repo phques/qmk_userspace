@@ -20,21 +20,29 @@ KEY_OVERRIDE_ENABLE = no
 EXTRAKEY_ENABLE = yes   # Audio control and System control
 COMBO_ENABLE = yes      # chording
 MAGIC_ENABLE = yes		#  for swap gui/ctrl and more.
-RGB_MATRIX_ENABLE = yes
 CAPS_WORD_ENABLE = yes
+
+# xbows nature can't handle animations with >3-4 layers
+RGB_MATRIX_ENABLE = yes
+RGB_MATRIX_DRIVER = is31fl3731 # trying out suggested fix from chatgpt
+
+# rgb light is not supported at all,
+# so try this low level, see if it builds:
+# fails too: LED_MATRIX_ENABLE = yes
 
 #pq debugging, must also set debug_enable=true in keyboard_post_init_user
 CONSOLE_ENABLE = no
+DEBUG_ENABLE = no
 
-#pq, xbows nature mhrms gettingStuck .. try this suggestion
+# pq, xbows nature HRMs gettingStuck .. try this suggestion
 # also, it is suggested to connect directly to the usb port, not through a hub, to avoid this problem.
 # or #define DEBOUNCE 5 in config.h
-DEBOUNCE_TYPE = sym_eager_pk
+# DEBOUNCE_TYPE = sym_eager_pk
 
 LTO_ENABLE = yes		# optimize at link time
 EXTRAFLAGS += -flto
 
-SRC += phques.c sendstr.c semantickeys.c processRecord.c processCombo.c matrixScanUser.c
+SRC += phques.c sendstr.c semantickeys.c processRecord.c processCombo.c matrixScanUser.c app_menu.c
 
 CFLAGS += -fcommon
 

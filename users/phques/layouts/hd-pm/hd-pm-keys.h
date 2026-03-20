@@ -37,8 +37,8 @@
 #define HD_MINS KC_MINS
 #define HD_HASH KC_HASH
 #define HD_SPC  LT(L_SYM,KC_SPC)
-#define HD_BSPC KC_BSPC // LT(L_FUN,KC_BSPC)
-#define HD_ENT  KC_ENT  // LT(L_NAV,KC_ENT)
+#define HD_BSPC LT(L_FUN,KC_BSPC)
+#define HD_ENT  LT(L_NAV,KC_ENT)
 #define HD_QUOT KC_QUOT
 #define HD_DQUO KC_DQUO
 #define HD_SLSH KC_SLSH
@@ -95,7 +95,7 @@
 #define HD_RT2 HD_SLSH
 #define HD_RT3 HD_DQUO
 #define HD_RT4 HD_QUOT
-#define HD_RT5 KC_LNG2
+#define HD_RT5 KC_LBRC
 
 #define HD_LM5 KC_ESC
 #define HD_LM4 HD_S
