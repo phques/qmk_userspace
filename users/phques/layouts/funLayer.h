@@ -33,7 +33,7 @@
 #define LF_LM2 LGUI_T(KC_F2)
 #define LF_LM1 LSFT_T(KC_F3)
 #define LF_LM0 KC_F11
-#define LF_LMA KC_NO
+#define LF_LMA QK_LAYER_LOCK
 #define LF_RM0 KC_ASTR
 #define LF_RM1 RSFT_T(KC_1)
 #define LF_RM2 RGUI_T(KC_2)

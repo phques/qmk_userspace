@@ -93,30 +93,32 @@ void set_keys(uint8_t *keys, uint8_t size, uint8_t r, uint8_t g, uint8_t b) {
 }
 
 bool rgb_matrix_indicators_user(void) {
-//    rgb_matrix_set_color_all(0, 0, 0);
 
     // set the home row keys to a dim white, to help with orientation
-    set_keys(LH_HOME, sizeof(LH_HOME), 50, 50, 50);
-    set_keys(RH_HOME, sizeof(RH_HOME), 50, 50, 50);
+    // set_keys(LH_HOME, sizeof(LH_HOME), 50, 50, 50);
+    // set_keys(RH_HOME, sizeof(RH_HOME), 50, 50, 50);
+
+    uint16_t layer = get_highest_layer(layer_state);
 
     // set color of the arrow symbol to indicate the active layer
-    // the "arrow" symbol in middle column (between 5-6 and T-Y)
+
+    // the led for the "arrow" symbol in middle column (between '5'-'6' and 'T'-'Y')
     uint8_t arrowSymbolLed = g_led_config.matrix_co[1][6]; 
-    uint16_t layer = get_highest_layer(layer_state);
 
     switch (layer) {
 
-        case L_QWERTY: // L_QWERTY / L_HD are both "base layers" = 0
+        case L_QWERTY: // L_QWERTY / L_HD are both "base layers" = layer 0
 #ifdef HAS_QWERTY_LAYER
-            if (user_config.BaseLayer == 0) { // if QWERTY is the base layer, use a different color to indicate that.
+            if (user_config.BaseLayer == 0) { 
+                // if QWERTY is the base layer, use only one uniform background color.
                 // rgb_matrix_set_color(arrowSymbolLed, 30, 30, 30);
                 rgb_matrix_set_color_all(10, 10, 10);
-                return false; // skip the rest of the effects (like layer-based coloring) to preserve this color for the base layer.
             } else {
+                // if HD is the base layer, set the arrow symbol color.
                 rgb_matrix_set_color(arrowSymbolLed, 10, 40, 40);
             }
 #else
-            rgb_matrix_set_color(arrowSymbolLed, 40, 40, 40);
+            rgb_matrix_set_color(arrowSymbolLed, 10, 40, 40);
 #endif
             break;
 
@@ -137,7 +139,7 @@ bool rgb_matrix_indicators_user(void) {
             break;
     }
 
-    // let the normal stuff do its thing (like caps lock indicator, normal matrix updates, etc.)
+    // let the normal stuff do its thing (like caps lock indicator, etc.)
     return true;
 }
 

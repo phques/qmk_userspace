@@ -21,6 +21,7 @@ EXTRAKEY_ENABLE = yes   # Audio control and System control
 COMBO_ENABLE = yes      # chording
 MAGIC_ENABLE = yes		#  for swap gui/ctrl and more.
 CAPS_WORD_ENABLE = yes
+LAYER_LOCK_ENABLE = yes
 
 # xbows nature can't handle animations with >3-4 layers
 RGB_MATRIX_ENABLE = yes

@@ -32,7 +32,7 @@ __ │   UNDO     CUT     COPY    PSTE    FAGN  │ ESC TAB   __  __ │  DOCEND
 #define LV_LM2 KC_LGUI
 #define LV_LM1 KC_LSFT
 #define LV_LM0 SK_FIND
-#define LV_LMA KC_NO
+#define LV_LMA QK_LAYER_LOCK
 #define LV_RM0 SK_WORDPRV
 #define LV_RM1 KC_LEFT
 #define LV_RM2 KC_DOWN
