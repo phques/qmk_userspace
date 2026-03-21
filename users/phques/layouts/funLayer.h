@@ -10,7 +10,7 @@
  RM_TOGG │ F13      F7      F8      F9      F10     │               │ /       7       8       9       -        │ RM_NEXT
  RM_VALU │ C_T(F14) A_T(F1) G_T(F2) S_T(F3) F11     |               | *       S_T(1)  G_T(2)  A_T(3)  C_T(+)   │ RM_HUEU
  RM_VALD │ F15      F4      F5      F6      F12     │ __ __   __ __ │ ,       4       5       6       =        │ RM_HUED
-         ╰────────────────╮ __      __      INS     │ __         __ │ 0       .       TG(LN)  ╭────────────────╯
+         ╰────────────────╮ __      __      INS     │ __         __ │ .       0       TG(LN)  ╭────────────────╯
               __      __  ╰─────────────────────────╯               ╰─────────────────────────╯ __       __
 */
 
@@ -67,8 +67,8 @@
 #define LF_LHA KC_NO
 #define LF_RHA KC_NO
 #define LF_RH0 KC_TRNS  // also right encoder hat switch
-#define LF_RH1 KC_0
-#define LF_RH2 KC_DOT
+#define LF_RH1 KC_DOT
+#define LF_RH2 KC_0
 #define LF_RH3 KC_TRNS
 #define LF_RH4 KC_MPRV // also right encoder CCW
 #define LF_RH5 KC_MNXT // also right encoder CW

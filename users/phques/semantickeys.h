@@ -68,6 +68,7 @@ enum my_keycodes {
     SK_OPEN,    // open
     SK_FIND,    // find
     SK_FAGN,    // find again
+    SK_FNDF,    // find in file
     SK_SCAP,    // screen capture to clipboard
     SK_SCLP,    // selection capture to clipboard
     SK_SRCH,    // platform search (siri/cortana, etc.)

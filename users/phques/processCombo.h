@@ -29,6 +29,7 @@ enum my_combos {
     FC_ESC, // ESCape SIMPLE COMBO must be first (used as FALSE for combo_on)
     HC_CFG,  // The keyboard and media config/settings layer
     HC_CFG2,  // The keyboard and media config/settings layer
+    HC_MEH,  // a "meh" combo for whatever I want 
     HC_APP,
     HC_APPNAV, // App menu w/ Nav layer
     HC_HDl_num, // TOGGLE nav / numpad layer

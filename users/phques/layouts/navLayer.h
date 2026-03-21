@@ -6,15 +6,15 @@
 
 /*   L_NAV THE NAVIGATION (right hand) LAYER w/ edit & mods on left
    ╭──────────────────────────────────────────╮                  ╭───────────────────────────────────────────────╮
-__ │   QUIT     CLOZ    SCAP    SCLP    PSTM  │                  │  DOCBEG     HOME    UP      PGUP    PARAPRV   │ KC_NUM
+__ │   FNDFIL   CLOZ    SCAP    SCLP    PSTM  │                  │  DOCBEG     HOME    UP      PGUP    WINPRV    │ KC_NUM
 __ │   LCTL     LALT    LGUI    LSFT    FIND  |                  |  WORDPRV    LEFT    DOWN    RGHT    WORDNXT   │ __
-__ │   UNDO     CUT     COPY    PSTE    FAGN  │ ESC TAB   __  __ │  DOCEND     END     DOWN    PGDN    PARANXT   │ __
-   ╰──────────────────╮  __     __     __     │ __           __  │  HISTPRV  HISTNXT    __    ╭──────────────────╯
+__ │   UNDO     CUT     COPY    PSTE    FAGN  │   LAY_LOCK       │  DOCEND     END     DOWN    PGDN    WINNXT    │ __
+   ╰──────────────────╮  __     __     __     │      TAB         │  HISTPRV  HISTNXT    __    ╭──────────────────╯
       ZOOMRST ZOOMOUT ╰───────────────────────╯                  ╰────────────────────────────╯ HISTPRV HISTNXT
 */
 
 #define LV_LT5 KC_TRNS
-#define LV_LT4 KC_TAB
+#define LV_LT4 SK_FNDF
 #define LV_LT3 SK_CLOZ
 #define LV_LT2 SK_SCAP
 #define LV_LT1 SK_SCLP
@@ -23,7 +23,7 @@ __ │   UNDO     CUT     COPY    PSTE    FAGN  │ ESC TAB   __  __ │  DOCEND
 #define LV_RT1 KC_HOME
 #define LV_RT2 KC_UP
 #define LV_RT3 KC_PGUP
-#define LV_RT4 SK_PARAPRV
+#define LV_RT4 SK_WINPRV
 #define LV_RT5 KC_TRNS
 
 #define LV_LM5 KC_VOLU
@@ -46,7 +46,7 @@ __ │   UNDO     CUT     COPY    PSTE    FAGN  │ ESC TAB   __  __ │  DOCEND
 #define LV_LB2 SK_COPY
 #define LV_LB1 SK_PSTE
 #define LV_LB0 SK_FAGN
-#define LV_LBA KC_ESC
+#define LV_LBA KC_TAB
 #define LV_LBB SK_SALL
 #define LV_RBB KC_TAB
 #define LV_RBA KC_ESC
@@ -54,7 +54,7 @@ __ │   UNDO     CUT     COPY    PSTE    FAGN  │ ESC TAB   __  __ │  DOCEND
 #define LV_RB1 KC_END
 #define LV_RB2 KC_DOWN
 #define LV_RB3 KC_PGDN
-#define LV_RB4 SK_PARANXT
+#define LV_RB4 SK_WINNXT
 #define LV_RB5 KC_TRNS
 
 #define LV_LH5 SK_ZOOMOUT // also left encoder CCW

@@ -19,6 +19,8 @@
 // Other variation dependent combos have predetermined
 // positions for 34 key boards
 
+const uint16_t PROGMEM HC_meh_combo[] = {HD_LH2, HD_RH2, COMBO_END}; // keyboard settings/config layer
+
 const uint16_t PROGMEM HC_cfg_combo[] = {HD_RH1, HD_RH2, COMBO_END}; // keyboard settings/config layer
 const uint16_t PROGMEM HC_cfg_combo2[] = {HD_LH1, HD_LH2, COMBO_END}; // keyboard settings/config layer
 #ifdef APPMENU_keys
@@ -220,7 +222,7 @@ combo_t key_combos[] = {
     // These simple combos trigger on press, repeat. HC_cfg_combo
     [HC_CFG] = COMBO(HC_cfg_combo, MO(L_CFG)), // keyboard/media settings/config layer
     [HC_CFG2] = COMBO(HC_cfg_combo2, MO(L_CFG)), // keyboard/media settings/config layer
-    //PQ use semkey for this: gui-tab / alt-tab :
+    [HC_MEH] = COMBO(HC_meh_combo, KC_MEH), // a "meh" combo for whatever I want
     [HC_APP] = COMBO(H_menu_combo, KC_APP), // app menu moutis
     [HC_APPNAV] = COMBO(H_menu_nav_combo, KC_APP), // app menu moutis
     // [HC_HDl_num] = COMBO(H_HDl_num_combo, TG(L_NUM)), // toggle num layer
