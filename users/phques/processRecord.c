@@ -3,9 +3,9 @@
 
 #include "action_util.h"
 #include "keycodes.h"
-#include "keyOverride.h"
 #include "phques.h"
 #include "processRecord.h"
+#include "processKeyOverride.h"
 #include "quantum.h"
 #include "semantickeys.h"
 #include "app_menu.h"

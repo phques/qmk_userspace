@@ -145,7 +145,13 @@ const uint16_t SemKeys_t[SK_count][OS_count] = {
     [SK_ndx(SK_IQUE)] = {LSA(KC_SLASH),0x8191},           // ¿ Spanish inverted Question Mark
     [SK_ndx(SK_IEXC)] = {A(KC_1),0x8161},                 // ¡ Spanish inverted Exclamation Mark
         // Composed letters with diacritics
-    [SK_ndx(SK_ENYE)] = {A(KC_N),ALGR(KC_N)}             // ñ/Ñ
+    [SK_ndx(SK_ENYE)] = {A(KC_N),ALGR(KC_N)},             // ñ/Ñ
+        // 'hard' keys, mainly for Cmd/Ctrl, to have these always be the same regardless of platform.
+        // i.e. So that a physical key can be a "SK_CTRL" key, and it will send Ctrl on all platforms.
+    [SK_ndx(SK_LCTL)] = {KC_LCTL, KC_LCTL},
+    [SK_ndx(SK_LGUI)] = {KC_LGUI, KC_LGUI},
+    [SK_ndx(SK_RCTL)] = {KC_RCTL, KC_RCTL},
+    [SK_ndx(SK_RGUI)] = {KC_RGUI, KC_RGUI},
 /* Eventually… all these should be handled as SemKeys as well?
     HD_aumlt,
     HD_amacr,

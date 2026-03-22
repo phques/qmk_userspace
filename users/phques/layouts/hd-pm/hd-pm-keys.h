@@ -130,8 +130,8 @@
 #define HD_RB5 HD_Q
 
 //Primary Thumbs 1-3 (others are unique to the board)
-#define HD_LH5 KC_LCTL  // PQ xbows nature
-#define HD_LH4 KC_LGUI  // PQ xbows nature
+#define HD_LH5 SK_LCTL  // PQ xbows nature
+#define HD_LH4 SK_LGUI  // PQ xbows nature
 #define HD_LH3 KC_LALT  // PQ xbows nature
 #define HD_LH2 HD_R
 #define HD_LH1 HD_BSPC
@@ -144,7 +144,7 @@
 #define HD_RH2 HD_SPC
 #define HD_RH3 KC_RALT      // PQ xbows nature
 #define HD_RH4 MO(L_CFG)    // PQ xbows nature, Keep Fn key as access to CFG layer
-#define HD_RH5 KC_RCTL
+#define HD_RH5 SK_RCTL
 
 //
 // We want to be able to define a combo by location

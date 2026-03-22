@@ -36,10 +36,12 @@
 
 enum my_keycodes {
     HD_AdaptKeyToggle = QK_USER, // Adaptive Keys Toggle on/off
+
 #ifdef HAS_QWERTY_LAYER
     HD_L_QWERTY, // base layer switch
 #endif
     HD_L_ALPHA,
+
         // Semantic Keys (keystrokes handled by process_semkey() for platform independence)
         // these are "semantic" keys that don't leave the keyboard
         // so they don't need to be translated for the host.
@@ -147,6 +149,12 @@ enum my_keycodes {
     SK_IEXC,    // ¡ Spanish inverted Exclamation Mark
         // Composed letters with diacritics
     SK_ENYE,    // ñ/Ñ ENYE
+        // 'hard' keys, mainly for Cmd/Ctrl, to have these always be the same regardless of platform.
+        // i.e. So that a physical Ctrl key can use "SK_CTRL", and it will send Ctrl on all platforms.
+    SK_LCTL,
+    SK_LGUI,
+    SK_RCTL,
+    SK_RGUI,
 
     SK_end, // end of SemKeys
 
