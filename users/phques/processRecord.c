@@ -3,7 +3,7 @@
 
 #include "action_util.h"
 #include "keycodes.h"
-#include "myKeyOverride.h"
+#include "keyOverride.h"
 #include "phques.h"
 #include "processRecord.h"
 #include "quantum.h"
@@ -32,8 +32,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     //--------------
 
+#if false && defined(ADAPTIVE_ENABLE)
+    // Should we handle an adaptive key?  (Semkey may send Adaptive?)
+    if (record->event.pressed // keyup = not rolling = no adaptive -> return.
+        && user_config.AdaptiveKeys // AdaptiveKeys is on
+        ) {
+
+        //## PQ, TODO.
+        if (!process_adaptive_key(keycode, record)) {
+            preprior_keycode = prior_keycode; // look back 2 keystrokes?
+            prior_keycode = keycode; // this keycode is stripped of mods+taps
+            prior_keydown = timer_read(); // (re)start prior_key timing
+            return false; // took care of that key
+        }
+    }
+#endif // #ifdef ADAPTIVE_ENABLE
+    
     // Do we have a key override for this keycode?
-    if (!process_myKeyOverride(keycode, record)) {
+    if (!process_keyOverride(keycode, record)) {
         return false; // took care of that key
     }
 

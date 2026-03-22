@@ -6,9 +6,9 @@
 
 /*   L_NAV THE NAVIGATION (right hand) LAYER w/ edit & mods on left
    ╭──────────────────────────────────────────╮                  ╭───────────────────────────────────────────────╮
-__ │   FNDFIL   CLOZ    SCAP    SCLP    PSTM  │                  │  DOCBEG     HOME    UP      PGUP    WINPRV    │ KC_NUM
+__ │   FNDFIL   CLOZ    SCAP    SCLP    PSTM  │                  │  DOCBEG     LINEBEG UP      PGUP    WINPRV    │ KC_NUM
 __ │   LCTL     LALT    LGUI    LSFT    FIND  |                  |  WORDPRV    LEFT    DOWN    RGHT    WORDNXT   │ __
-__ │   UNDO     CUT     COPY    PSTE    FAGN  │   LAY_LOCK       │  DOCEND     END     DOWN    PGDN    WINNXT    │ __
+__ │   UNDO     CUT     COPY    PSTE    FAGN  │   LAY_LOCK       │  DOCEND     LINEEND DOWN    PGDN    WINNXT    │ __
    ╰──────────────────╮  __     __     __     │      TAB         │  HISTPRV  HISTNXT    __    ╭──────────────────╯
       ZOOMRST ZOOMOUT ╰───────────────────────╯                  ╰────────────────────────────╯ HISTPRV HISTNXT
 */
@@ -20,7 +20,7 @@ __ │   UNDO     CUT     COPY    PSTE    FAGN  │   LAY_LOCK       │  DOCEND
 #define LV_LT1 SK_SCLP
 #define LV_LT0 SK_PSTM
 #define LV_RT0 SK_DOCBEG
-#define LV_RT1 KC_HOME
+#define LV_RT1 SK_LINEBEG
 #define LV_RT2 KC_UP
 #define LV_RT3 KC_PGUP
 #define LV_RT4 SK_WINPRV
@@ -51,7 +51,7 @@ __ │   UNDO     CUT     COPY    PSTE    FAGN  │   LAY_LOCK       │  DOCEND
 #define LV_RBB KC_TAB
 #define LV_RBA KC_ESC
 #define LV_RB0 SK_DOCEND
-#define LV_RB1 KC_END
+#define LV_RB1 SK_LINEEND
 #define LV_RB2 KC_DOWN
 #define LV_RB3 KC_PGDN
 #define LV_RB4 SK_WINNXT

@@ -21,6 +21,12 @@ bool mods_held = false;  // need to remember how we entered the appmenu state
 uint8_t  combo_on = 0;           // for combo actions with hold behaviors
 bool  combo_triggered = false;   // for one-shot-combo-actions
 
+#ifdef ADAPTIVE_ENABLE
+uint16_t preprior_keycode = KC_NO;
+uint16_t prior_keycode = KC_NO;
+uint16_t prior_keydown = 0; // timer of keydown for adaptive threshhold.
+#endif
+
 //----------
 
 /*
@@ -80,6 +86,7 @@ bool rgb_matrix_indicators_user(void) {
 
 //-------------------
 
+ // ** XBows Nature 
 // Left hand home row
 uint8_t LH_HOME[] = {46, 47, 48, 49};
 
@@ -115,7 +122,7 @@ bool rgb_matrix_indicators_user(void) {
                 rgb_matrix_set_color_all(10, 10, 10);
             } else {
                 // if HD is the base layer, set the arrow symbol color.
-                rgb_matrix_set_color(arrowSymbolLed, 10, 40, 40);
+                rgb_matrix_set_color(arrowSymbolLed, 15, 15, 15);
             }
 #else
             rgb_matrix_set_color(arrowSymbolLed, 10, 40, 40);

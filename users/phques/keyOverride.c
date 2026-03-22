@@ -1,10 +1,10 @@
 
 #include <quantum.h>
 #include "semantickeys.h"
-#include "myKeyOverride.h"
+#include "keyOverride.h"
 
 // non-shift, shifted pairs, for OVK_xx keys. Indexed by OVK_ndx(sk) and shift state (0 or 1)
-const uint16_t myKeyOverrides[][2] PROGMEM = {
+const uint16_t keyOverrides[][2] PROGMEM = {
     {KC_HASH,  KC_DOLLAR},      // # $  OVK_HASH  
     {KC_DOT,   KC_COLON},       // . :  OVK_DOT 
     {KC_SLASH, KC_ASTERISK},    // / *  OVK_SLASH
@@ -17,9 +17,13 @@ const uint16_t myKeyOverrides[][2] PROGMEM = {
 
 // Key overrides for special shifted keys.
 // e.g. # produces $ when shifted, but we want to be able to produce # without shift as well.
-bool process_myKeyOverride(uint16_t keycode, keyrecord_t *record) {
-    // Only handle keys in your override list
-    if (!is_OverKey(keycode)) {
+bool process_keyOverride(uint16_t keycode, keyrecord_t *record) {
+
+    uint8_t currentMods = get_mods() | get_weak_mods() /* | get_oneshot_mods() */;
+
+    // Only handle keys in your override list, leave it alone if ctrl/alt/gui are held 
+    // (since those are often used for shortcuts that might involve these keys, and we don't want to mess with them in that case).
+    if (!is_OverKey(keycode) || (currentMods & MOD_MASK_CAG)) {
         return true;
     }
 
@@ -27,12 +31,11 @@ bool process_myKeyOverride(uint16_t keycode, keyrecord_t *record) {
     uint8_t idx = OVK_ndx(keycode);
 
     // Determine whether Shift is currently active (real + weak + /* oneshot */)
-    uint8_t mods      = get_mods() | get_weak_mods() /* | get_oneshot_mods() */;
-    bool    shiftHeld = mods & MOD_MASK_SHIFT;
+    bool    shiftHeld = currentMods & MOD_MASK_SHIFT;
 
     // Pick shifted or unshifted override
     uint8_t  shiftIdx         = shiftHeld ? 1 : 0;
-    uint16_t override_keycode = pgm_read_word(&myKeyOverrides[idx][shiftIdx]);
+    uint16_t override_keycode = pgm_read_word(&keyOverrides[idx][shiftIdx]);
 
     // Determine whether the override keycode itself requires Shift
     uint8_t keyMods    = QK_MODS_GET_MODS(override_keycode);
@@ -57,7 +60,7 @@ bool process_myKeyOverride(uint16_t keycode, keyrecord_t *record) {
     }
 
     if (needUnshift) {
-        set_mods(mods); // restore original mods (including Shift)
+        set_mods(currentMods); // restore original mods (including Shift)
         send_keyboard_report();
     }
     return false;

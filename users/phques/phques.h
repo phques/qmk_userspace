@@ -23,11 +23,11 @@ enum my_layers {// must be defined before semantickeys.h
     L_HD,       // Hands Down Alpha layer
     L_SYM,      // symbols, punctuation, off-map alphas
     L_FUN,      // function (left) & number rows (right)
-    // L_NUM,      // navpad (left) & numpad (right)
     L_NAV,      // meta keys (left) & nav pad (right)
     L_CFG,      // Media/Consumer controls; Keyboard settings
     L_count
 };
+
 #ifdef HAS_QWERTY_LAYER
 #define L_BASELAYER HD_L_QWERTY
 #else
@@ -122,6 +122,12 @@ extern bool mods_held;  // need to remember how we entered the appmenu state
 
 extern uint8_t  combo_on;           // for combo actions with hold behaviors
 extern bool  combo_triggered;   // for one-shot-combo-actions
+
+#ifdef ADAPTIVE_ENABLE
+extern uint16_t preprior_keycode;
+extern uint16_t prior_keycode;
+extern uint16_t prior_keydown; // timer of keydown for adaptive threshhold.
+#endif
 
 
 extern void saveUserConfig(void);

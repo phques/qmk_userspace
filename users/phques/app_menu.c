@@ -19,8 +19,11 @@ void process_APP_MENU(keyrecord_t *record) {
 // KC_APP key gets special treatment
     uint8_t  saved_mods = get_mods(); // preserve mods
 
-    // disable_caps_word(); // turn off CAPS_WORD
-    // prior_keycode = preprior_keycode = prior_keydown = 0; // turn off Adaptives.
+#ifdef ADAPTIVE_ENABLE
+    prior_keycode = preprior_keycode = prior_keydown = 0; // turn off Adaptives.
+#endif
+
+     // only process for SHIFT/ALT & no CTRL or GUI mods
     if (record->event.pressed) {
         if (saved_mods & MOD_MASK_CTRL) { // cycle window w/in app
             unregister_code(KC_RALT);  // ignore these if ctrl
