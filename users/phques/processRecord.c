@@ -116,12 +116,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #endif
             case HD_L_ALPHA:
 #ifdef ADAPTIVE_ENABLE
-                user_config.AdaptiveKeys = keycode != HD_L_QWERTY; // no adaptive keys on QWERTY
+                user_config.AdaptiveKeys = (keycode != HD_L_QWERTY); // no adaptive keys on QWERTY
 #endif  // ADAPTIVE_ENABLE
 #ifdef HAS_QWERTY_LAYER
-                user_config.BaseLayer = keycode - L_BASELAYER; // set the base layer index (0 or 1)
+                user_config.IsQwerty = (keycode == HD_L_QWERTY) ? 1 : 0; 
 #else
-                user_config.BaseLayer = 0; // only one base layer, so always 0
+                user_config.IsQwerty = 0; // only one base layer, so always 0
 #endif  // HAS_QWERTY_LAYER
                 saveUserConfig();
 

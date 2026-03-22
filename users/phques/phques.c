@@ -86,7 +86,7 @@ bool rgb_matrix_indicators_user(void) {
 
 //-------------------
 
- // ** XBows Nature 
+// ** XBows Nature 
 // Left hand home row
 uint8_t LH_HOME[] = {46, 47, 48, 49};
 
@@ -115,18 +115,16 @@ bool rgb_matrix_indicators_user(void) {
     switch (layer) {
 
         case L_QWERTY: // L_QWERTY / L_HD are both "base layers" = layer 0
-#ifdef HAS_QWERTY_LAYER
-            if (user_config.BaseLayer == 0) { 
-                // if QWERTY is the base layer, use only one uniform background color.
-                // rgb_matrix_set_color(arrowSymbolLed, 30, 30, 30);
-                rgb_matrix_set_color_all(10, 10, 10);
+            if (user_config.IsQwerty) { 
+                // if QWERTY is the base layer, set the arrow symbol color.
+                rgb_matrix_set_color(arrowSymbolLed, 15, 10, 10);
+                // rgb_matrix_set_color_all(10, 10, 10);
             } else {
                 // if HD is the base layer, set the arrow symbol color.
-                rgb_matrix_set_color(arrowSymbolLed, 15, 15, 15);
+                // rgb_matrix_set_color(arrowSymbolLed, 5, 45, 45);
+                rgb_matrix_driver.set_color(arrowSymbolLed, 5, 45, 45);
+
             }
-#else
-            rgb_matrix_set_color(arrowSymbolLed, 10, 40, 40);
-#endif
             break;
 
         case L_SYM:
@@ -163,8 +161,6 @@ void keyboard_post_init_user(void) {
     // Read the user config from EEPROM to facilitate
     // appropriate platform support
 
-//    user_config.raw = 0; // reset
-//    eeconfig_update_user(user_config.raw); // write the setings to EEPROM
     /*
     user_config.OSIndex use 0 for Mac; 1 for Win
      */
@@ -176,3 +172,4 @@ void keyboard_post_init_user(void) {
 void saveUserConfig(void) {
     eeconfig_update_user(user_config.raw); // write the setings to EEPROM
 }
+

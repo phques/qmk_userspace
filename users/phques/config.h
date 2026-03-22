@@ -81,12 +81,15 @@
 // [---... trying chatgpt fix for xbows nature probs with rgb_matrix + 3-4> layers:
 
 // #undef RGB_MATRIX_MAXIMUM_BRIGHTNESS
-// #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 120       //? how does that influence cost!??, def=200
+// #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 120       //? this impact power impact, not CPU usage:, def=200
 
 #undef RGB_MATRIX_LED_PROCESS_LIMIT
 #define RGB_MATRIX_LED_PROCESS_LIMIT 4          // def=18
 
-#define RGB_MATRIX_LED_FLUSH_LIMIT 10
+// ## I think this completly wrong !! 10 makes it Faster, not slower, takes More cpu !??
+//#define RGB_MATRIX_LED_FLUSH_LIMIT 10           // def=16, time (ms) to wait before flushing updates to the LEDs.
+#define RGB_MATRIX_LED_FLUSH_LIMIT 32           // def=16, time (ms) to wait before flushing updates to the LEDs.
+
 // #define RGB_MATRIX_DISABLE_KEYCODES             //? i'd like to have this : at least :(
 
 #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_COLOR

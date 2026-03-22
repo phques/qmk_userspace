@@ -3,6 +3,7 @@
 - review
   - layers
   - combos
+- maybe see if can lower CPU & ressouces usage
 
 - linger keys?
   - linger-',' => ", "

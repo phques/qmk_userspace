@@ -19,18 +19,17 @@ const uint16_t keyOverrides[][2] PROGMEM = {
 // e.g. # produces $ when shifted, but we want to be able to produce # without shift as well.
 bool process_keyOverride(uint16_t keycode, keyrecord_t *record) {
 
-    uint8_t currentMods = get_mods() | get_weak_mods() /* | get_oneshot_mods() */;
-
     // Only handle keys in your override list
-    if (!is_OverKey(keycode)) {
+    // if QWERTY is the base layer, don't do any overrides.
+    if (!is_OverKey(keycode) || user_config.IsQwerty) { // 
         return true;
     }
-
 
     // Determine which override entry to use
     uint8_t idx = OVK_ndx(keycode);
 
     // Determine whether Shift is currently active (real + weak + /* oneshot */)
+    uint8_t currentMods = get_mods() | get_weak_mods() /* | get_oneshot_mods() */;
     bool shiftHeld = currentMods & MOD_MASK_SHIFT;
     bool cagHeld = currentMods & MOD_MASK_CAG;
 

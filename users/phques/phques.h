@@ -63,7 +63,7 @@ typedef union {
     struct {
         uint32_t OSIndex : 2;       // index of platforms (0=mac, 1=win, 2=lux)? // used by semantickeys
         uint32_t AdaptiveKeys : 1;  // Adaptive Keys On? (and advanced combos) 
-        uint32_t BaseLayer : 1;     // which is the default (base) layer (0=QWERTY, 1=HD, always 0 if no QWERTY layer)
+        uint32_t IsQwerty : 1;      // 1 if QWERTY is the base layer, 0 if HD is the base layer 
         uint32_t reserved : 28;     // reserved for future use (padding to fill 32 bits)
     };
 } user_config_t; // used for persistent memory of settings (only 16 bytes avail on AVR?)
