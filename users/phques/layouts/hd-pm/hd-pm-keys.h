@@ -34,17 +34,17 @@
 #define HD_Y KC_Y
 #define HD_Z KC_Z
 
-#define HD_MINS KC_MINS
-#define HD_HASH KC_HASH
+#define HD_MINS OVK_MINUS
+#define HD_HASH OVK_HASH
 #define HD_SPC  LT(L_SYM,KC_SPC)
 #define HD_BSPC LT(L_FUN,KC_BSPC)
 #define HD_ENT  LT(L_NAV,KC_ENT)
-#define HD_QUOT KC_QUOT
-#define HD_DQUO KC_DQUO
-#define HD_SLSH KC_SLSH
-#define HD_DOT  KC_DOT
+#define HD_QUOT OVK_QUOTE
+#define HD_DQUO OVK_DQUO
+#define HD_SLSH OVK_SLASH
+#define HD_DOT  OVK_DOT
 #define HD_ASTR KC_ASTR
-#define HD_COMM KC_COMM
+#define HD_COMM OVK_COMMA
 
 
 // Now let's place these HD keycodes on the keymap

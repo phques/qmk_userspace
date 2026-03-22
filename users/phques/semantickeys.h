@@ -46,6 +46,19 @@ enum my_keycodes {
     SK_Mac,     //  mac (using ABC-Extended keyboard)
     SK_Win,     //  windows (using US-Intl keyboard)
     SK_Lux,     //  linux
+
+    // these are key overrides for shifted keys that produce different symbols than normal.
+    // e.g. # produces $ when shifted, but we want to be able to produce # without shift as well.
+    OVK_beg,
+    OVK_HASH = OVK_beg, 
+    OVK_DOT,  
+    OVK_SLASH,
+    OVK_DQUO, 
+    OVK_QUOTE,
+    OVK_COMMA,
+    OVK_MINUS,
+    OVK_end,
+
         // the rest of these semantic keys do need to be translated.
         // everything from SK_KILL on has SemKeys_t table entry.
         // System-wide controls
@@ -147,6 +160,10 @@ enum my_keycodes {
 #define is_SemKey(sk) ((sk >= (uint16_t)(SK_beg)) && (sk < (uint16_t)SK_end))
 
 #define get_SemKeyCode(sk) (SemKeys_t[SK_ndx(sk)][user_config.OSIndex])
+
+#define is_OverKey(sk) ((sk >= (uint16_t)(OVK_beg)) && (sk < (uint16_t)OVK_end))
+#define OVK_ndx(sk) (sk - OVK_beg)
+
 
 extern const uint16_t SemKeys_t[SK_count][OS_count];
 

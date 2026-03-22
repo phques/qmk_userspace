@@ -3,6 +3,7 @@
 
 #include "action_util.h"
 #include "keycodes.h"
+#include "myKeyOverride.h"
 #include "phques.h"
 #include "processRecord.h"
 #include "quantum.h"
@@ -31,13 +32,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     //--------------
 
+    // Do we have a key override for this keycode?
+    if (!process_myKeyOverride(keycode, record)) {
+        return false; // took care of that key
+    }
+
     // Do we handle a semantic key? Combos or adaptives could have sent one.
     if (!process_semkey(keycode, record)) {
         return false; // took care of that key
     }
 
-        // APP_MENU gets special treatment (no adaptive handling, separate timers)
-
+    // APP_MENU gets special treatment (no adaptive handling, separate timers)
     if  (keycode == KC_APP) {  // mimic windows app key behavior (only better?) also in scan_matrix
         process_APP_MENU(record);
         return false; // took care of that key

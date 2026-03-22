@@ -43,7 +43,7 @@ DEBUG_ENABLE = no
 LTO_ENABLE = yes		# optimize at link time
 EXTRAFLAGS += -flto
 
-SRC += phques.c sendstr.c semantickeys.c processRecord.c processCombo.c matrixScanUser.c app_menu.c
+SRC += phques.c sendstr.c semantickeys.c processRecord.c processCombo.c matrixScanUser.c app_menu.c myKeyOverride.c
 
 CFLAGS += -fcommon
 

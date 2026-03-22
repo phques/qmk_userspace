@@ -20,16 +20,16 @@
 // L_CTRL  L_GUI  L_ALT   L_SPC    Ctrl        Shift   R_SPC   R_ALT   Fn    R_CTRL
 
 /*   L_CFG Keyboard Configuration (left) and Media Settings (right)
-         ╭───────────────────────────────────────────────╮                            ╭────────────────────────────────────────────────╮
- RM_TOGG │  SK_Lux  SK_Win  SK_Mac  QK_RBT      SK_KILL  │                            │ SK_ZOOMRST KC_NUM  KC_EJCT KC_LALT (C(A(del))) │ RM_NEXT
- RM_HUEU │  HD_AKTg L_0     L_1     KC_VOLU     KC_BRIU  |                            | SK_ZOOMOUT KC_MPRV KC_MUTE KC_MNXT EE_CLR      │ RM_SATU
- RM_HUED │  QK_BOOT AG_SWAP AG_NORM KC_VOLD     KC_BRID  │ RM_VALU  __    __      __  │ SK_ZOOMIN  KC_MRWD KC_MPLY KC_MFFD QK_BOOT     │ RM_SATD
-         ╰──────────────────╮ __    SK_ZOOMOUT SK_ZOOMIN │ RM_VALD                __  │ SK_ZOOMIN  SK_ZOOMOUT  --  ╭───────────────────╯
-            RM_SPDD RM_SPDU ╰────────────────────────────╯                            ╰────────────────────────────╯   __     __
+         ╭───────────────────────────────────────────────╮                ╭────────────────────────────────────────────────╮
+ RM_TOGG │  Tab     SK_Win  SK_Mac  QK_RBT      SK_KILL  │                │ SK_ZOOMRST KC_NUM  KC_EJCT KC_LALT (C(A(del))) │ RM_NEXT
+ RM_HUEU │  HD_AKTg L_0     L_1     KC_VOLU     KC_BRIU  |     RM_VALU    | SK_ZOOMOUT KC_MPRV KC_MUTE KC_MNXT EE_CLR      │ RM_SATU
+ RM_HUED │  QK_BOOT AG_SWAP AG_NORM KC_VOLD     KC_BRID  │     RM_VALD    │ SK_ZOOMIN  KC_MRWD KC_MPLY KC_MFFD QK_BOOT     │ RM_SATD
+         ╰──────────────────╮ MUTE  SK_ZOOMOUT SK_ZOOMIN │                │ SK_ZOOMIN  SK_ZOOMOUT  --  ╭───────────────────╯
+            RM_SPDD RM_SPDU ╰────────────────────────────╯                ╰────────────────────────────╯   __     __
 */
 
 #define LC_LT5 RM_TOGG
-#define LC_LT4 KC_NO    //SK_Lux
+#define LC_LT4 KC_TAB    //SK_Lux
 #define LC_LT3 SK_Win
 #define LC_LT2 SK_Mac
 #define LC_LT1 QK_RBT
@@ -80,16 +80,16 @@
 #define LC_LH5 RM_SPDD
 #define LC_LH4 RM_SPDU
 #define LC_LH3 KC_MUTE
-#define LC_LH2 KC_TRNS // PQ layer access key, leave trans, was SK_ZOOMOUT
-#define LC_LH1 KC_TRNS // PQ layer access key, leave trans, was SK_ZOOMIN
+#define LC_LH2 SK_ZOOMOUT
+#define LC_LH1 SK_ZOOMIN
 #define LC_LH0 KC_NO
 #define LC_LHA KC_NO
 
 #define LC_RHA KC_NO
 #define LC_RH0 KC_NO
-#define LC_RH1 KC_TRNS // PQ layer access key, leave trans, was SK_ZOOMIN
-#define LC_RH2 KC_TRNS // PQ layer access key, leave trans, was SK_ZOOMOUT
+#define LC_RH1 SK_ZOOMOUT // also right encoder CCW 
+#define LC_RH2 SK_ZOOMIN // also right encoder CW 
 #define LC_RH3 KC_RALT      // PQ xbows nature, was TG(L_NAV)
-#define LC_RH4 SK_ZOOMOUT // also right encoder CCW
-#define LC_RH5 SK_ZOOMIN // also right encoder CW
+#define LC_RH4 KC_TRNS
+#define LC_RH5 KC_TRNS
 

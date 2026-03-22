@@ -1,38 +1,7 @@
 #pragma once
 
-// which rgb animations we want
+// undef all rgb animations 
 #include "rgbUndefs.h"  // IWYU pragma: export
-
-// I think this is always ON 
-#define ENABLE_RGB_MATRIX_SOLID_COLOR
-
-// #define ENABLE_RGB_MATRIX_ALPHAS_MODS
-// #define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
-// #define ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT
-// #define ENABLE_RGB_MATRIX_BREATHING
-
-// PQ trying to solve probs on xbows nature.
-// #undef DEBOUNCE
-// #define DEBOUNCE 5
-
-// [---... trying chatgpt fix for xbows nature probs with rgb_matrix + 3-4> layers:
-
-// #undef RGB_MATRIX_MAXIMUM_BRIGHTNESS
-// #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 120       //? how does that influence cost!??, def=200
-
-#undef RGB_MATRIX_LED_PROCESS_LIMIT
-#define RGB_MATRIX_LED_PROCESS_LIMIT 4          // def=18
-
-#define RGB_MATRIX_LED_FLUSH_LIMIT 10
-// #define RGB_MATRIX_DISABLE_KEYCODES             //? i'd like to have this : at least :(
-
-#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_COLOR
-
-// --- MEMORY REDUCTION ---
-#define LAYER_STATE_8BIT
-
-// ..----]
-
 
 #ifndef NO_DEBUG
 #define NO_DEBUG
@@ -60,10 +29,8 @@
 #define TAPPING_TOGGLE 2
 #ifdef TAPPING_TERM
 #undef TAPPING_TERM
-#define TAPPING_TERM 200 //PQ 170 // Mod TAP VS HOLD timing in milliseconds
-#else
-#define TAPPING_TERM 200 //PQ 170
 #endif
+#define TAPPING_TERM 200 //PQ 170 // Mod TAP VS HOLD timing in milliseconds
 
 // Pick good defaults for enabling homerow modifiers
 //#define HOLD_ON_OTHER_KEY_PRESS
@@ -96,3 +63,35 @@
     #define COMBO_HOLD (TAPPING_TERM) // time to hold to trigger delayed combo
 #endif
 
+//---------
+
+// PQ trying to solve probs on xbows nature.
+
+// I think this is always ON 
+#define ENABLE_RGB_MATRIX_SOLID_COLOR
+
+// #define ENABLE_RGB_MATRIX_ALPHAS_MODS
+// #define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
+// #define ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT
+// #define ENABLE_RGB_MATRIX_BREATHING
+
+// #undef DEBOUNCE
+// #define DEBOUNCE 5
+
+// [---... trying chatgpt fix for xbows nature probs with rgb_matrix + 3-4> layers:
+
+// #undef RGB_MATRIX_MAXIMUM_BRIGHTNESS
+// #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 120       //? how does that influence cost!??, def=200
+
+#undef RGB_MATRIX_LED_PROCESS_LIMIT
+#define RGB_MATRIX_LED_PROCESS_LIMIT 4          // def=18
+
+#define RGB_MATRIX_LED_FLUSH_LIMIT 10
+// #define RGB_MATRIX_DISABLE_KEYCODES             //? i'd like to have this : at least :(
+
+#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_COLOR
+
+// --- MEMORY REDUCTION ---
+#define LAYER_STATE_8BIT
+
+// ..----]
