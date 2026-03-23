@@ -2,7 +2,7 @@
 // From HandsDown Promethium keymap, adapted for use in my keymaps as a layer of keycodes
 
 #include <keycodes.h>
-
+#include "semantickeys.h"
 //
 // First, let's define HD alpha keycodes with any hold-taps/custom keycodes
 //
@@ -34,17 +34,17 @@
 #define HD_Y KC_Y
 #define HD_Z KC_Z
 
-#define HD_MINS OVK_MINUS
-#define HD_HASH OVK_HASH
+#define HD_MINS KC_MINUS
+#define HD_HASH KC_HASH
 #define HD_SPC  LT(L_SYM,KC_SPC)
 #define HD_BSPC LT(L_FUN,KC_BSPC)
 #define HD_ENT  LT(L_NAV,KC_ENT)
-#define HD_QUOT OVK_QUOTE
-#define HD_DQUO OVK_DQUO
-#define HD_SLSH OVK_SLASH
-#define HD_DOT  OVK_DOT
+#define HD_QUOT KC_QUOTE
+#define HD_DQUO KC_DQUO
+#define HD_SLSH KC_SLASH
+#define HD_DOT  KC_DOT
 #define HD_ASTR KC_ASTR
-#define HD_COMM OVK_COMMA
+#define HD_COMM KC_COMMA
 
 
 // Now let's place these HD keycodes on the keymap
@@ -90,11 +90,11 @@
 #define HD_LT0 HD_J
 #define HD_LTA KC_NO  // PQ xbows nature, was LT(L_CFG, KC_MUTE)
 #define HD_RTA KC_NO  // PQ xbows nature, was LT(L_CFG, KC_MPLY)
-#define HD_RT0 HD_HASH
-#define HD_RT1 HD_DOT
-#define HD_RT2 HD_SLSH
-#define HD_RT3 HD_DQUO
-#define HD_RT4 HD_QUOT
+#define HD_RT0 KC_HASH
+#define HD_RT1 KC_DOT
+#define HD_RT2 KC_SLASH
+#define HD_RT3 KC_DQUO
+#define HD_RT4 KC_QUOTE
 #define HD_RT5 KC_LBRC
 
 #define HD_LM5 KC_ESC
@@ -105,7 +105,7 @@
 #define HD_LM0 HD_K
 #define HD_LMA SK_PSTE //PQ xbows nature, was KC_RPRN
 #define HD_RMA KC_NO  // PQ xbows nature, was KC_LPRN
-#define HD_RM0 HD_COMM
+#define HD_RM0 KC_COMMA
 #define HD_RM1 HD_A
 #define HD_RM2 HD_E
 #define HD_RM3 HD_I
@@ -122,7 +122,7 @@
 #define HD_LBB KC_NO    // PQ xbows nature
 #define HD_RBB KC_NO    // PQ xbows nature
 #define HD_RBA KC_NO    // PQ xbows nature
-#define HD_RB0 HD_MINS
+#define HD_RB0 KC_MINUS
 #define HD_RB1 HD_U
 #define HD_RB2 HD_O
 #define HD_RB3 HD_Y

@@ -5,6 +5,7 @@
 #include "keycodes.h"
 #include "phques.h"
 #include "processRecord.h"
+#include "processAdaptive.h"
 #include "processKeyOverride.h"
 #include "quantum.h"
 #include "semantickeys.h"
@@ -32,14 +33,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     //--------------
 
-#if false && defined(ADAPTIVE_ENABLE)
+#if defined(ADAPTIVE_ENABLE)
     // Should we handle an adaptive key?  (Semkey may send Adaptive?)
     if (record->event.pressed // keyup = not rolling = no adaptive -> return.
         && user_config.AdaptiveKeys // AdaptiveKeys is on
         ) {
 
-        //## PQ, TODO.
-        if (!process_adaptive_key(keycode, record)) {
+        if (!process_adaptive_key(keycode)) {
             preprior_keycode = prior_keycode; // look back 2 keystrokes?
             prior_keycode = keycode; // this keycode is stripped of mods+taps
             prior_keydown = timer_read(); // (re)start prior_key timing
@@ -99,13 +99,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case HD_AdaptKeyToggle: // toggle AdaptiveKeys (& LingerKeys, linger combos)
 #ifdef ADAPTIVE_ENABLE
                 user_config.AdaptiveKeys = !user_config.AdaptiveKeys;
-                //#pq debug
-                if (user_config.AdaptiveKeys) {
-                    dprint("dbg Adaptive Keys On\n");
-                }
-                else {
-                    dprint("dbg Adaptive Keys Off\n");
-                }
                 saveUserConfig();
 #endif
                 return_state = false; // stop processing this record.
@@ -127,7 +120,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
                 return_state = false; // don't do more with this record.
                 set_single_persistent_default_layer(keycode-L_BASELAYER);// Remember default layer after powerdown
-        }
+        } // end switch (keycode)
+
+#ifdef ADAPTIVE_ENABLE
+        prior_keydown = timer_read(); // (re)start prior_key timing
+        preprior_keycode = prior_keycode; // look back 2 keystrokes?
+        prior_keycode = keycode; // this keycode is now stripped of mods+taps
+#endif
+        
     }
     else { // (record->event.pressed) / // key up event
 

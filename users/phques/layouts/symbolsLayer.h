@@ -20,7 +20,7 @@
 /*  L_SYM Symbols and punctuation (Some via SemKeys/unicode for platform independance)
  *  left paired symbols are "linger keys" via hold taps. Tap for left, hold for pair with insertion point between
    ╭────────────────────────────────────────────╮                  ╭──────────────────────────────────────────╮
-__ │    Z       Q       ¶        †        ‡     │                  │     ¢        $       #(€)    £       ¥   │ __
+__ │    Z       Q       ¶        †        ‡     │                  │     ¢        $       #(€)    \(£)    ¥   │ __
 __ │    §       [       (        {        •     |                  |     /        =       *       +       -   │ __
 __ │    °      ]       )        }         ·     │ __  __   __  __  │     ^        |       &       <       >   │ __
    ╰──────────────────╮ VolD   D_WordL  D_WordR │ --           __  │     _        ¡       ¿     ╭─────────────╯
@@ -36,7 +36,7 @@ __ │    °      ]       )        }         ·     │ __  __   __  __  │    
 #define LS_RT0 SK_CENT // ¢
 #define LS_RT1 KC_DLR  // $
 #define LS_RT2 HD_HASH //PQ SK_EURO €
-#define LS_RT3 SK_BPND // £
+#define LS_RT3 KC_BSLS //PQ SK_BPND £
 #define LS_RT4 SK_JPY  // ¥
 #define LS_RT5 KC_TRNS
 

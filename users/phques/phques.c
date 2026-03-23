@@ -86,6 +86,8 @@ bool rgb_matrix_indicators_user(void) {
 
 //-------------------
 
+#ifdef RGB_MATRIX_ENABLE
+
 // ** XBows Nature 
 // Left hand home row
 uint8_t LH_HOME[] = {46, 47, 48, 49};
@@ -148,6 +150,7 @@ bool rgb_matrix_indicators_user(void) {
     return true;
 }
 
+#endif
 
 //------------
 

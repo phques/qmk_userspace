@@ -1,8 +1,5 @@
 #pragma once
 
-// undef all rgb animations 
-#include "rgbUndefs.h"  // IWYU pragma: export
-
 #ifndef NO_DEBUG
 #define NO_DEBUG
 #endif // !NO_DEBUG
@@ -67,6 +64,12 @@
 
 // PQ trying to solve probs on xbows nature.
 
+#undef DEBOUNCE
+#define DEBOUNCE 5
+
+// undef all rgb animations 
+#include "rgbUndefs.h"  // IWYU pragma: export
+
 // I think this is always ON 
 #define ENABLE_RGB_MATRIX_SOLID_COLOR
 
@@ -74,9 +77,6 @@
 // #define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
 // #define ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT
 // #define ENABLE_RGB_MATRIX_BREATHING
-
-// #undef DEBOUNCE
-// #define DEBOUNCE 5
 
 // [---... trying chatgpt fix for xbows nature probs with rgb_matrix + 3-4> layers:
 
@@ -98,3 +98,4 @@
 #define LAYER_STATE_8BIT
 
 // ..----]
+

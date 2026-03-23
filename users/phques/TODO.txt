@@ -1,9 +1,13 @@
 - adaptives!
 
+- maybe add support for alt-xx in overrides
+  - alt-/  => \ and other things that moutis does
+
 - review
   - layers
   - combos
 - maybe see if can lower CPU & ressouces usage
+  - rgb anim! find a way to have a real 'static' coloring
 
 - linger keys?
   - linger-',' => ", "

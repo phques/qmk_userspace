@@ -1,0 +1,126 @@
+#!/usr/bin/env python3
+"""Convert JSON adaptive trigger pairs into QMK adaptive_key_t entries.
+
+Input format (stdin):
+[
+  ["mwm", "mpl"],
+  ["wm", "lm"]
+]
+
+Output format:
+const adaptive_key_t adaptive_keys[] = {
+    {KC_M, KC_W, KC_M, "mpl"},
+    {KC_W, KC_M, 0,    "lm"},
+    {0, 0, 0, NULL}
+};
+
+Rules:
+- 3-char triggers are emitted first.
+- 2-char triggers are emitted after.
+- Warn if any 2-char trigger shares a prefix with a 3-char trigger.
+"""
+
+import json
+import string
+import sys
+from typing import List, Tuple
+
+SPECIAL = {
+    ".": "KC_DOT",
+    "/": "KC_SLASH",
+    '"': "KC_DQUO",
+    "'": "KC_QUOTE",
+    "#": "KC_HASH",
+}
+
+LETTERS = {c: f"KC_{c.upper()}" for c in string.ascii_lowercase}
+
+
+def keycode_for_char(ch: str) -> str:
+    c = ch.lower()
+    if c in LETTERS:
+        return LETTERS[c]
+    if c in SPECIAL:
+        return SPECIAL[c]
+    raise ValueError(f"Unsupported key char: {ch!r}")
+
+
+def c_escape(s: str) -> str:
+    return s.replace("\\", "\\\\").replace('"', '\\"')
+
+
+def parse_rules(data) -> List[Tuple[str, str]]:
+    if not isinstance(data, list):
+        raise ValueError("Top-level JSON must be an array")
+
+    parsed: List[Tuple[str, str]] = []
+    for item in data:
+        if not (isinstance(item, list) and len(item) == 2):
+            raise ValueError(f"Each row must be [trigger, output], got: {item!r}")
+
+        trig, out = item
+        if not (isinstance(trig, str) and isinstance(out, str)):
+            raise ValueError(f"Trigger and output must be strings, got: {item!r}")
+
+        if len(trig) not in (2, 3):
+            raise ValueError(f"Trigger must be length 2 or 3, got: {trig!r}")
+
+        parsed.append((trig, out))
+
+    return parsed
+
+
+def emit_adaptive_table(rules: List[Tuple[str, str]]) -> None:
+    three_key = [(trig, out) for trig, out in rules if len(trig) == 3]
+    two_key = [(trig, out) for trig, out in rules if len(trig) == 2]
+
+    three_prefixes = {(trig[0], trig[1]) for trig, _ in three_key}
+
+    print("// Auto-generated adaptive key table. Do not edit directly.")
+    print("#include <quantum.h>\n")
+    print("#include \"processAdaptive.h\"\n")
+    print("const adaptive_key_t adaptive_keys[] = {")
+
+    for trig, out in three_key:
+        k1 = keycode_for_char(trig[0])
+        k2 = keycode_for_char(trig[1])
+        k3 = keycode_for_char(trig[2])
+        print(f'    {{{k1}, {k2}, {k3}, "{c_escape(out)}"}},')
+
+    if three_key and two_key:
+        print("")
+
+    for trig, out in two_key:
+        k1 = keycode_for_char(trig[0])
+        k2 = keycode_for_char(trig[1])
+        print(f'    {{{k1}, {k2}, 0, "{c_escape(out)}"}},')
+
+    print("")
+    print("    {0, 0, 0, NULL}")
+    print("};")
+
+    conflicts = [(trig, out) for trig, out in two_key if (trig[0], trig[1]) in three_prefixes]
+    if conflicts:
+        print("", file=sys.stderr)
+        print("WARNING: Shared-prefix conflicts found:", file=sys.stderr)
+        for trig, out in conflicts:
+            print(
+                f"  2-key trigger {trig!r} -> {out!r} shares prefix with a 3-key trigger.",
+                file=sys.stderr,
+            )
+
+
+def main() -> int:
+    try:
+        data = json.load(sys.stdin)
+        rules = parse_rules(data)
+        emit_adaptive_table(rules)
+    except Exception as exc:  # keep CLI output simple for shell usage
+        print(f"Error: {exc}", file=sys.stderr)
+        return 1
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

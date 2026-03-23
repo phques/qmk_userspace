@@ -133,5 +133,6 @@ extern uint16_t prior_keydown; // timer of keydown for adaptive threshhold.
 extern void saveUserConfig(void);
 
 // layout definition header
-#define LAYOUT_HEADER_H "layouts/hd-pm/hd-pm-keys.h" // HandsDown Promethium
+#define LAYOUT_HEADER_H     "layouts/hd-pm/hd-pm-keys.h" // HandsDown Promethium
+#define LAYOUT_ADAPTIVE_INC "layouts/hd-pm/hd-pm-adaptives.h" // HandsDown Promethium adaptives (for processAdaptive.c)
 
