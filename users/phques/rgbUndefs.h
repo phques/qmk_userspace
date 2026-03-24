@@ -7,6 +7,8 @@
  * add a #define line below to enable other RGB effect, e.g.,
  #define ENABLE_RGB_MATRIX_BAND_SPIRAL_VAL     // Single hue spinning spiral fades brightness
 */
+#undef ENABLE_RGB_MATRIX_SOLID_COLOR
+
 #undef ENABLE_RGB_MATRIX_ALPHAS_MODS
 #undef ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
 #undef ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT

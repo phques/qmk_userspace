@@ -79,7 +79,7 @@ def emit_adaptive_table(rules: List[Tuple[str, str]]) -> None:
     print("// Auto-generated adaptive key table. Do not edit directly.")
     print("#include <quantum.h>\n")
     print("#include \"processAdaptive.h\"\n")
-    print("const adaptive_key_t adaptive_keys[] = {")
+    print("const adaptive_key_t adaptive_keys[] PROGMEM = {")
 
     for trig, out in three_key:
         k1 = keycode_for_char(trig[0])

@@ -2,7 +2,7 @@
 #include <quantum.h>
 #include "processAdaptive.h"
 
-const struct _adaptive_key adaptive_keys[] = {
+const struct _adaptive_key adaptive_keys[] PROGMEM = {
     {KC_W, KC_M, KC_G, "lml"},
     {KC_M, KC_W, KC_M, "mpl"},
 

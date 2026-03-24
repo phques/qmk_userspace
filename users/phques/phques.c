@@ -88,12 +88,7 @@ bool rgb_matrix_indicators_user(void) {
 
 #ifdef RGB_MATRIX_ENABLE
 
-// ** XBows Nature 
-// Left hand home row
-uint8_t LH_HOME[] = {46, 47, 48, 49};
-
-// Right hand home row
-uint8_t RH_HOME[] = {53, 54, 55, 56};
+// ** XBows Nature
 
 void set_keys(uint8_t *keys, uint8_t size, uint8_t r, uint8_t g, uint8_t b) {
     for (uint8_t i = 0; i < size; i++) {

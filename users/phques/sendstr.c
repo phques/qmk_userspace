@@ -17,8 +17,15 @@ void SendCapString(const char* str) {
     }
 
     if (get_mods() & MOD_MASK_SHIFT) {
+        uint8_t currentMods = get_mods() | get_weak_mods() /* | get_oneshot_mods() */;
+        del_mods(MOD_MASK_SHIFT);
+        send_keyboard_report();
+
         send_char(ascii_to_upper(str[0]));
         send_string(str + 1);
+
+        set_mods(currentMods);
+        send_keyboard_report();
     } else {
         send_string(str);
     }

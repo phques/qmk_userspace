@@ -5,9 +5,7 @@
 #include "semantickeys.h"  // IWYU pragma: export
 
 // include the adaptives array for this layout.
-// const adaptive_key_t adaptive_keys[] = {..}
-//## note that the table cannot be in PROGMEM, the code below will fail !!
-//  (so this will use precious EEPROM memory)
+// const adaptive_key_t adaptive_keys[] PROGMEM = {..}
 
 #ifdef LAYOUT_ADAPTIVE_INC
     #include LAYOUT_ADAPTIVE_INC
@@ -25,8 +23,6 @@ bool process_adaptive_key(uint16_t keycode) {
     // Are we in an adaptive context? (adaptive on is assumed).
     if (timer_elapsed(prior_keydown) > ADAPTIVE_TERM) { // outside adaptive threshhold
         prior_keycode = preprior_keycode = prior_keydown = 0; // turn off Adaptives.
-        uprintf("AdaptiveKeys timeout, turning off adaptives.\n");
-
         return true; // no adaptive conditions, so return.
     }
 
@@ -37,24 +33,24 @@ bool process_adaptive_key(uint16_t keycode) {
     //     unregister_mods(MOD_MASK_SHIFT);  //CAPS_WORD/LOCK won't be affected.
     // } // may want more granular control than this…
 
-    for (int i = 0; adaptive_keys[i].output != NULL; i++) {    
-        if (adaptive_keys[i].key3) { // this is a 3-key adaptive, check for all 3 keys in order.
-            if (keycode          == adaptive_keys[i].key3 && 
-                prior_keycode    == adaptive_keys[i].key2 && 
-                preprior_keycode == adaptive_keys[i].key1)
+    for (int i = 0; pgm_read_ptr(&adaptive_keys[i].output) != NULL; i++) {
+        if (pgm_read_word(&adaptive_keys[i].key3)) { // this is a 3-key adaptive, check for all 3 keys in order.
+            if (keycode          == pgm_read_word(&adaptive_keys[i].key3) &&
+                prior_keycode    == pgm_read_word(&adaptive_keys[i].key2) &&
+                preprior_keycode == pgm_read_word(&adaptive_keys[i].key1))
             {
                 // We have a match! Output the string.
                 SEND_STRING("\b\b");
-                SendCapString(adaptive_keys[i].output);
+                SendCapString((const char *)pgm_read_ptr(&adaptive_keys[i].output));
                 return_state = false; // we handled this key, so don't let QMK do anything else with it.
                 break; // stop looking through the list, we found a match.
             }
-        } else if (keycode       == adaptive_keys[i].key2 && 
-                   prior_keycode == adaptive_keys[i].key1) 
+        } else if (keycode       == pgm_read_word(&adaptive_keys[i].key2) &&
+                   prior_keycode == pgm_read_word(&adaptive_keys[i].key1))
         {
                 // We have a match! Output the string.
                 SEND_STRING("\b");
-                SendCapString(adaptive_keys[i].output);
+                SendCapString((const char *)pgm_read_ptr(&adaptive_keys[i].output));
                 return_state = false; // we handled this key, so don't let QMK do anything else with it.
                 break; // stop looking through the list, we found a match.
         }
