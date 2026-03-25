@@ -44,6 +44,7 @@
 #define TAP_CODE_DELAY 20 // time between register/unregister (some keycodes go missing/out of sequence)
 #define TAP_HOLD_CAPS_DELAY 180 // for Mac
 
+// #define COMBO_ENABLE  //## PQ, 'helping intellisense', this is actually enabled in rules.mk.
 #ifdef COMBO_ENABLE
     #ifdef COMBO_COUNT
         #undef COMBO_COUNT
@@ -99,3 +100,7 @@
 
 // ..----]
 
+// Doing my own RGB matrix implementation, can't use rgb_matrix w. xbows nature with other features etc. 
+//// #define RGB_MATRIX_LED_COUNT 
+#define MY_RGB
+#define IS31FL3731_LED_COUNT 87

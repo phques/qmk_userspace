@@ -89,18 +89,18 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
                  tap_code16(A(KC_6)); // this should use semkeys
                 combo_on = combo_index; // may add "e" in matrix_scan_user_process_combo
                 break;
-            case HC_MACR:
-                tap_code16(A(KC_A)); // this should use semkeys
-                combo_on = combo_index; // may add "o" in matrix_scan_user_process_combo
-                break;
+//            case HC_MACR:
+//                tap_code16(A(KC_A)); // this should use semkeys
+//                combo_on = combo_index; // may add "o" in matrix_scan_user_process_combo
+//                break;
             case HC_DIER:
                 tap_code16(A(KC_U)); // this should use semkeys
                 combo_on = combo_index; // may add "u" in matrix_scan_user_process_combo
                 break;
-            case HC_RING:
-                tap_code16(A(KC_K)); // this should use semkeys
-                combo_on = combo_index; // may add "a" for å in matrix_scan_user_process_combo
-                break;
+//            case HC_RING:
+//                tap_code16(A(KC_K)); // this should use semkeys
+//                combo_on = combo_index; // may add "a" for å in matrix_scan_user_process_combo
+//                break;
             case HC_CEDILLE:
                 tap_code16(A(KC_C)); // this should use semkeys
                 combo_on = combo_index; // may add "c" in matrix_scan_user_process_combo
@@ -109,14 +109,14 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
                 tap_code16(A(KC_N)); // this should use semkeys
                 combo_on = combo_index; // may add "n" in matrix_scan_user_process_combo
                 break;
-            case HC_AE: // Æ
-                tap_code16(A(KC_QUOT)); // this should use semkeys
-                break;
-            case HC_OE: // Œ
-                tap_code16(A(KC_Q)); // this should use semkeys
-                tap_code16(KC_U); // almost always "œu"
-                combo_on = combo_index; // but like qu, we'll take it back if we must.
-                break;
+//            case HC_AE: // Æ
+//                tap_code16(A(KC_QUOT)); // this should use semkeys
+//                break;
+//            case HC_OE: // Œ
+//                tap_code16(A(KC_Q)); // this should use semkeys
+//                tap_code16(KC_U); // almost always "œu"
+//                combo_on = combo_index; // but like qu, we'll take it back if we must.
+//                break;
 /*
             case HC_1E: // É
                 tap_code16(A(KC_E)); // this should use semkeys
@@ -508,7 +508,7 @@ void matrix_scan_user_process_combo() {  // called from matrix_scan_user if comb
                 case HC_COLN: // held, so …
                     tap_SemKey(SK_ELPS); //
                     break;
-                case HC_OE:
+//              case HC_OE:
                 case HC_Q:
                     tap_code16(KC_BSPC); // held, so delete u
                     break;
@@ -618,15 +618,15 @@ void matrix_scan_user_process_combo() {  // called from matrix_scan_user if comb
                 case HC_CIRC:
                     tap_code16(KC_E); // this should use semkeys? éêè
                     break;
-                case HC_MACR:
-                    tap_code16(KC_O); // this should use semkeys? ō
-                    break;
+//                case HC_MACR:
+//                    tap_code16(KC_O); // this should use semkeys? ō
+//                    break;
                 case HC_DIER:
                     tap_code16(KC_U); // this should use semkeys? ü
                     break;
-                case HC_RING:
-                    tap_code16(KC_A); // this should use semkeys? å
-                    break;
+//                case HC_RING:
+//                    tap_code16(KC_A); // this should use semkeys? å
+//                    break;
                 case HC_CEDILLE:
                     tap_code16(KC_C); // this should use semkeys? ç
                     break;

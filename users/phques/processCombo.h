@@ -32,8 +32,8 @@ enum my_combos {
     HC_MEH,  // a "meh" combo for whatever I want 
     HC_APP,
     HC_APPNAV, // App menu w/ Nav layer
-    HC_HDl_num, // TOGGLE nav / numpad layer
-    HC_LNl_num, // TOGGLE nav / numpad layer
+//    HC_HDl_num, // TOGGLE nav / numpad layer
+//    HC_LNl_num, // TOGGLE nav / numpad layer
     HC_CAPW, // CAPS WORD for all others
     FC_CAPS, // CAPS LOCK (others)
 
@@ -51,9 +51,9 @@ enum my_combos {
     HC_ACUT, // ´ acute
     HC_GRV, // ` grave (dead key)
     HC_CIRC, // ˆ circumflex
-    HC_MACR, // - macron
+//    HC_MACR, // - macron
     HC_DIER, // ¨ dieresis
-    HC_RING, // ˚ ring
+//    HC_RING, // ˚ ring
     HC_CEDILLE, // ¸ cedille
     HC_ENYE, // ñ/Ñ enye
 //    HC_OSLSH, // ø/Ø
@@ -64,9 +64,9 @@ enum my_combos {
 //    HC_L3, // ex. j not on the map (remappable)?
 
 
+//    HC_OE, // Œ
+//    HC_AE, // Æ
 
-    HC_OE, // Œ
-    HC_AE, // Æ
 /*
     HC_1E, // É acute
     HC_2E, // È grave
@@ -165,7 +165,7 @@ enum my_combos {
     PC_TILD, // ˜
     PC_ELIP, // …
     HC_EQL, // = equal
-    HC_ELIP, // …
+//    HC_ELIP, // …
     PC_COLN, // :
     PC_DEG, //
     PC_NEQL, // ≠
@@ -195,8 +195,8 @@ enum my_combos {
     FC_SCLP, // Screen Capture Selection to clipboard
     FC_SRCH, // Platform search (siri/cortana/–uses semkey)
 
-    HC_ENT,
-    HC_ENT2, // hard enter (cmd/ctrl-enter–uses semkey)
+//    HC_ENT,
+//    HC_ENT2, // hard enter (cmd/ctrl-enter–uses semkey)
     HC_SPC,
     HC_NEW,
     HC_OPEN,

@@ -33,7 +33,7 @@ const uint16_t PROGMEM H_menu_nav_combo[] = {APPMENU_nav_keys, COMBO_END}; // Ap
 #else
 const uint16_t PROGMEM H_menu_nav_combo[] = {LV_LT1, LV_LT0, COMBO_END}; // AppMENU on Nav layer
 #endif
-const uint16_t PROGMEM H_HDl_num_combo[] = {HD_LH1, HD_RH1, COMBO_END}; // Toggle num layer
+// const uint16_t PROGMEM H_HDl_num_combo[] = {HD_LH1, HD_RH1, COMBO_END}; // Toggle num layer
 // const uint16_t PROGMEM H_LNl_num_combo[] = {LN_LH1, LN_RH1, COMBO_END}; // Toggle num layer
 
 // Spatially arranged on the QWERTY ZXCV locations
@@ -41,8 +41,8 @@ const uint16_t PROGMEM H_HDl_num_combo[] = {HD_LH1, HD_RH1, COMBO_END}; // Toggl
 const uint16_t PROGMEM Htab_combo[] = {HD_tab_keys, COMBO_END};    // tab
 const uint16_t PROGMEM Hstab_combo[] = {HD_stab_keys, COMBO_END};  // shift-tab
 const uint16_t PROGMEM Hspc_combo[] = {HD_spc_keys, COMBO_END};    // SPACE
-const uint16_t PROGMEM Hent_combo[] = {HD_ent_keys, COMBO_END};    // ENTER
-const uint16_t PROGMEM Hent2_combo[] = {HD_ent2_keys, COMBO_END};  // hard-ENTER/page break
+// const uint16_t PROGMEM Hent_combo[] = {HD_ent_keys, COMBO_END};    // ENTER
+// const uint16_t PROGMEM Hent2_combo[] = {HD_ent2_keys, COMBO_END};  // hard-ENTER/page break
 
 // SEMANTIC FUNCTIONS  ** using SemKeys **
 const uint16_t PROGMEM Hnew_combo[] = {HD_new_keys, COMBO_END};     // new
@@ -104,8 +104,8 @@ const uint16_t PROGMEM Henye_combo[] = {HD_LT4, HD_LT0, COMBO_END}; // ˜ enye (
 const uint16_t PROGMEM Hacut_combo[] = {HD_RM1, HD_RM2, COMBO_END}; // ´ acute (dead key)é
 const uint16_t PROGMEM Hgrv_combo[] = {HD_RM2, HD_RM3, COMBO_END}; // ` grave (dead key)
 const uint16_t PROGMEM Hcirc_combo[] = {HD_RM1, HD_RM3, COMBO_END}; // ˆ circumflex (dead key)
-const uint16_t PROGMEM Hmacr_combo[] = {HD_RM2, HD_RM4, COMBO_END}; // - macron (dead key)
-const uint16_t PROGMEM Hring_combo[] = {HD_RM1, HD_RM4, COMBO_END}; // ˚ ring (dead key)
+// const uint16_t PROGMEM Hmacr_combo[] = {HD_RM2, HD_RM4, COMBO_END}; // - macron (dead key)
+// const uint16_t PROGMEM Hring_combo[] = {HD_RM1, HD_RM4, COMBO_END}; // ˚ ring (dead key)
 const uint16_t PROGMEM Hcedi_combo[] = {HD_LM4, HD_LM2, COMBO_END}; // ¸ cedille (dead key)
 //const uint16_t PROGMEM Hoslsh_combo[] = {HD_RB2, HD_LB0, COMBO_END}; // ø/Ø or Wh
 
@@ -135,8 +135,8 @@ const uint16_t PROGMEM H_Sch_combo[] = {HD_Sch_keys, COMBO_END}; // TYPE "Sch"
 
 // TEXT ENTRY - (ANY ROW/ MIXED ROWS)
 
-const uint16_t PROGMEM HOE_lig_combo[] = {HD_OE_lig_keys, COMBO_END}; // Œ
-const uint16_t PROGMEM HAE_lig_combo[] = {HD_AE_lig_keys, COMBO_END}; // Æ
+// const uint16_t PROGMEM HOE_lig_combo[] = {HD_OE_lig_keys, COMBO_END}; // Œ
+// const uint16_t PROGMEM HAE_lig_combo[] = {HD_AE_lig_keys, COMBO_END}; // Æ
 
 
 // Fast 4grams
@@ -214,9 +214,6 @@ const uint16_t PROGMEM H_weve_combo[] = {HD_weve_keys, COMBO_END}; // TYPE "we'v
 
 // TWO HANDS
 
-//## crashing, try with no combos
-// combo_t key_combos[] = {
-// };
 
 combo_t key_combos[] = {
     // These simple combos trigger on press, repeat. HC_cfg_combo
@@ -255,8 +252,8 @@ combo_t key_combos[] = {
     [HC_Sh] = COMBO_ACTION(H_Sh_combo),
     [HC_Wh] = COMBO_ACTION(H_Wh_combo),
 #endif
-    [HC_OE] = COMBO_ACTION(HOE_lig_combo),  // Œ
-    [HC_AE] = COMBO_ACTION(HAE_lig_combo),  // Æ
+    // [HC_OE] = COMBO_ACTION(HOE_lig_combo),  // Œ
+    // [HC_AE] = COMBO_ACTION(HAE_lig_combo),  // Æ
 
     // action combos below
     // This group have custom actions on trigger (no hold-delay), repeat if held
@@ -280,9 +277,9 @@ combo_t key_combos[] = {
     [HC_ACUT] = COMBO_ACTION(Hacut_combo), // ´ acute
     [HC_GRV] = COMBO_ACTION(Hgrv_combo), // ` grave
     [HC_CIRC] = COMBO_ACTION(Hcirc_combo), // ˆ circumflex
-    [HC_MACR] = COMBO_ACTION(Hmacr_combo), // - macron
+    // [HC_MACR] = COMBO_ACTION(Hmacr_combo), // - macron
     [HC_DIER] = COMBO_ACTION(Hdier_combo), // ¨ dieresis
-    [HC_RING] = COMBO_ACTION(Hring_combo), // ˚ ring
+    // [HC_RING] = COMBO_ACTION(Hring_combo), // ˚ ring
     [HC_CEDILLE] = COMBO_ACTION(Hcedi_combo), // ¸ cedille
     [HC_ENYE] = COMBO_ACTION(Henye_combo), // ˜ tilde (dead)
 //    [HC_OSLSH] = COMBO_ACTION(Hoslsh_combo), // ø/Ø or Wh
@@ -375,10 +372,10 @@ combo_t key_combos[] = {
     [HC_SPC] = COMBO(Hspc_combo, KC_SPC), // SPACE
 #endif
 #ifdef HD_ent_keys
-    [HC_ENT] = COMBO(Hent_combo, KC_ENT), // ENTER
+    // [HC_ENT] = COMBO(Hent_combo, KC_ENT), // ENTER
 #endif
 #ifdef HD_ent2_keys
-    [HC_ENT2] = COMBO(Hent2_combo, SK_HENT), // hard-ENTER
+    // [HC_ENT2] = COMBO(Hent2_combo, SK_HENT), // hard-ENTER
 #endif
 
 /* These all use SemKeys, even as simple combos (handled by process_semkey from process_record_user) */

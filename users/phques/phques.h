@@ -5,6 +5,7 @@
 #endif
 
 #include <quantum.h>
+#include "config.h"
 
 // Macro to convert a layer num [0..] to a layer bit.
 // Use layer_state_is(...) or layer_state_cmp(...). to check layer state
@@ -51,13 +52,6 @@ enum OS_Platform { // Used for platform support via SemKeys
 
 // ---- other ----
 
-// typedef union {
-//     uint32_t raw;
-//     struct {
-//         uint8_t OSIndex; // index of platforms (0=mac, 1=win, 2=lux)? // used by semantickeys
-//         bool AdaptiveKeys; // Adaptive Keys On? (and advanced combos)
-//     };
-// } user_config_t; // used for persistent memory of settings (only 16 bytes avail on AVR?)
 typedef union {
     uint32_t raw;
     struct {
@@ -72,10 +66,13 @@ typedef union {
 #define LINGER_TIME TAPPING_TERM * 1.2 // how long to hold before a time-depentant behavior begins
 // how long to leave a state active before resetting like APPMENU or CAPSWORD
 //#define STATE_RESET_TIME LINGER_TIME * 3
-#define STATE_RESET_TIME (1000*3) // 3 seconds, which is long enough for app menu navigation.
+#define STATE_RESET_TIME (1000*3) //PQ 3 seconds, which is long enough for app menu navigation.
 
-// Adaptive (or MAGIC) keys are like a QMK Leader Key, but after (Adaptive Trailer)
+
+// -- Adaptive (or MAGIC) keys are like a QMK Leader Key, but after (Adaptive Trailer) --
 #define ADAPTIVE_ENABLE
+
+// ** PQ, the following are not used in my implementation .. **
 //#define ADAPT_SHIFT KC_COMM // keycode to precede alpha for one-shot shift (leader)
 // PM doesn't use the common vowel block, so…
 //#define ADAPT_H // eliminate SFBs AU/UA;EO/OE;LN;MN;NN using H (instead of ')
@@ -87,8 +84,10 @@ typedef union {
 //#define HD_MAGIC_B KC_BSPC // MAGIC_KEY dependent on alpha (consonant hand?)
 
 #ifdef COMBO_HOLD
+    // use COMBO_HOLD time as a standard threshold (same reaction time)
     #undef ADAPTIVE_TERM
-    #define ADAPTIVE_TERM COMBO_HOLD * 1.35  // use COMBO_HOLD time as a standard threshold (same reaction time)
+    #define ADAPTIVE_TERM COMBO_HOLD * 1.1475  // PQ, since I changed TAPPING_TERM from 170 to 200, I found 1.35 to be too long. 
+    //#define ADAPTIVE_TERM COMBO_HOLD * 1.35  // use COMBO_HOLD time as a standard threshold (same reaction time)
 #else
     #define ADAPTIVE_TERM (TAPPING_TERM/4) // rolling threshold
 #endif

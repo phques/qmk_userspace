@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Convert JSON adaptive trigger pairs into QMK adaptive_key_t entries.
+"""Convert JSON adaptive trigger pairs into QMK adaptive_3key_t/adaptive_2key_t tables.
 
 Input format (stdin):
 [
@@ -8,15 +8,19 @@ Input format (stdin):
 ]
 
 Output format:
-const adaptive_key_t adaptive_keys[] = {
+const adaptive_3key_t adaptive_3keys[] = {
     {KC_M, KC_W, KC_M, "mpl"},
-    {KC_W, KC_M, 0,    "lm"},
     {0, 0, 0, NULL}
 };
 
+const adaptive_2key_t adaptive_2keys[] = {
+    {KC_W, KC_M, "lm"},
+    {0, 0, NULL}
+};
+
 Rules:
-- 3-char triggers are emitted first.
-- 2-char triggers are emitted after.
+- 3-char triggers are emitted into adaptive_3keys.
+- 2-char triggers are emitted into adaptive_2keys.
 - Warn if any 2-char trigger shares a prefix with a 3-char trigger.
 """
 
@@ -49,6 +53,14 @@ def c_escape(s: str) -> str:
     return s.replace("\\", "\\\\").replace('"', '\\"')
 
 
+def mapping_comment(trigger: str, output: str) -> str:
+    return f"// {trigger} -> {output}"
+
+
+def format_entry(entry: str, comment: str, width: int) -> str:
+    return f"    {(entry + ',').ljust(width + 1)} {comment}"
+
+
 def parse_rules(data) -> List[Tuple[str, str]]:
     if not isinstance(data, list):
         raise ValueError("Top-level JSON must be an array")
@@ -70,33 +82,45 @@ def parse_rules(data) -> List[Tuple[str, str]]:
     return parsed
 
 
-def emit_adaptive_table(rules: List[Tuple[str, str]]) -> None:
+def emit_adaptive_tables(rules: List[Tuple[str, str]]) -> None:
     three_key = [(trig, out) for trig, out in rules if len(trig) == 3]
     two_key = [(trig, out) for trig, out in rules if len(trig) == 2]
 
     three_prefixes = {(trig[0], trig[1]) for trig, _ in three_key}
+    three_entries = [
+        (
+            f'{{{keycode_for_char(trig[0])}, {keycode_for_char(trig[1])}, {keycode_for_char(trig[2])}, "{c_escape(out)}"}}',
+            mapping_comment(trig, out),
+        )
+        for trig, out in three_key
+    ]
+    two_entries = [
+        (
+            f'{{{keycode_for_char(trig[0])}, {keycode_for_char(trig[1])}, "{c_escape(out)}"}}',
+            mapping_comment(trig, out),
+        )
+        for trig, out in two_key
+    ]
+    three_width = max((len(entry) for entry, _ in three_entries), default=0)
+    two_width = max((len(entry) for entry, _ in two_entries), default=0)
 
-    print("// Auto-generated adaptive key table. Do not edit directly.")
+    print("// Auto-generated adaptive key tables. Do not edit directly.")
     print("#include <quantum.h>\n")
-    print("#include \"processAdaptive.h\"\n")
-    print("const adaptive_key_t adaptive_keys[] PROGMEM = {")
+    print("#include \"../../processAdaptive.h\"\n")
+    print("const adaptive_3key_t adaptive_3keys[] PROGMEM = {")
 
-    for trig, out in three_key:
-        k1 = keycode_for_char(trig[0])
-        k2 = keycode_for_char(trig[1])
-        k3 = keycode_for_char(trig[2])
-        print(f'    {{{k1}, {k2}, {k3}, "{c_escape(out)}"}},')
+    for entry, comment in three_entries:
+        print(format_entry(entry, comment, three_width))
 
-    if three_key and two_key:
-        print("")
-
-    for trig, out in two_key:
-        k1 = keycode_for_char(trig[0])
-        k2 = keycode_for_char(trig[1])
-        print(f'    {{{k1}, {k2}, 0, "{c_escape(out)}"}},')
-
-    print("")
     print("    {0, 0, 0, NULL}")
+    print("};")
+    print("")
+
+    print("const adaptive_2key_t adaptive_2keys[] PROGMEM = {")
+    for entry, comment in two_entries:
+        print(format_entry(entry, comment, two_width))
+
+    print("    {0, 0, NULL}")
     print("};")
 
     conflicts = [(trig, out) for trig, out in two_key if (trig[0], trig[1]) in three_prefixes]
@@ -114,7 +138,7 @@ def main() -> int:
     try:
         data = json.load(sys.stdin)
         rules = parse_rules(data)
-        emit_adaptive_table(rules)
+        emit_adaptive_tables(rules)
     except Exception as exc:  # keep CLI output simple for shell usage
         print(f"Error: {exc}", file=sys.stderr)
         return 1

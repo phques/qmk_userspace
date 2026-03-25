@@ -5,7 +5,6 @@
 LEADER_ENABLE = no       # Enable the Leader Key feature
 MOUSEKEY_ENABLE = no     # Mouse keys
 UNICODE_ENABLE = no      # will need this for HD Polyglot
-
 SPACE_CADET_ENABLE = no
 GRAVE_ESC_ENABLE = no
 AUTO_SHIFT_ENABLE = no  # requires 1936 bytes!
@@ -26,6 +25,7 @@ LAYER_LOCK_ENABLE = yes
 # xbows nature can't handle animations with >3-4 layers, + combos +  adaptives (my own)
 RGB_MATRIX_ENABLE =  no
 RGB_MATRIX_DRIVER = is31fl3731 # trying out suggested fix from chatgpt
+RGBLIGHT_ENABLE = no
 
 # rgb light is not supported at all,
 # so try this low level, see if it builds:
@@ -49,6 +49,11 @@ SRC += processRecord.c processCombo.c processKeyOverride.c processAdaptive.c
 SRC += matrixScanUser.c app_menu.c 
 
 CFLAGS += -fcommon
+
+# Manually include the driver
+COMMON_VPATH += $(DRIVER_PATH)/led/issi
+SRC += is31fl3731.c
+I2C_DRIVER_REQUIRED = yes
 
 
  

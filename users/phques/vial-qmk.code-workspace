@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../../keyboards/xbows/nature/keymaps/phques"
+		},
+		{
+			"path": "../../../vial-qmk/quantum/rgb_matrix"
 		}
 	],
 	"settings": {
