@@ -55,10 +55,11 @@ enum OS_Platform { // Used for platform support via SemKeys
 typedef union {
     uint32_t raw;
     struct {
-        uint32_t OSIndex : 2;       // index of platforms (0=mac, 1=win, 2=lux)? // used by semantickeys
+        uint32_t OSIndex : 2;       // index of platforms (0=mac, 1=win, 2=lux)? (OS_Platform) // used by semantickeys
         uint32_t AdaptiveKeys : 1;  // Adaptive Keys On? (and advanced combos) 
         uint32_t IsQwerty : 1;      // 1 if QWERTY is the base layer, 0 if HD is the base layer 
-        uint32_t reserved : 28;     // reserved for future use (padding to fill 32 bits)
+        uint32_t InitialSetupDone : 1; // for first time setup, to trigger a reset to default layer and settings. 
+        uint32_t NightMode : 1;        // for RGB Night Mode (dimmed background, different home row color)
     };
 } user_config_t; // used for persistent memory of settings (only 16 bytes avail on AVR?)
 
@@ -128,8 +129,15 @@ extern uint16_t prior_keycode;
 extern uint16_t prior_keydown; // timer of keydown for adaptive threshhold.
 #endif
 
+//----------
 
 extern void saveUserConfig(void);
+extern void selectLayer(uint16_t keycode);
+extern void selectOS(uint16_t keycode);
+
+extern void refreshIndicators(layer_state_t state);
+extern void toggleNightMode(void);
+
 
 // layout definition header
 #define LAYOUT_HEADER_H     "layouts/hd-pm/hd-pm-keys.h" // HandsDown Promethium

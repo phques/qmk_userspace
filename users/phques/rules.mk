@@ -46,7 +46,7 @@ EXTRAFLAGS += -flto
 
 SRC += phques.c sendstr.c semantickeys.c 
 SRC += processRecord.c processCombo.c processKeyOverride.c processAdaptive.c
-SRC += matrixScanUser.c app_menu.c 
+SRC += matrixScanUser.c app_menu.c rgb.c
 
 CFLAGS += -fcommon
 

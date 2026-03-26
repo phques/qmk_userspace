@@ -1,4 +1,5 @@
-- complete pq rgb
+- complete pq own rgb
+  - close! add KC_CAPS_LOCK support
 
 - detect non-initialized user_config and set it up
 
