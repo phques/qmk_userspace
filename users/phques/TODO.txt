@@ -1,12 +1,10 @@
 - complete pq own rgb
   - close! add KC_CAPS_LOCK support
 
-- detect non-initialized user_config and set it up
-
 - maybe add support for alt-xx in overrides
   - alt-/  => \ and other things that moutis does
 
-- some double tap? should be easy?
+- some double tap? should be easy to implement?
   - what to do with it!?
 
 - review

@@ -31,11 +31,11 @@
 
 // Pick good defaults for enabling homerow modifiers
 //#define HOLD_ON_OTHER_KEY_PRESS
-//#define PERMISSIVE_HOLD
+#define PERMISSIVE_HOLD
 //#define IGNORE_MOD_TAP_INTERRUPT
 
-// PQ, having difficulty with HRMs mod-taps triggering when I want to roll, so trying this:
-//  doesn't seem to be working!? not for rolls on home row modifiers anyway.
+// PQ, having difficulty with HRMs mod-taps triggering when I want to roll, so trying this,
+//     along with PERMISSIVE_HOLD, seems pretty good.
 #define CHORDAL_HOLD
 
 #ifdef TAP_CODE_DELAY
@@ -68,6 +68,8 @@
 #undef DEBOUNCE
 #define DEBOUNCE 5
 
+#ifdef RGB_MATRIX_ENABLE
+
 // undef all rgb animations 
 #include "rgbUndefs.h"  // IWYU pragma: export
 
@@ -95,8 +97,11 @@
 
 #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_COLOR
 
+#endif // RGB_MATRIX_ENABLE
+
 // --- MEMORY REDUCTION ---
 #define LAYER_STATE_8BIT
+
 
 // ..----]
 
