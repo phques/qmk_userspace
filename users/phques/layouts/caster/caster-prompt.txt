@@ -1,0 +1,70 @@
+/*
+Prompt:
+Given the grid with LT4 LT3 LT2 LT1 LT0  and the layout shown after it, 
+1- create a list of defines similar to #define HD_LT4 HD_J,
+place them in caster-keys.h at the "HD_LTx definitions" position.
+
+2- Now create a list of defines similar to #define HD_A KC_A, mapping HD_ to KC_ entries,
+including the shared symbol definitions used elsewhere (for example HD_MINS, HD_SPC, HD_BSPC, HD_ENT, HD_QUOT, HD_SLSH, HD_DOT, HD_COMM, HD_SCLN, HD_EQL, HD_HASH).
+the following are HRMs: 
+  LM4 LM3 LM2 LM1 = CAGS
+  RM1 RM2 RM3 RM4 = SGAC
+please set the HD_ defines to be mod taps
+and 
+  set the HD definitions for the thumbs on HD_LH2, HD_LH1, HD_RH1, HD_RH2,
+  to be layers / taps, using LT(), for these layers: L_NAV, L_FUN, L_NAV, L_SYM
+and
+  finally, please fill the grid with the correct characters based on the layourt we just defined
+
+
+include these in the output :
+
+// the middle extra keys
+#define HD_LMA SK_PSTE //PQ xbows nature
+#define HD_LBA SK_COPY  // PQ xbows nature
+
+// the other outlying '5' keys (ie LT5 etc)
+#define HD_LT5 KC_CAPS
+#define HD_LM5 KC_ESC
+#define HD_LB5 KC_TAB
+#define HD_LH5 SK_LCTL  // PQ xbows nature
+
+#define HD_RT5 //to be filled fro layout
+#define HD_RM5 //to be filled fro layout
+#define HD_RB5 KC_RSFT
+#define HD_RH5 SK_RCTL
+
+//Primary Thumbs 1-3 (others are unique to the board)
+#define HD_LH5 SK_LCTL  // PQ xbows nature
+#define HD_LH4 SK_LGUI  // PQ xbows nature
+#define HD_LH3 KC_LALT  // PQ xbows nature
+#define HD_LH2 LT(L_NAV, HD_E)
+#define HD_LH1 LT(L_FUN, HD_BSPC)
+#define HD_LH0 KC_NO
+#define HD_LHA KC_NO
+
+#define HD_RHA KC_NO
+#define HD_RH0 KC_NO
+#define HD_RH1 LT(L_NAV, HD_ENT)
+#define HD_RH2 LT(L_SYM, HD_SPC)
+#define HD_RH3 KC_RALT      // PQ xbows nature
+#define HD_RH4 MO(L_CFG)    // PQ xbows nature, Keep Fn key as access to CFG layer
+#define HD_RH5 SK_RCTL
+
+ Grid:
+ ╭─────────────────────╮   ╭─────────────────────╮
+ │ LT4 LT3 LT2 LT1 LT0 │   │ RT0 RT1 RT2 RT3 RT4 │ RT5
+ │ LM4 LM3 LM2 LM1 LM0 |   | RM0 RM1 RM2 RM3 RM4 │ RM5
+ │ LB4 LB3 LB2 LB1 LB0 │   │ RB0 RB1 RB2 RB3 RB4 │ 
+                 LH2  LH1 RH1 RH2
+
+Layout:
+v y g m z     = p . , k -
+c s t r x     q n a i h '
+b w d l ;     / f o u j
+     e BSPC ENTER SPACE 
+
+*/
+// nb: This is a vertically swapped version, 'bottom heavy' 
+
+

@@ -1,36 +1,37 @@
 #pragma once
-// Nordrassil key definitions
-// https://cyanophage.github.io/index.html#nordrassil
-// https://www.reddit.com/r/KeyboardLayouts/comments/1oqqfql/%F0%96%A3%82nordrassils_rejuvenation%EF%BE%9F_a_refinement_of_the/
-// Old, but more details: https://github.com/empressabyss/nordrassil/blob/main/README.md#arcane-
-
+// Caster layout key definitions.
+// This is a vertically swapped version, 'bottom heavy' 
+// https://cyanophage.github.io/index.html#caster
 
 #include <keycodes.h>
 #include "semantickeys.h"
+
 //
 // First, let's define HD alpha keycodes with any hold-taps/custom keycodes
 //
 // PQ note: mods are CAGS as in moutis HandsDown. i.e. MacOS standard Cmd=GUI, Opt=ALT, Ctrl=Ctrl, Shift=Shift
-#define HD_A LSFT_T(KC_A)  // Shift HRM
-#define HD_B KC_B 
-#define HD_C KC_C 
-#define HD_D RSFT_T(KC_D)  // Shift HRM 
-#define HD_E LGUI_T(KC_E)  // GUI HRM
-#define HD_F KC_F 
-#define HD_G KC_G 
-#define HD_H LCTL_T(KC_H)  // Ctrl HRM 
-#define HD_I LALT_T(KC_I)  // Alt HRM
-#define HD_J KC_J 
-#define HD_K KC_K 
-#define HD_L KC_L 
-#define HD_M KC_M 
-#define HD_N KC_N 
-#define HD_O KC_O 
-#define HD_P RCTL_T(KC_P)  // Ctrl HRM
-#define HD_Q KC_Q 
-#define HD_R RGUI_T(KC_R)  // GUI HRM
-#define HD_S RALT_T(KC_S)  // Alt HRM 
-#define HD_T LT(L_SYM, KC_T) 
+
+//## HD_ALPHA definitions
+#define HD_A RGUI_T(KC_A)
+#define HD_B KC_B
+#define HD_C LCTL_T(KC_C)
+#define HD_D KC_D
+#define HD_E KC_E
+#define HD_F KC_F
+#define HD_G KC_G
+#define HD_H RCTL_T(KC_H)
+#define HD_I RALT_T(KC_I)
+#define HD_J KC_J
+#define HD_K KC_K
+#define HD_L KC_L
+#define HD_M KC_M
+#define HD_N RSFT_T(KC_N)
+#define HD_O KC_O
+#define HD_P KC_P
+#define HD_Q KC_Q
+#define HD_R LSFT_T(KC_R)
+#define HD_S LALT_T(KC_S)
+#define HD_T LGUI_T(KC_T)
 #define HD_U KC_U
 #define HD_V KC_V
 #define HD_W KC_W
@@ -39,18 +40,19 @@
 #define HD_Z KC_Z
 
 #define HD_MINS KC_MINUS
-#define HD_SPC  LT(L_NAV, KC_SPC)  
-#define HD_BSPC LT(L_NAV, KC_BSPC) 
-#define HD_ENT  LT(L_FUN, KC_ENT)  
+#define HD_SPC  KC_SPC
+#define HD_BSPC KC_BSPC
+#define HD_ENT  KC_ENT
 #define HD_QUOT KC_QUOTE
 #define HD_SLSH KC_SLASH
 #define HD_DOT  KC_DOT
 #define HD_COMM KC_COMMA
 #define HD_SCLN KC_SCLN
+#define HD_EQL  KC_EQUAL
 #define HD_HASH KC_HASH
 
 
-// Now let's place these keycodes on the keymap
+// Now let's place these HD keycodes on the keymap
 // for variation independent spatial referencing by key position
 //
 //     Key Position Names for a 34 (-54) key split form factor
@@ -68,82 +70,92 @@
 // LH5   │ LH4    --LH3-- --LH2-- │ LH1          RH1 │ --RH2-- --RH3-- RH4   RH5
 // L_CTRL  L_GUI  L_ALT   L_SPC    Ctrl        Shift   R_SPC   R_ALT   Fn    R_CTRL
 //
-//            ╭─────────────────────╮                 ╭─────────────────────╮
-//   Caps     │  J   Y   O   U   -  │                 │  Q   G   N   W   K  │ {   }
-//    esc     │  H   I   E   A   .  |      Paste      |  M   D   R   S   P  │ V
-//    tab     │  X   /   '   ,   ;  │      Copy       │  Z   C   L   F   B  │ 
-//            ╰───────────╮ spc ret │                 │ bsp  T   ╭──────────╯
-//                        ╰─────────╯                 ╰──────────╯
+/*  Base (alpha) Layer  Caster (HRMs /+ thumb mods)
+              ╭─────────────────────╮                 ╭─────────────────────╮
+     Caps     │  V   Y   G   M   Z  │                 │  =   P   .   ,   K  │ -
+      esc     │  C   S   T   R   X  |      Paste      |  Q   N   A   I   H  │ '
+      tab     │  B   W   D   L   ;  │      Copy       │  /   F   O   U   J  │ 
+              ╰───────────╮  E  bsp │                 │ ret  spc ╭──────────╯
+                          ╰─────────╯                 ╰──────────╯
+*/  
 
-#define HD_LT5 KC_CAPS
-#define HD_LT4 HD_J
-#define HD_LT3 HD_Y
-#define HD_LT2 HD_O
-#define HD_LT1 HD_U
-#define HD_LT0 HD_MINS
+//## HD_LTx definitions
 
-#define HD_LM5 KC_ESC
-#define HD_LM4 HD_H
-#define HD_LM3 HD_I
-#define HD_LM2 HD_E
-#define HD_LM1 HD_A
-#define HD_LM0 HD_DOT
+// the middle extra keys
 #define HD_LMA SK_PSTE //PQ xbows nature
+#define HD_LBA SK_COPY  // PQ xbows nature
 
+// the other outlying '5' keys (ie LT5 etc)
+#define HD_LT5 KC_CAPS
+#define HD_LM5 KC_ESC
 #define HD_LB5 KC_TAB
-#define HD_LB4 HD_X
-#define HD_LB3 HD_SLSH
-#define HD_LB2 HD_QUOT
-#define HD_LB1 HD_COMM
-#define HD_LB0 HD_SCLN
-#define HD_LTA KC_NO  // PQ xbows nature
 
+#define HD_LT4 HD_V
+#define HD_LT3 HD_Y
+#define HD_LT2 HD_G
+#define HD_LT1 HD_M
+#define HD_LT0 HD_Z
+
+#define HD_LM4 HD_C
+#define HD_LM3 HD_S
+#define HD_LM2 HD_T
+#define HD_LM1 HD_R
+#define HD_LM0 HD_X
+
+#define HD_LB4 HD_B
+#define HD_LB3 HD_W
+#define HD_LB2 HD_D
+#define HD_LB1 HD_L
+#define HD_LB0 HD_SCLN
+
+#define HD_LTA KC_NO  // PQ xbows nature
 #define HD_RTA KC_NO  // PQ xbows nature
-#define HD_RT0 HD_Q
-#define HD_RT1 HD_G
-#define HD_RT2 HD_N
-#define HD_RT3 HD_W
+
+#define HD_RT0 HD_EQL
+#define HD_RT1 HD_P
+#define HD_RT2 HD_DOT
+#define HD_RT3 HD_COMM
 #define HD_RT4 HD_K
-#define HD_RT5 KC_LBRC
+#define HD_RT5 HD_MINS
 
 #define HD_RMA KC_NO  // PQ xbows nature
-#define HD_RM0 HD_M
-#define HD_RM1 HD_D
-#define HD_RM2 HD_R
-#define HD_RM3 HD_S
-#define HD_RM4 HD_P
-#define HD_RM5 HD_V
+#define HD_RM0 HD_Q
+#define HD_RM1 HD_N
+#define HD_RM2 HD_A
+#define HD_RM3 HD_I
+#define HD_RM4 HD_H
+#define HD_RM5 HD_QUOT
 
-#define HD_LBA SK_COPY  // PQ xbows nature
 #define HD_LBB KC_NO    // PQ xbows nature
 #define HD_RBB KC_NO    // PQ xbows nature
 #define HD_RBA KC_NO    // PQ xbows nature
 
-#define HD_RB0 HD_Z
-#define HD_RB1 HD_C
-#define HD_RB2 HD_L
-#define HD_RB3 HD_F
-#define HD_RB4 HD_B
+#define HD_RB0 HD_SLSH
+#define HD_RB1 HD_F
+#define HD_RB2 HD_O
+#define HD_RB3 HD_U
+#define HD_RB4 HD_J
 #define HD_RB5 KC_RSFT
 
 //Primary Thumbs 1-3 (others are unique to the board)
 #define HD_LH5 SK_LCTL  // PQ xbows nature
 #define HD_LH4 SK_LGUI  // PQ xbows nature
 #define HD_LH3 KC_LALT  // PQ xbows nature
-#define HD_LH2 HD_SPC
-#define HD_LH1 HD_ENT
+#define HD_LH2 LT(L_NAV, HD_E)
+#define HD_LH1 LT(L_FUN, HD_BSPC)
 #define HD_LH0 KC_NO
 #define HD_LHA KC_NO
 
 #define HD_RHA KC_NO
 #define HD_RH0 KC_NO
-#define HD_RH1 HD_BSPC
-#define HD_RH2 HD_T
+#define HD_RH1 LT(L_NAV, HD_ENT)
+#define HD_RH2 LT(L_SYM, HD_SPC)
 #define HD_RH3 KC_RALT      // PQ xbows nature
 #define HD_RH4 MO(L_CFG)    // PQ xbows nature, Keep Fn key as access to CFG layer
 #define HD_RH5 SK_RCTL
 
-//##PQ copied from HD PM
+
+//##PQ copied from HD PM, probably need some adjustments.
 
 //
 // We want to be able to define a combo by location
@@ -232,7 +244,7 @@
 // the entirely unnecessary pronoun combo shenanigans
 
 // PRONOUNS Fast 4-7grams
-#define HD_Icap_keys  HD_I, HD_C  // TYPE "I"
+#define HD_Icap_keys  HD_I, HD_H  // TYPE "I"
 #define HD_Id_keys    HD_I, HD_D  // TYPE "I'd"+"'ve "
 #define HD_Ill_keys   HD_I, HD_L  // TYPE "I'll"+"'ve "
 #define HD_Im_keys    HD_I, HD_M  // TYPE "I'm "

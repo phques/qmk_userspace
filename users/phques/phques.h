@@ -116,7 +116,7 @@ typedef union {
 // (since we might #undef some of the defines, we need to handle this here)
 
 // HandsDown Promethium
-#if 1
+#if 0
 #define LAYOUT_HEADER_H      "layouts/hd-pm/hd-pm-keys.h"
 #define LAYOUT_ADAPTIVE_INC  "layouts/hd-pm/hd-pm-adaptives.h" // HandsDown Promethium adaptives (for processAdaptive.c)
 #define LAYOUT_OVERRIDES_INC "layouts/hd-pm/hd-pm-overrides.h" // HandsDown Promethium overrides (for processKeyOverride.c)
@@ -125,8 +125,15 @@ typedef union {
 // Nordrassil
 #if 0
 #define LAYOUT_HEADER_H "layouts/nordrassil/nordrassil-keys.h" 
-#undef ADAPTIVE_ENABLE // Nordrassil doesn't use adaptive keys, so disable the feature
+#undef ADAPTIVE_ENABLE      // Nordrassil doesn't use adaptive keys, so disable the feature
 #undef KEYS_OVERRIDE_ENABLE // Nordrassil doesn't use key overrides, so disable the feature
+#endif
+
+// Caster
+#if 1
+#define LAYOUT_HEADER_H "layouts/caster/caster-keys.h" 
+#undef ADAPTIVE_ENABLE      // Caster doesn't use adaptive keys, so disable the feature
+#undef KEYS_OVERRIDE_ENABLE // Caster doesn't use key overrides, so disable the feature
 #endif
 
 

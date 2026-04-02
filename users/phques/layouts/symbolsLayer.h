@@ -21,7 +21,7 @@
  *  left paired symbols are "linger keys" via hold taps. Tap for left, hold for pair with insertion point between
    ╭────────────────────────────────────────────╮                  ╭──────────────────────────────────────────╮
 __ │    Z       Q       ¶        †        ‡     │                  │     ¢        $       #(€)    \(£)    ¥   │ __
-__ │    §       [       (        {        •     |                  |     /        =       *       +       -   │ __
+__ │    :       [       (        {        •     |                  |     /        =       *       +       -   │ __
 __ │    °      ]       )        }         ·     │ __  __   __  __  │     ^        |       &       <       >   │ __
    ╰──────────────────╮ VolD   D_WordL  D_WordR │ --           __  │     _        ¡       ¿     ╭─────────────╯
    KC_PGDN   KC_PGUP  ╰─────────────────────────╯                  ╰────────────────────────────╯ SK_WORDPRV  SK_WORDNXT
@@ -41,7 +41,7 @@ __ │    °      ]       )        }         ·     │ __  __   __  __  │    
 #define LS_RT5 KC_TRNS
 
 #define LS_LM5 KC_TRNS
-#define LS_LM4 SK_SECT // §
+#define LS_LM4 KC_COLN // :   was SK_SECT // §
 #define LS_LM3 KC_LBRC
 #define LS_LM2 KC_LPRN
 #define LS_LM1 KC_LCBR
