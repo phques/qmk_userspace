@@ -161,3 +161,13 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
     refreshIndicators(state);
     return state;
 }
+bool led_update_user(led_t led_state) {
+    if (led_state.caps_lock) {
+        // Actions to perform when Caps Lock is ON
+        refreshIndicators(layer_state);
+    } else {
+        // Actions to perform when Caps Lock is OFF
+        refreshIndicators(layer_state);
+    }
+    return true; // Return true to allow the keyboard's default LED behavior
+}

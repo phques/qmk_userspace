@@ -1,8 +1,8 @@
 
-#include "phques.h"
-#include "processAdaptive.h"
-#include "sendstr.h"
-#include "semantickeys.h"  // IWYU pragma: export
+#include "phques.h"         // IWYU pragma: keep
+#include "processAdaptive.h"    // IWYU pragma: export
+#include "sendstr.h"            // IWYU pragma: export
+#include "semantickeys.h"       // IWYU pragma: export
 
 // Include the adaptive tables for this layout.
 // const adaptive_3key_t adaptive_3keys[] PROGMEM = {..}

@@ -256,7 +256,7 @@ bool rgb_set_indicators(layer_state_t state) {
 
 
 	//-- Set the led for caps lock indicator
-	const uint8_t capsLockLed = g_led_config_matrix_co[0][14]; // the "Caps Lock" key.
+	const uint8_t capsLockLed = g_led_config_matrix_co[3][0]; // the "Caps Lock" key.
 	if (host_keyboard_led_state().caps_lock) {
 		is31fl3731_set_color(capsLockLed, 60, 0, 60); // purple when caps lock is on.
 	} else {

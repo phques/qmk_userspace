@@ -51,10 +51,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 #endif // #ifdef ADAPTIVE_ENABLE
     
+#if defined(KEYS_OVERRIDE_ENABLE)
     // Do we have a key override for this keycode?
     if (!process_keyOverride(keycode, record)) {
         return false; // took care of that key
     }
+#endif // #ifdef KEYS_OVERRIDE_ENABLE
 
     // Do we handle a semantic key? Combos or adaptives could have sent one.
     if (!process_semkey(keycode, record)) {

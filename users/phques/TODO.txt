@@ -1,5 +1,6 @@
 - complete pq own rgb
-  - close! add KC_CAPS_LOCK support
+  - simulate rgb matrix keys from solid 'anim', to change hue/sat/val etc
+    
 
 - maybe add support for alt-xx in overrides
   - alt-/  => \ and other things that moutis does

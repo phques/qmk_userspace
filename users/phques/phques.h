@@ -70,8 +70,12 @@ typedef union {
 #define STATE_RESET_TIME (1000*3) //PQ 3 seconds, which is long enough for app menu navigation.
 
 
+
+// -- key overrides
+//#define KEYS_OVERRIDE_ENABLE // define this to enable the feature, and include your override list in LAYOUT_OVERRIDES_INC
+
 // -- Adaptive (or MAGIC) keys are like a QMK Leader Key, but after (Adaptive Trailer) --
-#define ADAPTIVE_ENABLE
+//#define ADAPTIVE_ENABLE
 
 // ** PQ, the following are not used in my implementation .. **
 //#define ADAPT_SHIFT KC_COMM // keycode to precede alpha for one-shot shift (leader)
@@ -128,7 +132,7 @@ extern uint16_t preprior_keycode;
 extern uint16_t prior_keycode;
 extern uint16_t prior_keydown; // timer of keydown for adaptive threshhold.
 #endif
-
+ 
 //----------
 
 extern void saveUserConfig(void);
@@ -139,7 +143,18 @@ extern void refreshIndicators(layer_state_t state);
 extern void toggleNightMode(void);
 
 
-// layout definition header
-#define LAYOUT_HEADER_H     "layouts/hd-pm/hd-pm-keys.h" // HandsDown Promethium
-#define LAYOUT_ADAPTIVE_INC "layouts/hd-pm/hd-pm-adaptives.h" // HandsDown Promethium adaptives (for processAdaptive.c)
+// layout definition headers
 
+// HandsDown Promethium
+#if 0
+#define LAYOUT_HEADER_H      "layouts/hd-pm/hd-pm-keys.h"
+#define LAYOUT_ADAPTIVE_INC  "layouts/hd-pm/hd-pm-adaptives.h" // HandsDown Promethium adaptives (for processAdaptive.c)
+#define LAYOUT_OVERRIDES_INC "layouts/hd-pm/hd-pm-overrides.h" // HandsDown Promethium overrides (for processKeyOverride.c)
+#endif
+
+// Nordrassil
+#if 1
+#define LAYOUT_HEADER_H "layouts/nordrassil/nordrassil-keys.h" 
+#undef ADAPTIVE_ENABLE // Nordrassil doesn't use adaptive keys, so disable the feature
+#undef KEYS_OVERRIDE_ENABLE // Nordrassil doesn't use key overrides, so disable the feature
+#endif

@@ -69,7 +69,7 @@ const adaptive_2key_t adaptive_2keys[] PROGMEM = {
     {KC_DOT, KC_HASH, "philippe.quesnel"}, // .# -> philippe.quesnel
     {KC_D, KC_HASH, "device"},             // d# -> device
     {KC_I, KC_HASH, "circuit"},            // i# -> circuit
-    {KC_T, KC_HASH, "integration\\"},      // t# -> integration\
+    {KC_T, KC_HASH, "integration\\"},      // t# -> integration
     {KC_S, KC_HASH, "select * from "},     // s# -> select * from 
     {0, 0, NULL}
 };

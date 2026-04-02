@@ -1,0 +1,74 @@
+/*
+Prompt:
+given the grid on top (LT4 LT3 LT2 LT1 LT0 ..) and the layout shown after it, 
+create a list of defines similar to #define HD_LT4 KC_J
+*/
+/*
+ ╭─────────────────────╮  ╭─────────────────────╮
+ │ LT4 LT3 LT2 LT1 LT0 │  │ RT0 RT1 RT2 RT3 RT4 │ RT5
+ │ LM4 LM3 LM2 LM1 LM0 |  | RM0 RM1 RM2 RM3 RM4 │ RM5
+ │ LB4 LB3 LB2 LB1 LB0 │  │ RB0 RB1 RB2 RB3 RB4 │ RB5
+
+j y o u -   q g n w k      
+h i e a .   m d r s p v    
+x / ' , ;   z c l f b      
+                t
+*/
+
+// ===> 
+
+#define HD_LT4 KC_J
+#define HD_LT3 KC_Y
+#define HD_LT2 KC_O
+#define HD_LT1 KC_U
+#define HD_LT0 KC_MINS
+
+#define HD_LM4 KC_H
+#define HD_LM3 KC_I
+#define HD_LM2 KC_E
+#define HD_LM1 KC_A
+#define HD_LM0 KC_DOT
+
+#define HD_LB4 KC_X
+#define HD_LB3 KC_SLSH
+#define HD_LB2 KC_QUOT
+#define HD_LB1 KC_COMM
+#define HD_LB0 KC_SCLN
+
+#define HD_RT0 KC_Q
+#define HD_RT1 KC_G
+#define HD_RT2 KC_N
+#define HD_RT3 KC_W
+#define HD_RT4 KC_K
+/* #define HD_RT5 ??? */  /* no character shown in layout line */
+
+#define HD_RM0 KC_M
+#define HD_RM1 KC_D
+#define HD_RM2 KC_R
+#define HD_RM3 KC_S
+#define HD_RM4 KC_P
+#define HD_RM5 KC_V
+
+#define HD_RB0 KC_Z
+#define HD_RB1 KC_C
+#define HD_RB2 KC_L
+#define HD_RB3 KC_F
+#define HD_RB4 KC_B
+/* #define HD_RB5 ??? */  /* no character shown in layout line */
+
+/* Prompt to update the kbd grid with the actual layout
+update the key legend in this header so it matches the position-to-key mapping we 
+just established from the nordrassil grid
+*/
+
+/* Prompt
+the following are HRMs: 
+  h i e a = CAGS
+  D R S P = SGAC
+  please set the HD_ defines to be mod taps
+*/
+
+/* Prompt (thumbs layer access LT())
+set the original HD alpha definitions to which  HD_LH2, HD_LH1, HD_RH1, HD_RH2 point,
+to be layers / taps, using LT(), for these layers: L_NAV, L_FUN, L_NAV, L_SYM
+*/

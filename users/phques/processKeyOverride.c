@@ -1,18 +1,12 @@
 
 #include <quantum.h>
-#include "phques.h"
-#include "processKeyOverride.h"
+#include "phques.h"        // IWYU pragma: keep
 
-// non-shift, shifted pairs
-const uint16_t keyOverrides[][2] PROGMEM = {
-    {KC_HASH,  KC_DOLLAR},      // # $  OVK_HASH  
-    {KC_DOT,   KC_COLON},       // . :  OVK_DOT 
-    {KC_SLASH, KC_ASTERISK},    // / *  OVK_SLASH
-    {KC_DQUO,  KC_LT},          // “ <  OVK_DQUO
-    {KC_QUOTE, KC_GT},          // ‘ >  OVK_QUOTE
-    {KC_COMMA, KC_SEMICOLON},   // , ;  OVK_COMMA
-    {KC_MINUS, KC_PLUS},        // - +  OVK_MINUS
-};
+#if defined(KEYS_OVERRIDE_ENABLE)
+ 
+#include "processKeyOverride.h"
+#include LAYOUT_OVERRIDES_INC
+
 
 int8_t keyOverrideIndex(uint16_t keycode) {
     for (uint8_t idx = 0; idx < ARRAY_SIZE(keyOverrides); idx++) {
@@ -73,3 +67,5 @@ bool process_keyOverride(uint16_t keycode, keyrecord_t *record) {
 
     return false;
 }
+
+#endif // defined(KEYS_OVERRIDE_ENABLE)
