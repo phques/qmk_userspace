@@ -40,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		KC_TAB,  KC_Q,    KC_W,  KC_E,   KC_R,   KC_T,    KC_Y,    KC_U,  KC_I,   KC_O,    KC_P,   KC_LBRC, KC_RBRC, KC_BSLS, KC_PGUP,
         KC_CAPS, KC_A,    KC_S,  KC_D,   KC_F,   KC_G,    KC_BSPC, KC_H,  KC_J,   KC_K,    KC_L,   KC_SCLN, KC_QUOT, KC_ENT,  KC_PGDN,
         KC_LSFT, KC_Z,    KC_X,  KC_C,   KC_V,   KC_B,    KC_ENT,  KC_N,  KC_M,   KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, KC_UP,
-        SK_LCTL, SK_LGUI, KC_LALT,       KC_SPC, KC_LCTL, KC_LSFT, KC_SPC,        KC_RALT, MO(L_CFG),SK_RCTL, KC_LEFT, KC_DOWN, KC_RGHT),
+        SK_LCTL, SK_LGUI, KC_LALT,       KC_SPC, SK_LCTL, KC_LSFT, KC_SPC,        KC_RALT, MO(L_CFG),SK_RCTL, KC_LEFT, KC_DOWN, KC_RGHT),
 #endif
 //     Key Position Names for a 34 (-54) key split form factor
 //        Should cover Ferris through Atreus-Kyria-Ergodox
@@ -84,8 +84,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,  KC_F6,      KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,  KC_DEL,           KC_PSCR,
     KC_GRV,  KC_1,   KC_2,   KC_3,   KC_4,   KC_5,               KC_6,   KC_7,   KC_8,   KC_9,   KC_0,    KC_MINS, KC_EQL,  KC_BSPC,
 
-    LV_LT5,  LV_LT4, LV_LT3, LV_LT2, LV_LT1, LV_LT0,             LV_RT0, LV_RT1, LV_RT2, LV_RT3, LV_RT4,  LV_RT5,  KC_RBRC, KC_BSLS, KC_PGUP,
-    LV_LM5,  LV_LM4, LV_LM3, LV_LM2, LV_LM1, LV_LM0,   LV_LMA,   LV_RM0, LV_RM1, LV_RM2, LV_RM3, LV_RM4,  LV_RM5,  KC_ENT,           KC_PGDN,
+    LV_LT5,  LV_LT4, LV_LT3, LV_LT2, LV_LT1, LV_LT0,             LV_RT0, LV_RT1, LV_RT2, LV_RT3, LV_RT4,  LV_RT5,  KC_RBRC, KC_BSLS, KC_HOME,
+    LV_LM5,  LV_LM4, LV_LM3, LV_LM2, LV_LM1, LV_LM0,   LV_LMA,   LV_RM0, LV_RM1, LV_RM2, LV_RM3, LV_RM4,  LV_RM5,  KC_ENT,           KC_END,
     LV_LB5,  LV_LB4, LV_LB3, LV_LB2, LV_LB1, LV_LB0,   LV_LBA,   LV_RB0, LV_RB1, LV_RB2, LV_RB3, LV_RB4,  LV_RB5,           KC_UP,
     LV_LH5,  LV_LH4,     LV_LH3,         LV_LH2,   LV_LH1, LV_RH1,   LV_RH2,         LV_RH3,     LV_RH4,  LV_RH5,  KC_LEFT, KC_DOWN, KC_RGHT
 ),
@@ -95,8 +95,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     QK_BOOT, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,  KC_F6,      KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,  KC_DEL,          KC_PSCR,
     KC_GRV,  KC_1,   KC_2,   KC_3,   KC_4,   KC_5,               KC_6,   KC_7,   KC_8,   KC_9,   KC_0,    KC_MINS, KC_EQL,  KC_BSPC,
 
-    LC_LT5,  LC_LT4, LC_LT3, LC_LT2, LC_LT1, LC_LT0,             LC_RT0, LC_RT1, LC_RT2, LC_RT3, LC_RT4,  LC_RT5,  KC_RBRC, KC_BSLS, SK_LINEBEG,
-    LC_LM5,  LC_LM4, LC_LM3, LC_LM2, LC_LM1, LC_LM0,   LC_LMA,   LC_RM0, LC_RM1, LC_RM2, LC_RM3, LC_RM4,  LC_RM5,  KC_ENT,           SK_LINEEND,
+    LC_LT5,  LC_LT4, LC_LT3, LC_LT2, LC_LT1, LC_LT0,             LC_RT0, LC_RT1, LC_RT2, LC_RT3, LC_RT4,  LC_RT5,  KC_RBRC, KC_BSLS, KC_HOME,
+    LC_LM5,  LC_LM4, LC_LM3, LC_LM2, LC_LM1, LC_LM0,   LC_LMA,   LC_RM0, LC_RM1, LC_RM2, LC_RM3, LC_RM4,  LC_RM5,  KC_ENT,           KC_END,
     LC_LB5,  LC_LB4, LC_LB3, LC_LB2, LC_LB1, LC_LB0,   LC_LBA,   LC_RB0, LC_RB1, LC_RB2, LC_RB3, LC_RB4,  LC_RB5,           KC_UP,
     LC_LH5,  LC_LH4,     LC_LH3,         LC_LH2,   LC_LH1, LC_RH1,   LC_RH2,         LC_RH3,     LC_RH4,  LC_RH5,  KC_LEFT, KC_DOWN, KC_RGHT
 ),
