@@ -184,6 +184,7 @@ bool rgb_matrix_indicators_user(void) {
 
  //-----------
 
+static bool suspend = false;
 
 // Left hand home row
 uint8_t LH_HOME[] = {46, 47, 48, 49};
@@ -199,6 +200,11 @@ static void set_keys(uint8_t *keys, uint8_t size, uint8_t r, uint8_t g, uint8_t 
 
 // NB: does not save user config or flush the LEDs, so call is31fl3731_flush() after this to see the changes.
 bool rgb_set_indicators(layer_state_t state) {
+
+	if (suspend) {
+		// if suspended, don't set any indicators, just return (the background will be turned off in rgb_set_background)
+		return true;
+	}
 
     //-- set the home row keys to a blue, to help with orientation
 	if (user_config.NightMode) {
@@ -268,12 +274,26 @@ bool rgb_set_indicators(layer_state_t state) {
 
 // NB: does not save user config or flush the LEDs, so call is31fl3731_flush() after this to see the changes.
 void rgb_set_background(void) {
-	// set the background to a dim white
-	if (user_config.NightMode) {
-    	is31fl3731_set_color_all(15,15,15);
-    } else {
-        is31fl3731_set_color_all(40, 40, 40);
-    }
+	if (suspend) {
+		is31fl3731_set_color_all(0, 0, 0); // turn off all LEDs when suspended
+	} else if (user_config.NightMode) {
+		// set the background to a dim white
+		is31fl3731_set_color_all(15,15,15);
+	} else {
+		// set the background to a (less) dim white
+		is31fl3731_set_color_all(40, 40, 40);
+	}
+}
+
+void rgb_refresh(void) {
+	rgb_set_background(); // update the background immediately
+	rgb_set_indicators(layer_state); // update the indicators immediately
+	is31fl3731_flush();
+}
+
+void rgb_set_suspend(bool is_suspended) {
+	suspend = is_suspended;
+	rgb_refresh(); // update the LEDs immediately based on the new suspend state
 }
 
 #endif

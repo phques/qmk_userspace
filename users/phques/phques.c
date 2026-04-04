@@ -152,6 +152,7 @@ void toggleNightMode(void) {
 }
 
 //----------
+
 layer_state_t layer_state_set_user(layer_state_t state) {
     refreshIndicators(state);
     return state;
@@ -161,6 +162,7 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
     refreshIndicators(state);
     return state;
 }
+
 bool led_update_user(led_t led_state) {
     if (led_state.caps_lock) {
         // Actions to perform when Caps Lock is ON
@@ -170,4 +172,14 @@ bool led_update_user(led_t led_state) {
         refreshIndicators(layer_state);
     }
     return true; // Return true to allow the keyboard's default LED behavior
+}
+
+void suspend_power_down_user(void) {
+    // Code here runs when the host goes to sleep
+    rgb_set_suspend(true); // set suspend state to true
+}
+
+void suspend_wakeup_init_user(void) {
+    // Code here runs when the host wakes up
+    rgb_set_suspend(false); // set suspend state to false
 }
