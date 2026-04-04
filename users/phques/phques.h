@@ -130,10 +130,17 @@ typedef union {
 #endif
 
 // Caster
-#if 1
+#if 0
 #define LAYOUT_HEADER_H "layouts/caster/caster-keys.h" 
 #undef ADAPTIVE_ENABLE      // Caster doesn't use adaptive keys, so disable the feature
 #undef KEYS_OVERRIDE_ENABLE // Caster doesn't use key overrides, so disable the feature
+#endif
+
+// Sunlight
+#if 1
+#define LAYOUT_HEADER_H      "layouts/sunlight/sunlight-keys.h" 
+#define LAYOUT_ADAPTIVE_INC  "layouts/sunlight/sunlight-adaptives.h" // Sunlight adaptives (for processAdaptive.c)
+#define LAYOUT_OVERRIDES_INC "layouts/sunlight/sunlight-overrides.h" // Sunlight overrides (for processKeyOverride.c)
 #endif
 
 

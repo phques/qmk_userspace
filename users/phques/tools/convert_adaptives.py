@@ -31,7 +31,9 @@ from typing import List, Tuple
 
 SPECIAL = {
     ".": "KC_DOT",
+    ",": "KC_COMMA",
     "/": "KC_SLASH",
+    "=": "KC_EQUAL",
     '"': "KC_DQUO",
     "'": "KC_QUOTE",
     "#": "KC_HASH",

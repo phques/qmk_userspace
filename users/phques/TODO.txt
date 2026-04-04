@@ -1,19 +1,19 @@
 - complete pq own rgb
   - simulate rgb matrix keys from solid 'anim', to change hue/sat/val etc
-    
+- 'power off' mode on usb suspend (leds at least)   
 
 - maybe add support for alt-xx in overrides
   - alt-/  => \ and other things that moutis does
 
-- some double tap? should be easy to implement?
+- some double tap? should be easy to implement? can actually use adaptives
   - what to do with it!?
-
-- review
-  - layers
-  - combos
 
 - linger keys?
   - linger-',' => ", "
    (still not a fan of ',' on middle row, specially ", ")
    maybe moutis magic ',' shift?
+
+- review/learn
+  - layers
+  - combos
 

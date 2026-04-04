@@ -55,6 +55,7 @@
 
 */
 
+#include "keycodes.h"
 #include "phques.h"
 #include "semantickeys.h"
 
@@ -83,7 +84,9 @@ const uint16_t SemKeys_t[SK_count][OS_count] = {
     [SK_ndx(SK_FNDF)] = {LSG(KC_F),C(S(KC_F))},             // find in file
     [SK_ndx(SK_SCAP)] = {LSG(KC_4),KC_PSCR},              // Screen Capture
     [SK_ndx(SK_SCLP)] = {C(S(G(KC_4))),A(KC_PSCR)},       // Selection Capture
-    [SK_ndx(SK_SRCH)] = {G(KC_SPC),G(KC_S)},              // platform search (siri/cortana, etc.)
+    //PQ [SK_ndx(SK_SRCH)] = {G(KC_SPC),G(KC_S)},              // platform search (siri/cortana, etc.)
+    //PQ windows power toys
+    [SK_ndx(SK_SRCH)] = {G(KC_SPC),A(KC_SPC)},              // platform search (siri/cortana, etc.)
     [SK_ndx(SK_DELWDL)] = {A(KC_BSPC),C(KC_BSPC)},        // DELETE WORD LEFT
     [SK_ndx(SK_DELWDR)] = {A(KC_DEL),C(KC_DEL)},          // DELETE WORD RIGHT
     [SK_ndx(SK_DELLNL)] = {G(KC_BSPC),C(KC_BSPC)},        // Delete line left of cursor

@@ -1,0 +1,26 @@
+[
+  ["hg", "hm"],
+  ["uy", "ue"],
+  ["yr", "y,"],
+  [",.", "o."],
+  ["wg", "wn"],
+  ["db", "dg"],
+  ["gw", "gd"],
+  
+  ["gg", "gth"],
+  ["--", " - "],
+
+  ["./", ".com"],
+  [".,", ".edu"],
+  [".'", ".org"],
+
+  ["c=", "cgi"],
+  ["g=", "gmail"],
+  ["q=", "quesnel"],
+  ["p=", "philippe"],
+  [".=", "philippe.quesnel"],
+  ["d=", "device"],
+  ["i=", "circuit"],
+  ["t=", "integration\\"],
+  ["s=", "select * from "]
+]
