@@ -18,6 +18,7 @@ const adaptive_2key_t adaptive_2keys[] PROGMEM = {
     {KC_W, KC_G, "wn"},                    /* wg -> wn */
     {KC_D, KC_B, "dg"},                    /* db -> dg */
     {KC_G, KC_W, "gd"},                    /* gw -> gd */
+    {KC_G, KC_G, "gth"},                   /* gg -> gth */
     {KC_MINUS, KC_MINUS, " - "},           /* -- ->  -  */
     {KC_DOT, KC_SLASH, ".com"},            /* ./ -> .com */
     {KC_DOT, KC_COMMA, ".edu"},            /* ., -> .edu */
