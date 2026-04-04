@@ -195,7 +195,7 @@ enum my_combos {
     FC_SCLP, // Screen Capture Selection to clipboard
     FC_SRCH, // Platform search (siri/cortana/–uses semkey)
 
-//    HC_ENT,
+   HC_ENT,
 //    HC_ENT2, // hard enter (cmd/ctrl-enter–uses semkey)
     HC_SPC,
     HC_NEW,

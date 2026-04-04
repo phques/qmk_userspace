@@ -41,7 +41,7 @@ const uint16_t PROGMEM H_menu_nav_combo[] = {LV_LT1, LV_LT0, COMBO_END}; // AppM
 const uint16_t PROGMEM Htab_combo[] = {HD_tab_keys, COMBO_END};    // tab
 const uint16_t PROGMEM Hstab_combo[] = {HD_stab_keys, COMBO_END};  // shift-tab
 const uint16_t PROGMEM Hspc_combo[] = {HD_spc_keys, COMBO_END};    // SPACE
-// const uint16_t PROGMEM Hent_combo[] = {HD_ent_keys, COMBO_END};    // ENTER
+const uint16_t PROGMEM Hent_combo[] = {HD_ent_keys, COMBO_END};    // ENTER
 // const uint16_t PROGMEM Hent2_combo[] = {HD_ent2_keys, COMBO_END};  // hard-ENTER/page break
 
 // SEMANTIC FUNCTIONS  ** using SemKeys **
@@ -372,7 +372,7 @@ combo_t key_combos[] = {
     [HC_SPC] = COMBO(Hspc_combo, KC_SPC), // SPACE
 #endif
 #ifdef HD_ent_keys
-    // [HC_ENT] = COMBO(Hent_combo, KC_ENT), // ENTER
+    [HC_ENT] = COMBO(Hent_combo, KC_ENT), // ENTER
 #endif
 #ifdef HD_ent2_keys
     // [HC_ENT2] = COMBO(Hent2_combo, SK_HENT), // hard-ENTER

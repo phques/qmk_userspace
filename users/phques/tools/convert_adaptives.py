@@ -37,6 +37,7 @@ SPECIAL = {
     '"': "KC_DQUO",
     "'": "KC_QUOTE",
     "#": "KC_HASH",
+    "-": "KC_MINUS",
 }
 
 LETTERS = {c: f"KC_{c.upper()}" for c in string.ascii_lowercase}
@@ -56,7 +57,9 @@ def c_escape(s: str) -> str:
 
 
 def mapping_comment(trigger: str, output: str) -> str:
-    return f"// {trigger} -> {output}"
+    # Emit block comments to avoid C line-splice issues from trailing backslashes.
+    safe_output = output.replace("\n", "\\n").replace("\r", "\\r").replace("*/", "* /")
+    return f"/* {trigger} -> {safe_output} */"
 
 
 def format_entry(entry: str, comment: str, width: int) -> str:

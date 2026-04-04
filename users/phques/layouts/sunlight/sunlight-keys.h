@@ -38,12 +38,12 @@
 #define HD_M KC_M
 #define HD_D KC_D
 #define HD_Q KC_Q
-#define HD_R KC_R
+#define HD_R LT(L_NAV, KC_R)
 
 #define HD_MINS KC_MINUS
-#define HD_SPC  KC_SPC
-#define HD_BSPC KC_BSPC
-#define HD_ENT  KC_ENT
+#define HD_SPC  LT(L_SYM, KC_SPC)
+#define HD_BSPC LT(L_FUN, KC_BSPC)
+#define HD_ENT  LT(L_NAV, KC_ENT)
 #define HD_QUOT KC_QUOTE
 #define HD_SLSH KC_SLASH
 #define HD_DOT  KC_DOT
@@ -83,9 +83,9 @@
 //
 /*  Base (alpha) Layer  Sunlight (HRMs /+ thumb mods)
               ╭─────────────────────╮                 ╭─────────────────────╮
-     Caps     │  X   W   H   G   Q  │                 │  =   .   /   ,   '  │ Z
-      esc     │  S   N   L   T   V  |      Paste      |  ;   A   E   I   C  │ J
-      tab     │  F   B   M   D   K  │      Copy       │  -   O   U   Y   P  │
+      Caps    │  X   W   H   G   Q  │                 │  =   .   /   ,   '  │ Z
+      Esc     │  S   N   L   T   V  |      Paste      |  ;   A   E   I   C  │ J
+      LSHFT   │  F   B   M   D   K  │      Copy       │  -   O   U   Y   P  │ RSHFT
               ╰───────────╮  R  bsp │                 │ ret  spc ╭──────────╯
                           ╰─────────╯                 ╰──────────╯
 */  
@@ -117,7 +117,7 @@
 // the other outlying '5' keys (ie LT5 etc)
 #define HD_LT5 KC_CAPS
 #define HD_LM5 KC_ESC
-#define HD_LB5 KC_TAB
+#define HD_LB5 KC_LSFT
 
 #define HD_LTA KC_NO  // PQ xbows nature
 #define HD_RTA KC_NO  // PQ xbows nature
@@ -154,15 +154,15 @@
 #define HD_LH5 SK_LCTL  // PQ xbows nature
 #define HD_LH4 SK_LGUI  // PQ xbows nature
 #define HD_LH3 KC_LALT  // PQ xbows nature
-#define HD_LH2 LT(L_NAV, HD_R)
-#define HD_LH1 LT(L_FUN, HD_BSPC)
+#define HD_LH2 HD_R
+#define HD_LH1 HD_BSPC
 #define HD_LH0 KC_NO
 #define HD_LHA KC_NO
 
 #define HD_RHA KC_NO
 #define HD_RH0 KC_NO
-#define HD_RH1 LT(L_NAV, HD_ENT)
-#define HD_RH2 LT(L_SYM, HD_SPC)
+#define HD_RH1 HD_ENT
+#define HD_RH2 HD_SPC
 #define HD_RH3 KC_RALT      // PQ xbows nature
 #define HD_RH4 MO(L_CFG)    // PQ xbows nature, Keep Fn key as access to CFG layer
 #define HD_RH5 SK_RCTL
@@ -231,7 +231,7 @@
 // try to make these use the lead letter and a neighbor.
 // (listed here in order of frequency as per Mayzner: https://norvig.com/mayzner.html)
 //
-#define HD_Th_keys HD_LM2, HD_LT1 // TYPE "th"
+#define HD_Th_keys HD_LM2, HD_LM1 // TYPE "th"
 #ifndef EN_PRONOUN_COMBOS
 #define HD_Ch_keys HD_RM3, HD_RM4 // TYPE "ch" // same as "I" HD_Icap_keys
 #else
