@@ -1,0 +1,29 @@
+[
+  ["ae", "au"],
+  ["uc", "ua"],
+  ["oc", "oe"],
+  ["ec", "eo"],
+
+  ["hg", "hm"],
+  ["yr", "y,"],
+  [",.", "o."],
+  ["wg", "wn"],
+  ["db", "dg"],
+  ["gw", "gd"],
+  
+  ["--", " - "],
+
+  ["./", ".com"],
+  [".,", ".edu"],
+  [".'", ".org"],
+
+  ["c#", "cgi"],
+  ["g#", "gmail"],
+  ["q#", "quesnel"],
+  ["p#", "philippe"],
+  [".#", "philippe.quesnel"],
+  ["d#", "device"],
+  ["i#", "circuit"],
+  ["t#", "integration\\"],
+  ["s#", "select * from "]
+]

@@ -11,6 +11,7 @@
   - swapped (vert):
     - F<->X
     - K<->Q
+    - O<->U
 */
 
 #include <keycodes.h>
@@ -83,16 +84,16 @@
 //
 /*  Base (alpha) Layer  Sunlight (HRMs /+ thumb mods)
               ╭─────────────────────╮                 ╭─────────────────────╮
-      Caps    │  X   W   H   G   Q  │                 │  =   .   /   ,   '  │ Z
-      Esc     │  S   N   L   T   V  |      Paste      |  ;   A   E   I   C  │ J
-      LSHFT   │  F   B   M   D   K  │      Copy       │  -   O   U   Y   P  │ RSHFT
+      Caps    │  V   W   H   G   Q  │                 │  #   .   /   ,   '  │ Z
+      Esc     │  S   N   L   T   K  |      Paste      |  ;   A   E   I   C  │ X
+      LSHFT   │  F   B   M   D   J  │      Copy       │  -   U   O   Y   P  │ RSHFT
               ╰───────────╮  R  bsp │                 │ ret  spc ╭──────────╯
                           ╰─────────╯                 ╰──────────╯
 */  
 
 //## HD_LTx definitions
 
-#define HD_LT4 HD_X
+#define HD_LT4 HD_V
 #define HD_LT3 HD_W
 #define HD_LT2 HD_H
 #define HD_LT1 HD_G
@@ -102,13 +103,13 @@
 #define HD_LM3 HD_N
 #define HD_LM2 HD_L
 #define HD_LM1 HD_T
-#define HD_LM0 HD_V
+#define HD_LM0 HD_K
 
 #define HD_LB4 HD_F
 #define HD_LB3 HD_B
 #define HD_LB2 HD_M
 #define HD_LB1 HD_D
-#define HD_LB0 HD_K
+#define HD_LB0 HD_J
 
 // the middle extra keys
 #define HD_LMA SK_PSTE //PQ xbows nature
@@ -122,7 +123,7 @@
 #define HD_LTA KC_NO  // PQ xbows nature
 #define HD_RTA KC_NO  // PQ xbows nature
 
-#define HD_RT0 HD_EQL
+#define HD_RT0 HD_HASH
 #define HD_RT1 HD_DOT
 #define HD_RT2 HD_SLSH
 #define HD_RT3 HD_COMM
@@ -134,11 +135,11 @@
 #define HD_RM2 HD_E
 #define HD_RM3 HD_I
 #define HD_RM4 HD_C
-#define HD_RM5 HD_J
+#define HD_RM5 HD_X
 
 #define HD_RB0 HD_MINS
-#define HD_RB1 HD_O
-#define HD_RB2 HD_U
+#define HD_RB1 HD_U
+#define HD_RB2 HD_O
 #define HD_RB3 HD_Y
 #define HD_RB4 HD_P
 #define HD_RB5 KC_RSFT

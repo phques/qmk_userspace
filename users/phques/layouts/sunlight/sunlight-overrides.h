@@ -9,4 +9,5 @@ const uint16_t keyOverrides[][2] PROGMEM = {
     {KC_SEMICOLON,  KC_LT},          // ; <
     {KC_COMMA,      KC_GT},          // , >  
     {KC_MINUS,      KC_PLUS},        // - +  
+    {KC_HASH,       KC_DOLLAR},      // # $
 };

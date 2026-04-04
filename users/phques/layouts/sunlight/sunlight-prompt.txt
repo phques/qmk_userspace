@@ -52,28 +52,30 @@ include these in the output :
 #define HD_RH5 SK_RCTL
 
  Grid:
- ╭─────────────────────╮   ╭─────────────────────╮
- │ LT4 LT3 LT2 LT1 LT0 │   │ RT0 RT1 RT2 RT3 RT4 │ RT5
- │ LM4 LM3 LM2 LM1 LM0 |   | RM0 RM1 RM2 RM3 RM4 │ RM5
- │ LB4 LB3 LB2 LB1 LB0 │   │ RB0 RB1 RB2 RB3 RB4 │ 
-                 LH2  LH1 RH1 RH2
+     ╭─────────────────────╮   ╭─────────────────────╮
+ LT5 │ LT4 LT3 LT2 LT1 LT0 │   │ RT0 RT1 RT2 RT3 RT4 │ RT5
+ LM5 │ LM4 LM3 LM2 LM1 LM0 |   | RM0 RM1 RM2 RM3 RM4 │ RM5
+     │ LB4 LB3 LB2 LB1 LB0 │   │ RB0 RB1 RB2 RB3 RB4 │ 
+                   LH2  LH1 RH1 RH2
 
-Layout:
-x w h g q  = . / , ' z
-s n l t v  ; a e i c j
-f b m d k  - o u y p 
-     r BSPC ENTER SPACE 
+Layout ver c (closer to hd pm now!):
+/*  Base (alpha) Layer  Sunlight (HRMs /+ thumb mods)
+              ╭─────────────────────╮                 ╭─────────────────────╮
+      Caps    │  V   W   H   G   Q  │                 │  #   .   /   ,   '  │ Z
+      Esc     │  S   N   L   T   K  |      Paste      |  ;   A   E   I   C  │ X
+      LSHFT   │  F   B   M   D   J  │      Copy       │  -   U   O   Y   P  │ RSHFT
+              ╰───────────╮  R  bsp │                 │ ret  spc ╭──────────╯
+                          ╰─────────╯                 ╰──────────╯
 
-*/
-/* Changes
- Left hand:
-  - vertically swapped / 'bottom heavy'
-  - rearranged zj'
-  - swapped ,-
- Right hand:
-  - swapped (vert):
-    - F<->X
-    - K<->Q
+
+Layout ver b:
+/*  Base (alpha) Layer  Sunlight (HRMs /+ thumb mods)
+              ╭─────────────────────╮                 ╭─────────────────────╮
+      Caps    │  V   W   H   G   Q  │                 │  #   .   /   ,   '  │ Z
+      Esc     │  S   N   L   T   K  |      Paste      |  ;   A   E   I   C  │ J
+      LSHFT   │  F   B   M   D   X  │      Copy       │  -   O   U   Y   P  │ RSHFT
+              ╰───────────╮  R  bsp │                 │ ret  spc ╭──────────╯
+                          ╰─────────╯                 ╰──────────╯
 */
 
 /*

@@ -136,10 +136,10 @@ typedef union {
 #undef KEYS_OVERRIDE_ENABLE // Caster doesn't use key overrides, so disable the feature
 #endif
 
-// Sunlight
+// Sunlight (PQ ver-c)
 #if 1
-#define LAYOUT_HEADER_H      "layouts/sunlight/sunlight-keys.h" 
-#define LAYOUT_ADAPTIVE_INC  "layouts/sunlight/sunlight-adaptives.h" // Sunlight adaptives (for processAdaptive.c)
+#define LAYOUT_HEADER_H      "layouts/sunlight/sunlight-keys-c.h" 
+#define LAYOUT_ADAPTIVE_INC  "layouts/sunlight/sunlight-adaptives-c.h" // Sunlight adaptives (for processAdaptive.c)
 #define LAYOUT_OVERRIDES_INC "layouts/sunlight/sunlight-overrides.h" // Sunlight overrides (for processKeyOverride.c)
 #endif
 
