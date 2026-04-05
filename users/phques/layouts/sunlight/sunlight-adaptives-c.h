@@ -9,9 +9,9 @@ const adaptive_3key_t adaptive_3keys[] PROGMEM = {
 
 const adaptive_2key_t adaptive_2keys[] PROGMEM = {
     {KC_A, KC_E, "au"},                    /* ae -> au */
-    {KC_U, KC_C, "ua"},                    /* uc -> ua */
-    {KC_O, KC_C, "oe"},                    /* oc -> oe */
-    {KC_E, KC_C, "eo"},                    /* ec -> eo */
+    {KC_U, KC_Y, "ua"},                    /* uy -> ua */
+    {KC_O, KC_Y, "oe"},                    /* oy -> oe */
+    {KC_E, KC_QUOTE, "eo"},                /* e' -> eo */
     {KC_H, KC_G, "hm"},                    /* hg -> hm */
     {KC_Y, KC_R, "y,"},                    /* yr -> y, */
     {KC_COMMA, KC_DOT, "o."},              /* ,. -> o. */

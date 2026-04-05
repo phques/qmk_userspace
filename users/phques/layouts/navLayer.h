@@ -9,7 +9,7 @@
 __ │   FNDFIL   CLOZ    SCAP    SCLP    PSTM  │                  │  DOCBEG     LINEBEG UP      PGUP    WINPRV    │ KC_NUM
 __ │   LCTL     LALT    LGUI    LSFT    FIND  |                  |  WORDPRV    LEFT    DOWN    RGHT    WORDNXT   │ __
 __ │   UNDO     CUT     COPY    PSTE    FAGN  │   LAY_LOCK       │  DOCEND     LINEEND DOWN    PGDN    WINNXT    │ __
-   ╰──────────────────╮  __     __     __     │      TAB         │  HISTPRV  HISTNXT    __    ╭──────────────────╯
+   ╰──────────────────╮  __     __     __     │      TAB         │  HISTPRV    BSPC     __    ╭──────────────────╯
       ZOOMRST ZOOMOUT ╰───────────────────────╯                  ╰────────────────────────────╯ HISTPRV HISTNXT
 */
 
@@ -67,7 +67,7 @@ __ │   UNDO     CUT     COPY    PSTE    FAGN  │   LAY_LOCK       │  DOCEND
 #define LV_RHA TG(L_NAV)
 #define LV_RH0 SK_ZOOMRST  // also right encoder hat switch
 #define LV_RH1 SK_HISTPRV
-#define LV_RH2 SK_HISTNXT
+#define LV_RH2 HD_BSPC
 #define LV_RH3 KC_RALT    // PQ xbows nature, wasTG(L_NUM)
 #define LV_RH4 SK_PARAPRV // also right encoder CCW
 #define LV_RH5 SK_PARANXT // also right encoder CW

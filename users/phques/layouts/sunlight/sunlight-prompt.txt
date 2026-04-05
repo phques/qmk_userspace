@@ -61,12 +61,12 @@ include these in the output :
 Layout ver c (closer to hd pm now!):
 /*  Base (alpha) Layer  Sunlight (HRMs /+ thumb mods)
               ╭─────────────────────╮                 ╭─────────────────────╮
-      Caps    │  V   W   H   G   Q  │                 │  #   .   /   ,   '  │ Z
-      Esc     │  S   N   L   T   K  |      Paste      |  ;   A   E   I   C  │ X
-      LSHFT   │  F   B   M   D   J  │      Copy       │  -   U   O   Y   P  │ RSHFT
+      Caps    │  V   W   H   G   Q  │                 │  #$  .:  /*  ,;  '> │ Z
+      Esc     │  S   N   L   T   K  |      Paste      |  "<   A   E   I   C │ X
+      LSHFT   │  F   B   M   D   J  │      Copy       │  -+   U   O   Y   P │ RSHFT
               ╰───────────╮  R  bsp │                 │ ret  spc ╭──────────╯
                           ╰─────────╯                 ╰──────────╯
-
+*/  nb: ; is on AC
 
 Layout ver b:
 /*  Base (alpha) Layer  Sunlight (HRMs /+ thumb mods)

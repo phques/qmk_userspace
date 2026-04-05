@@ -54,8 +54,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,  KC_F6,      KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,  KC_DEL,           KC_PSCR,
     KC_GRV,  KC_1,   KC_2,   KC_3,   KC_4,   KC_5,               KC_6,   KC_7,   KC_8,   KC_9,   KC_0,    KC_MINS, KC_EQL,  KC_BSPC,
 
-    HD_LT5,  HD_LT4, HD_LT3, HD_LT2, HD_LT1, HD_LT0,             HD_RT0, HD_RT1, HD_RT2, HD_RT3, HD_RT4,  HD_RT5,  KC_RBRC, KC_BSLS, KC_PGUP,
-    HD_LM5,  HD_LM4, HD_LM3, HD_LM2, HD_LM1, HD_LM0,   HD_LMA,   HD_RM0, HD_RM1, HD_RM2, HD_RM3, HD_RM4,  HD_RM5,  KC_ENT,           KC_PGDN,
+    HD_LT5,  HD_LT4, HD_LT3, HD_LT2, HD_LT1, HD_LT0,             HD_RT0, HD_RT1, HD_RT2, HD_RT3, HD_RT4,  HD_RT5,  KC_HOME, KC_END, KC_PGUP,
+    HD_LM5,  HD_LM4, HD_LM3, HD_LM2, HD_LM1, HD_LM0,   HD_LMA,   HD_RM0, HD_RM1, HD_RM2, HD_RM3, HD_RM4,  HD_RM5,  KC_ENT,          KC_PGDN,
     HD_LB5,  HD_LB4, HD_LB3, HD_LB2, HD_LB1, HD_LB0,   HD_LBA,   HD_RB0, HD_RB1, HD_RB2, HD_RB3, HD_RB4,  HD_RB5,           KC_UP,
     HD_LH5,  HD_LH4,     HD_LH3,         HD_LH2,   HD_LH1, HD_RH1,   HD_RH2,         HD_RH3,     HD_RH4,  HD_RH5,  KC_LEFT, KC_DOWN, KC_RGHT
 ),

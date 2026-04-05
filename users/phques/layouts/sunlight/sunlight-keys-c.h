@@ -52,6 +52,7 @@
 #define HD_SCLN KC_SCLN
 #define HD_EQL  KC_EQUAL
 #define HD_HASH KC_HASH
+#define HD_DQUO KC_DQUO
 #define HD_A RSFT_T(KC_A)
 #define HD_E RGUI_T(KC_E)
 #define HD_I RALT_T(KC_I)
@@ -82,11 +83,11 @@
 // LH5   │ LH4    --LH3-- --LH2-- │ LH1          RH1 │ --RH2-- --RH3-- RH4   RH5
 // L_CTRL  L_GUI  L_ALT   L_SPC    Ctrl        Shift   R_SPC   R_ALT   Fn    R_CTRL
 //
-/*  Base (alpha) Layer  Sunlight (HRMs /+ thumb mods)
-              ╭─────────────────────╮                 ╭─────────────────────╮
-      Caps    │  V   W   H   G   Q  │                 │  #   .   /   ,   '  │ Z
-      Esc     │  S   N   L   T   K  |      Paste      |  ;   A   E   I   C  │ X
-      LSHFT   │  F   B   M   D   J  │      Copy       │  -   U   O   Y   P  │ RSHFT
+//  Base (alpha) Layer  Sunlight (HRMs /+ thumb mods)
+//            ╭─────────────────────╮                 ╭─────────────────────╮
+//    Caps    │  V   W   H   G   Q  │                 │  #$  .:  /*  ,;  '> │ Z
+/*    Esc     │  S   N   L   T   K  |      Paste      |  "<   A   E   I   C │ X
+      LSHFT   │  F   B   M   D   J  │      Copy       │  -+   U   O   Y   P │ RSHFT
               ╰───────────╮  R  bsp │                 │ ret  spc ╭──────────╯
                           ╰─────────╯                 ╰──────────╯
 */  
@@ -130,7 +131,7 @@
 #define HD_RT4 HD_QUOT
 #define HD_RT5 HD_Z
 
-#define HD_RM0 HD_SCLN
+#define HD_RM0 HD_DQUO
 #define HD_RM1 HD_A
 #define HD_RM2 HD_E
 #define HD_RM3 HD_I
