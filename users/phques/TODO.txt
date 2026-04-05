@@ -7,11 +7,6 @@
 - some double tap? should be easy to implement? can actually use adaptives
   - what to do with it!?
 
-- linger keys?
-  - linger-',' => ", "
-   (still not a fan of ',' on middle row, specially ", ")
-   maybe moutis magic ',' shift?
-
 - review/learn
   - layers
   - combos

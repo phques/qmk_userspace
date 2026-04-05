@@ -108,6 +108,7 @@ typedef union {
 #define register_HDkey(kc) ({is_SemKey(kc) ? register_SemKey(kc) : register_code16(kc);})
 #define unregister_HDkey(kc) ({is_SemKey(kc) ? unregister_SemKey(kc) : unregister_code16(kc);})
 
+#define tap_linger_key(kc) ({tap_HDkey(kc);linger_key = kc;linger_timer = timer_read();})
 #define register_linger_key(kc) ({register_HDkey(kc);linger_key = kc;linger_timer = timer_read();})
 #define unregister_linger_key() ({unregister_HDkey(linger_key) ;linger_key = 0;})
 

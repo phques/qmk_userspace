@@ -1,4 +1,5 @@
 
+#include <quantum/color.h>
 #include "phques.h"
 #include "rgb.h"
 
@@ -265,6 +266,8 @@ bool rgb_set_indicators(layer_state_t state) {
 	const uint8_t capsLockLed = g_led_config_matrix_co[3][0]; // the "Caps Lock" key.
 	if (host_keyboard_led_state().caps_lock) {
 		is31fl3731_set_color(capsLockLed, 60, 0, 60); // purple when caps lock is on.
+	} else if (is_caps_word_on()) {
+		is31fl3731_set_color(capsLockLed, RGB_GOLDENROD); // goldenrod when caps word is active.
 	} else {
 		is31fl3731_set_color(capsLockLed, 0, 0, 0); // off/black when caps lock is off.
 	}

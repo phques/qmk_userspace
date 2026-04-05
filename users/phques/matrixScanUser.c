@@ -2,14 +2,17 @@
 // Moved it to housekeeping_task_user, hoping to avoid problems I've been having.
 
 #include "keyboard.h"
+#include "keycodes.h"
 #include "phques.h"
 // #include "semantickeys.h"
 #include "processCombo.h"
 
+// PQ, using this rather than matrix_scan_user() on xbows nature
+
+// Custom code to run on every cycle of the main loop
+// Good for checking status of things or performing regular actions
 void housekeeping_task_user(void) {
     
-    // Custom code to run on every cycle of the main loop
-    // Good for checking status of things or performing regular actions
 #if defined(COMBO_ENABLE)
 // Is a combo_action being held for delayed action/linger combos)?
     if (combo_on) {
@@ -17,9 +20,9 @@ void housekeeping_task_user(void) {
     }
 #endif
 
-//
-// quick check in with the APP_MENU process
-//
+    //
+    // quick check in with the APP_MENU process
+    //
     if (appmenu_on) { // App menu up, (no mods) check if it needs to be cleared
         if (timer_elapsed(appmenu_timer) > STATE_RESET_TIME) {// menu up time elapsed?
             if (user_config.OSIndex) { // Y. stop the menu by lifting the mods
@@ -31,6 +34,31 @@ void housekeeping_task_user(void) {
             appmenu_on = false;
             appmenu_timer = mods_held = 0; // stop the timer
             return;
+        }
+    }
+
+    //
+    // prior register_linger_key(kc) needs to be handled here
+    //
+    if (linger_key && user_config.AdaptiveKeys) { // A linger key is being held down
+        if (timer_elapsed(linger_timer) > LINGER_TIME) { // linger triggered
+            saved_mods = get_mods();
+            clear_mods(); 
+            unregister_mods(MOD_MASK_SHIFT);  // second char isn't shifted. CAPSLOCK UNAFFECTED.
+
+            switch(linger_key) {
+                case KC_Q: // already "Q" has been sent; if lingered, add "u"
+                    tap_code(KC_U);
+                    break;
+                case KC_COMM: // already ", " has been sent; if lingered, delete space.
+                    tap_code(KC_BACKSPACE);
+                    break;
+                default:
+                    break;
+            }
+
+            linger_timer = linger_key = 0; // done lingering
+            set_mods(saved_mods); // Restore mods
         }
     }
 }

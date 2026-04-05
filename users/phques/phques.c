@@ -1,6 +1,7 @@
 
 //#include QMK_KEYBOARD_H
 
+#include <quantum/process_keycode/process_combo.h>
 #include "phques.h"
 #include <stdbool.h>
 #include <stdint.h>
@@ -164,14 +165,12 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
 }
 
 bool led_update_user(led_t led_state) {
-    if (led_state.caps_lock) {
-        // Actions to perform when Caps Lock is ON
-        refreshIndicators(layer_state);
-    } else {
-        // Actions to perform when Caps Lock is OFF
-        refreshIndicators(layer_state);
-    }
+    refreshIndicators(layer_state);
     return true; // Return true to allow the keyboard's default LED behavior
+}
+
+void caps_word_set_user(bool active) {
+    refreshIndicators(layer_state);
 }
 
 void suspend_power_down_user(void) {

@@ -2,8 +2,10 @@
 // This file is for handling custom keycodes and other record processing.
 
 #include <quantum.h>
+#include <quantum/caps_word.h>
 #include "action_util.h"
 #include "keycodes.h"
+#include "modifiers.h"
 #include "phques.h"
 #include "processRecord.h"
 #include "processAdaptive.h"
@@ -20,6 +22,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     bool return_state = true;
 
     saved_mods = get_mods(); // preserve mods
+    // uint8_t weak_mods = get_weak_mods();
 
     // Do we need to filter multi-function keys?
     switch (keycode) {
@@ -75,10 +78,29 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     // ----------------
 
-    //## PQ, no linger keys for now. Might want to add some later.
     if (record->event.pressed) {
 
         switch (keycode) { // only handling normal, SHFT or ALT cases.
+            case KC_SPC:  //
+                linger_key = 0;
+                break;
+
+            case KC_COMMA:  //  Comma: ", ", linger deletes Space 
+                if (!(saved_mods & MOD_MASK_SA)) {
+                    tap_linger_key(KC_COMM);
+                    tap_code(KC_SPC); // send space immediately, then linger comma for deletion if held.
+                    return_state = false; // stop processing this record.
+                }
+                break;
+
+            case KC_Q:  // Q, linger adds U
+                // no linger if Caps Word shift is active.
+                if (!(saved_mods & MOD_MASK_ALT) && !(is_caps_word_on())) {
+                    register_linger_key(keycode); //
+                    return_state = false; // stop processing this record.
+                }
+                break;
+
             case SK_Lux: // switch to linux (or Win if not defined)
             case SK_Win: // switch to windows
             case SK_Mac: // Back to default
@@ -119,11 +141,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #endif
         
     }
-    else { // (record->event.pressed) / // key up event
-
-        switch (keycode) { // only handling normal, SHFT or ALT cases.
-        } // end switch (keycode)
-
+    else { // (record->event.pressed)  key up event
+        if (linger_key) {
+            switch (keycode) {               // only handling normal, SHFT or ALT cases.
+                case KC_COMM:                // Comma
+                case KC_Q:                   // Q
+                    unregister_linger_key(); // stop any lingering
+                    return_state = false;    // stop processing this record.
+                    break;
+            } // end switch (keycode)
+        }
     } // end key up event
 
     return return_state;
