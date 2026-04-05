@@ -124,6 +124,10 @@ const uint16_t PROGMEM H_L1_combo[] = {HD_L1_keys, COMBO_END}; // ex. TYPE "z"
 //const uint16_t PROGMEM H_L2_combo[] = {HD_L2_keys, COMBO_END}; // ex. TYPE "x"
 //const uint16_t PROGMEM H_L3_combo[] = {HD_L3_keys, COMBO_END}; // ex. TYPE "j"
 
+#ifdef HD_Ing_keys
+const uint16_t PROGMEM H_Ing_combo[] = {HD_Ing_keys, COMBO_END}; // TYPE "ing"
+#endif
+
 // H digraph combos (ideally, these are phonetically/mnemonically arranged
 
 const uint16_t PROGMEM H_Th_combo[] = {HD_Th_keys, COMBO_END}; // TYPE "th"
@@ -244,6 +248,10 @@ combo_t key_combos[] = {
     [HC_L1] = COMBO(H_L1_combo, HD_L1),
 //    [HC_L2] = COMBO(H_L2_combo, HD_L2),
 //    [HC_L3] = COMBO(H_L3_combo, HD_L3),
+#ifdef HD_Ing_keys
+    [HC_ING] = COMBO_ACTION(H_Ing_combo), // TYPE "ing"
+#endif
+
 #ifdef EN_HDIGRAPH_COMBOS
     [HC_Ch] = COMBO_ACTION(H_Ch_combo),
     [HC_Sch] = COMBO_ACTION(H_Sch_combo),

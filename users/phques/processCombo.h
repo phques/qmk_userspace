@@ -62,7 +62,7 @@ enum my_combos {
     HC_L1, // ex. z not on the map (remappable)?
 //    HC_L2, // ex. x not on the map (remappable)?
 //    HC_L3, // ex. j not on the map (remappable)?
-
+    HC_ING, // "ing"  -- not a digraph, but a very common suffix
 
 //    HC_OE, // Œ
 //    HC_AE, // Æ

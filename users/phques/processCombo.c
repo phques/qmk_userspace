@@ -11,6 +11,7 @@
 #include <quantum.h>
 #include "phques.h"
 #include "semantickeys.h"
+#include "sendstr.h"
 #include "processCombo.h"
 
 
@@ -34,6 +35,11 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
                 combo_on = combo_index; // if held, delete the 'u' in matrix_scan_user_process_combo
                 break;
 
+            case HC_ING: //
+                if (saved_mods & (MOD_MASK_ALT | MOD_MASK_GUI)) // interested?
+                    break;
+                SendCapString("ing");
+                break;
 /*
  * H digraphs here
  */

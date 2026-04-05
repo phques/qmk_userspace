@@ -226,6 +226,7 @@
 //#define HD_L3_keys HD_LM3, HD_LM1 // ex. TYPE "j"
 //#define HD_L3 HD_J
 
+#define HD_Ing_keys HD_I, HD_N // TYPE "ing"
 //
 // H digraph combos -- strictly optional! In fact,
 // Promethium was designed to maximize H digraph rolling,
