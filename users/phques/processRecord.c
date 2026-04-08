@@ -39,6 +39,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     //--------------
 
+#ifdef ADAPT_SHIFT  // pseudo-adaptive comma-shift uses 2x ADAPTIVE_TERM, so pre-evaluated
+    if (
+        (prior_keycode == ADAPT_SHIFT) &&  // is it shift leader?
+        !is_caps_word_on() && // not already doing a caps_word?
+        (timer_elapsed(prior_keydown) <= ADAPTIVE_TERM * 4) &&  // use large threshold?
+        ((keycode & QK_BASIC_MAX) >= KC_A) &&  // followed by any alpha?
+        ((keycode & QK_BASIC_MAX) <= KC_Z)) {
+            tap_code(KC_BSPC); // get rid of ADAPT_SHIFT
+            tap_code16(S(keycode & QK_BASIC_MAX)); // send cap letter
+            preprior_keycode = linger_key = 0; // reset other states.
+            prior_keycode = keycode; // this keycode is stripped of mods+taps
+            prior_keydown = timer_read(); // (re)start prior_key timing
+            return false; // took care of that key
+        }
+#endif
+
+    //--------------
+
 #if defined(ADAPTIVE_ENABLE)
     // Should we handle an adaptive key?  (Semkey may send Adaptive?)
     if (record->event.pressed // keyup = not rolling = no adaptive -> return.
@@ -57,6 +75,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #if defined(KEYS_OVERRIDE_ENABLE)
     // Do we have a key override for this keycode?
     if (!process_keyOverride(keycode, record)) {
+        preprior_keycode = prior_keycode; // look back 2 keystrokes?
+        prior_keycode = keycode; // this keycode is stripped of mods+taps
+        prior_keydown = timer_read(); // (re)start prior_key timing
         return false; // took care of that key
     }
 #endif // #ifdef KEYS_OVERRIDE_ENABLE
@@ -85,9 +106,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 linger_key = 0;
                 break;
 
-            case KC_COMMA:  //  Comma: ", ", linger deletes Space 
+            case KC_COMMA:  //  Comma=> ", ", linger removes Space 
                 if (!(saved_mods & MOD_MASK_SA)) {
-                    tap_linger_key(KC_COMM);
+                    tap_linger_key(KC_COMMA);
                     tap_code(KC_SPC); // send space immediately, then linger comma for deletion if held.
                     return_state = false; // stop processing this record.
                 }

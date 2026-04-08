@@ -14,6 +14,12 @@
 #ifndef NO_ACTION_FUNCTION
 #define NO_ACTION_FUNCTION
 #endif
+
+// PQ using oneshot mods for shift. (not anymore)
+// #define ONESHOT_TAP_TOGGLE 2
+// same as STATE_RESET_TIME in phques.h, for how long to wait before resetting one-shot mods.
+// #define ONESHOT_TIMEOUT 3000
+
 #ifndef NO_ACTION_ONESHOT
 #define NO_ACTION_ONESHOT
 #endif

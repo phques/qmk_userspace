@@ -256,9 +256,9 @@ bool rgb_set_indicators(layer_state_t state) {
 	// (my XBows Nature has the Win key in the bottom row, so it's a good candidate for indicating OS mode)
     const uint8_t gui = g_led_config_matrix_co[5][1]; // the "Win" key.
     if (user_config.OSIndex == OS_Mac) {
-        is31fl3731_set_color(gui, 0, 0, 0); // off/black for Mac.
+        is31fl3731_set_color(gui, 80, 10, 10); // red for Mac.
     } else {
-        is31fl3731_set_color(gui, 45,45,45); // brighter white for Windows/Linux. 
+        is31fl3731_set_color(gui, 10, 80, 10); // green for Windows/Linux. 
     }
 
 

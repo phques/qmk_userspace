@@ -67,7 +67,7 @@ typedef union {
 #define LINGER_TIME TAPPING_TERM * 1.2 // how long to hold before a time-depentant behavior begins
 // how long to leave a state active before resetting like APPMENU or CAPSWORD
 //#define STATE_RESET_TIME LINGER_TIME * 3
-#define STATE_RESET_TIME (1000*3) //PQ 3 seconds, which is long enough for app menu navigation.
+#define STATE_RESET_TIME 3000 //PQ 3 seconds, which is long enough for app menu navigation.
 
 
 
@@ -77,8 +77,9 @@ typedef union {
 // -- Adaptive (or MAGIC) keys are like a QMK Leader Key, but after (Adaptive Trailer) --
 #define ADAPTIVE_ENABLE
 
+#define ADAPT_SHIFT KC_COMM // keycode to precede alpha for one-shot shift (leader)
+
 // ** PQ, the following are not used in my implementation .. **
-//#define ADAPT_SHIFT KC_COMM // keycode to precede alpha for one-shot shift (leader)
 // PM doesn't use the common vowel block, so…
 //#define ADAPT_H // eliminate SFBs AU/UA;EO/OE;LN;MN;NN using H (instead of ')
 //#define ADAPT_AE_AU // Use AE->AU (instead of AH->AU, AH is somewhat common)
