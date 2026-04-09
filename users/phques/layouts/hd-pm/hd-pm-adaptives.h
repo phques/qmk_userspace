@@ -47,10 +47,10 @@ const adaptive_2key_t adaptive_2keys[] PROGMEM = {
     {KC_U, KC_QUOTE, "ua"},                /* u' -> ua */
     {KC_E, KC_QUOTE, "eo"},                /* e' -> eo */
     {KC_O, KC_QUOTE, "oe"},                /* o' -> oe */
-    {KC_A, KC_Q, "au"},                    /* aq -> au */
-    {KC_U, KC_Q, "ua"},                    /* uq -> ua */
-    {KC_E, KC_Q, "eo"},                    /* eq -> eo */
-    {KC_O, KC_Q, "oe"},                    /* oq -> oe */
+    {KC_A, KC_X, "au"},                    /* ax -> au */
+    {KC_U, KC_X, "ua"},                    /* ux -> ua */
+    {KC_E, KC_X, "eo"},                    /* ex -> eo */
+    {KC_O, KC_X, "oe"},                    /* ox -> oe */
     {KC_C, KC_HASH, "cgi"},                /* c# -> cgi */
     {KC_G, KC_HASH, "gmail"},              /* g# -> gmail */
     {KC_Q, KC_HASH, "quesnel"},            /* q# -> quesnel */
