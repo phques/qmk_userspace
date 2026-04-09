@@ -106,13 +106,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 linger_key = 0;
                 break;
 
-            case KC_COMMA:  //  Comma=> ", ", linger removes Space 
-                if (!(saved_mods & MOD_MASK_SA)) {
-                    tap_linger_key(KC_COMMA);
-                    tap_code(KC_SPC); // send space immediately, then linger comma for deletion if held.
-                    return_state = false; // stop processing this record.
-                }
-                break;
+            // case KC_COMMA:  //  Comma=> ", ", linger removes Space 
+            //     if (!(saved_mods & MOD_MASK_SA)) {
+            //         tap_linger_key(KC_COMMA);
+            //         tap_code(KC_SPC); // send space immediately, then linger comma for deletion if held.
+            //         return_state = false; // stop processing this record.
+            //     }
+            //     break;
 
             case KC_Q:  // Q, linger adds U
                 // no linger if Caps Word shift is active.
@@ -165,7 +165,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     else { // (record->event.pressed)  key up event
         if (linger_key) {
             switch (keycode) {               // only handling normal, SHFT or ALT cases.
-                case KC_COMM:                // Comma
+                // case KC_COMM:                // Comma
                 case KC_Q:                   // Q
                     unregister_linger_key(); // stop any lingering
                     return_state = false;    // stop processing this record.

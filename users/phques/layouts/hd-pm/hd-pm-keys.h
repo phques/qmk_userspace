@@ -72,9 +72,9 @@
 //      that make Promethium what it is depend on the same-row neighbors
 //  ※ arguably, the inner column is less sensitive to this.
 //            ╭─────────────────────╮                 ╭─────────────────────╮
-//   Caps     │  V   W   G   M   J  │                 │  #$  .:  /*  "[  '] │ {   }
-//    esc     │  S   N   T   H   K  |      Paste      |  ,;   A   E   I   C │ Z
-//    tab     │  F   P   D   L   X  │      Copy       │  -+   U   O   Y   B │ Q
+//   Caps     │  V   W   G   M   J  │                 │  #$  .:  /*  ,;  '] │ { 
+//    esc     │  S   N   T   H   K  |      Paste      |  "[   A   E   I   C │ X
+//    tab     │  F   P   D   L   Q  │      Copy       │  -+   U   O   Y   B │ Z
 //            ╰───────────╮  R  bsp │                 │ ret  spc ╭──────────╯
 //                        ╰─────────╯                 ╰──────────╯
 //
@@ -93,7 +93,7 @@
 #define HD_RT0 KC_HASH
 #define HD_RT1 KC_DOT
 #define HD_RT2 KC_SLASH
-#define HD_RT3 KC_DQUO
+#define HD_RT3 KC_COMMA
 #define HD_RT4 KC_QUOTE
 #define HD_RT5 KC_LBRC
 
@@ -105,19 +105,19 @@
 #define HD_LM0 HD_K
 #define HD_LMA SK_PSTE //PQ xbows nature, was KC_RPRN
 #define HD_RMA KC_NO  // PQ xbows nature, was KC_LPRN
-#define HD_RM0 KC_COMMA
+#define HD_RM0 KC_DQUO
 #define HD_RM1 HD_A
 #define HD_RM2 HD_E
 #define HD_RM3 HD_I
 #define HD_RM4 HD_C
-#define HD_RM5 KC_Z
+#define HD_RM5 KC_X
 
 #define HD_LB5 KC_TAB
 #define HD_LB4 HD_F
 #define HD_LB3 HD_P
 #define HD_LB2 HD_D
 #define HD_LB1 HD_L
-#define HD_LB0 HD_X
+#define HD_LB0 HD_Q
 #define HD_LBA SK_COPY  // PQ xbows nature
 #define HD_LBB KC_NO    // PQ xbows nature
 #define HD_RBB KC_NO    // PQ xbows nature
@@ -127,7 +127,7 @@
 #define HD_RB2 HD_O
 #define HD_RB3 HD_Y
 #define HD_RB4 HD_B
-#define HD_RB5 HD_Q
+#define HD_RB5 HD_Z
 
 //Primary Thumbs 1-3 (others are unique to the board)
 #define HD_LH5 SK_LCTL  // PQ xbows nature

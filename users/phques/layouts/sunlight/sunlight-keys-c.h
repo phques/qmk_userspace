@@ -1,18 +1,7 @@
 #pragma once
 // Sunlight layout key definitions.
-// https://cyanophage.github.io/index.html#sunlight
-
-/* PQ Changes
- Left hand:
-  - vertically swapped / 'bottom heavy'
-  - rearranged zj'
-  - swapped ,-
- Right hand:
-  - swapped (vert):
-    - F<->X
-    - K<->Q
-    - O<->U
-*/
+// Original: https://cyanophage.github.io/index.html#sunlight
+// https://cyanophage.github.io/playground.html?layout=vwhgq%3D.%2F%2C%27zsnltk%3Baeicxfbmdj-uoyp%5Cr&mode=ergo&lan=english&thumb=l
 
 #include <keycodes.h>
 #include "semantickeys.h"

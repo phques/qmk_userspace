@@ -1,12 +1,15 @@
 PYTHON ?= python3
 
-ADAPT_JSON := layouts/hd-pm/hd-pm-adapt.json
-ADAPT_HDR := layouts/hd-pm/hd-pm-adaptives.h
 ADAPT_TOOL := tools/convert_adaptives.py
 
-.PHONY: adaptives
+ADAPT_JSON := layouts/sunlight/sunlight-adapt-c.json
+ADAPT_HDR := layouts/sunlight/sunlight-adaptives-c.h
+# ADAPT_JSON := layouts/hd-pm/hd-pm-adapt.json
+# ADAPT_HDR := layouts/hd-pm/hd-pm-adaptives.h
 
-adaptives: $(ADAPT_HDR)
+.PHONY: adapt
+
+adapt: $(ADAPT_HDR)
 
 $(ADAPT_HDR): $(ADAPT_JSON) $(ADAPT_TOOL)
 	@tmp="$@.tmp"; \

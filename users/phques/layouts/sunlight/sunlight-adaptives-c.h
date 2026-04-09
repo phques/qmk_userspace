@@ -10,19 +10,18 @@ const adaptive_3key_t adaptive_3keys[] PROGMEM = {
 const adaptive_2key_t adaptive_2keys[] PROGMEM = {
     {KC_A, KC_E, "au"},                    /* ae -> au */
     {KC_U, KC_Y, "ua"},                    /* uy -> ua */
+    {KC_COMMA, KC_DOT, "u."},              /* ,. -> u. */
     {KC_O, KC_Y, "oe"},                    /* oy -> oe */
     {KC_E, KC_QUOTE, "eo"},                /* e' -> eo */
-    {KC_H, KC_G, "hm"},                    /* hg -> hm */
     {KC_Y, KC_R, "y,"},                    /* yr -> y, */
-    {KC_COMMA, KC_DOT, "o."},              /* ,. -> o. */
+    {KC_H, KC_G, "hm"},                    /* hg -> hm */
     {KC_W, KC_G, "wn"},                    /* wg -> wn */
     {KC_D, KC_B, "dg"},                    /* db -> dg */
     {KC_G, KC_W, "gd"},                    /* gw -> gd */
     {KC_G, KC_G, "gth"},                   /* gg -> gth */
-    {KC_MINUS, KC_MINUS, " - "},           /* -- ->  -  */
-    {KC_DOT, KC_SLASH, ".com"},            /* ./ -> .com */
-    {KC_DOT, KC_COMMA, ".edu"},            /* ., -> .edu */
-    {KC_DOT, KC_QUOTE, ".org"},            /* .' -> .org */
+    {KC_SLASH, KC_A, ", "},                /* /a -> ,  */
+    {KC_MINUS, KC_U, " - "},               /* -u ->  -  */
+    {KC_DOT, KC_COMMA, ".com"},            /* ., -> .com */
     {KC_C, KC_HASH, "cgi"},                /* c# -> cgi */
     {KC_G, KC_HASH, "gmail"},              /* g# -> gmail */
     {KC_Q, KC_HASH, "quesnel"},            /* q# -> quesnel */
