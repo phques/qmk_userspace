@@ -15,7 +15,6 @@
 #include "semantickeys.h"
 #include "app_menu.h"
 
-
 //-----------
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -32,53 +31,51 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case QK_TAP_DANCE ... QK_TAP_DANCE_MAX:
 #endif
             if (!record->tap.count) // if not tapped yet...
-                return true; // let QMK do that first
+                return true;        // let QMK do that first
 
             keycode &= QK_BASIC_MAX; // mods & taps have been handled.
     }
 
-    //--------------
+        //--------------
 
-#ifdef ADAPT_SHIFT  // pseudo-adaptive comma-shift uses 2x ADAPTIVE_TERM, so pre-evaluated
-    if (
-        (prior_keycode == ADAPT_SHIFT) &&  // is it shift leader?
-        !is_caps_word_on() && // not already doing a caps_word?
-        (timer_elapsed(prior_keydown) <= ADAPTIVE_TERM * 4) &&  // use large threshold?
-        ((keycode & QK_BASIC_MAX) >= KC_A) &&  // followed by any alpha?
+#ifdef ADAPT_SHIFT                                                    // pseudo-adaptive comma-shift uses 2x ADAPTIVE_TERM, so pre-evaluated
+    if (user_config.AdaptiveKeys && (prior_keycode == ADAPT_SHIFT) && // is it shift leader?
+        !is_caps_word_on() &&                                         // not already doing a caps_word?
+        (timer_elapsed(prior_keydown) <= ADAPTIVE_TERM * 4) &&        // use large threshold?
+        ((keycode & QK_BASIC_MAX) >= KC_A) &&                         // followed by any alpha?
         ((keycode & QK_BASIC_MAX) <= KC_Z)) {
-            tap_code(KC_BSPC); // get rid of ADAPT_SHIFT
-            tap_code16(S(keycode & QK_BASIC_MAX)); // send cap letter
-            preprior_keycode = linger_key = 0; // reset other states.
-            prior_keycode = keycode; // this keycode is stripped of mods+taps
-            prior_keydown = timer_read(); // (re)start prior_key timing
-            return false; // took care of that key
-        }
+        tap_code(KC_BSPC);                            // get rid of ADAPT_SHIFT
+        tap_code16(S(keycode & QK_BASIC_MAX));        // send cap letter
+        preprior_keycode = linger_key = 0;            // reset other states.
+        prior_keycode                 = keycode;      // this keycode is stripped of mods+taps
+        prior_keydown                 = timer_read(); // (re)start prior_key timing
+        return false;                                 // took care of that key
+    }
 #endif
 
     //--------------
 
 #if defined(ADAPTIVE_ENABLE)
     // Should we handle an adaptive key?  (Semkey may send Adaptive?)
-    if (record->event.pressed // keyup = not rolling = no adaptive -> return.
+    if (record->event.pressed       // keyup = not rolling = no adaptive -> return.
         && user_config.AdaptiveKeys // AdaptiveKeys is on
-        ) {
-
+    ) {
         if (!process_adaptive_key(keycode)) {
             preprior_keycode = prior_keycode; // look back 2 keystrokes?
-            prior_keycode = keycode; // this keycode is stripped of mods+taps
-            prior_keydown = timer_read(); // (re)start prior_key timing
-            return false; // took care of that key
+            prior_keycode    = keycode;       // this keycode is stripped of mods+taps
+            prior_keydown    = timer_read();  // (re)start prior_key timing
+            return false;                     // took care of that key
         }
     }
 #endif // #ifdef ADAPTIVE_ENABLE
-    
+
 #if defined(KEYS_OVERRIDE_ENABLE)
     // Do we have a key override for this keycode?
     if (!process_keyOverride(keycode, record)) {
         preprior_keycode = prior_keycode; // look back 2 keystrokes?
-        prior_keycode = keycode; // this keycode is stripped of mods+taps
-        prior_keydown = timer_read(); // (re)start prior_key timing
-        return false; // took care of that key
+        prior_keycode    = keycode;       // this keycode is stripped of mods+taps
+        prior_keydown    = timer_read();  // (re)start prior_key timing
+        return false;                     // took care of that key
     }
 #endif // #ifdef KEYS_OVERRIDE_ENABLE
 
@@ -88,37 +85,36 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     // APP_MENU gets special treatment (no adaptive handling, separate timers)
-    if  (keycode == KC_APP) {  // mimic windows app key behavior (only better?) also in scan_matrix
+    if (keycode == KC_APP) { // mimic windows app key behavior (only better?) also in scan_matrix
         process_APP_MENU(record);
         return false; // took care of that key
     }
 
     // only process for SHIFT/ALT & no CTRL or GUI mods
-    if (saved_mods & MOD_MASK_CG)  // CTRL or GUI/CMD?
-        return true; // do default if CTRL or GUI/CMD are down
+    if (saved_mods & MOD_MASK_CG) // CTRL or GUI/CMD?
+        return true;              // do default if CTRL or GUI/CMD are down
 
     // ----------------
 
     if (record->event.pressed) {
-
         switch (keycode) { // only handling normal, SHFT or ALT cases.
-            case KC_SPC:  //
+            case KC_SPC:   //
                 linger_key = 0;
                 break;
 
-            // case KC_COMMA:  //  Comma=> ", ", linger removes Space 
-            //     if (!(saved_mods & MOD_MASK_SA)) {
-            //         tap_linger_key(KC_COMMA);
-            //         tap_code(KC_SPC); // send space immediately, then linger comma for deletion if held.
-            //         return_state = false; // stop processing this record.
-            //     }
-            //     break;
+                // case KC_COMMA:  //  Comma=> ", ", linger removes Space
+                //     if (!(saved_mods & MOD_MASK_SA)) {
+                //         tap_linger_key(KC_COMMA);
+                //         tap_code(KC_SPC); // send space immediately, then linger comma for deletion if held.
+                //         return_state = false; // stop processing this record.
+                //     }
+                //     break;
 
-            case KC_Q:  // Q, linger adds U
+            case KC_Q: // Q, linger adds U
                 // no linger if Caps Word shift is active.
                 if (!(saved_mods & MOD_MASK_ALT) && !(is_caps_word_on())) {
                     register_linger_key(keycode); //
-                    return_state = false; // stop processing this record.
+                    return_state = false;         // stop processing this record.
                 }
                 break;
 
@@ -156,15 +152,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         } // end switch (keycode)
 
 #ifdef ADAPTIVE_ENABLE
-        prior_keydown = timer_read(); // (re)start prior_key timing
+        prior_keydown    = timer_read();  // (re)start prior_key timing
         preprior_keycode = prior_keycode; // look back 2 keystrokes?
-        prior_keycode = keycode; // this keycode is now stripped of mods+taps
+        prior_keycode    = keycode;       // this keycode is now stripped of mods+taps
 #endif
-        
-    }
-    else { // (record->event.pressed)  key up event
+
+    } else { // (record->event.pressed)  key up event
         if (linger_key) {
-            switch (keycode) {               // only handling normal, SHFT or ALT cases.
+            switch (keycode) { // only handling normal, SHFT or ALT cases.
                 // case KC_COMM:                // Comma
                 case KC_Q:                   // Q
                     unregister_linger_key(); // stop any lingering
