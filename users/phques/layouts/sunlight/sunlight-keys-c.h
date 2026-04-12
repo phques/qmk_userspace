@@ -74,9 +74,9 @@
 //  Base (alpha) Layer  Sunlight (HRMs /+ thumb mods)
 /*
               ╭─────────────────────╮                 ╭─────────────────────╮
-      Caps    │  V   W   H   G   J  │                 │  #$  .:  /*  ,;  '> │ Z
+      Caps    │  V   W   H   G   Q  │                 │  #$  .:  / *  ,; '> │ Z
       Esc     │  S   N   L   T   K  |      Paste      |  "<   A   E   I   C │ X
-      LSHFT   │  F   B   M   D   Q  │      Copy       │  -+   U   O   Y   P │ RSHFT
+      LSHFT   │  F   B   M   D   J  │      Copy       │  -+   U   O   Y   P │ RSHFT
               ╰───────────╮  R  bsp │                 │ ret  spc ╭──────────╯
                           ╰─────────╯                 ╰──────────╯
 */
@@ -87,7 +87,7 @@
 #define HD_LT3 HD_W
 #define HD_LT2 HD_H
 #define HD_LT1 HD_G
-#define HD_LT0 HD_J
+#define HD_LT0 HD_Q
 
 #define HD_LM4 HD_S
 #define HD_LM3 HD_N
@@ -99,7 +99,7 @@
 #define HD_LB3 HD_B
 #define HD_LB2 HD_M
 #define HD_LB1 HD_D
-#define HD_LB0 HD_Q
+#define HD_LB0 HD_J
 
 // the middle extra keys
 #define HD_LMA SK_PSTE // PQ xbows nature

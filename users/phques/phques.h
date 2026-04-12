@@ -123,7 +123,7 @@ typedef union {
 // (since we might #undef some of the defines, we need to handle this here)
 
 // HandsDown Promethium
-#if 0
+#if 1
 #    define LAYOUT_HEADER_H "layouts/hd-pm/hd-pm-keys.h"
 #    define LAYOUT_ADAPTIVE_INC "layouts/hd-pm/hd-pm-adaptives.h"  // HandsDown Promethium adaptives (for processAdaptive.c)
 #    define LAYOUT_OVERRIDES_INC "layouts/hd-pm/hd-pm-overrides.h" // HandsDown Promethium overrides (for processKeyOverride.c)
@@ -138,7 +138,7 @@ typedef union {
 #    undef ADAPTIVE_ENABLE      // Caster doesn't use adaptive keys, so disable the feature
 #    undef KEYS_OVERRIDE_ENABLE // Caster doesn't use key overrides, so disable the feature
 // Sunlight (PQ ver-c)
-#elif 1
+#elif 0
 #    define LAYOUT_HEADER_H "layouts/sunlight/sunlight-keys-c.h"
 #    define LAYOUT_ADAPTIVE_INC "layouts/sunlight/sunlight-adaptives-c.h" // Sunlight adaptives (for processAdaptive.c)
 #    define LAYOUT_OVERRIDES_INC "layouts/sunlight/sunlight-overrides.h"  // Sunlight overrides (for processKeyOverride.c)

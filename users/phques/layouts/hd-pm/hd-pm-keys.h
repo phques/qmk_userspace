@@ -71,9 +71,9 @@
 //      that make Promethium what it is depend on the same-row neighbors
 //  ※ arguably, the inner column is less sensitive to this.
 //            ╭─────────────────────╮                 ╭─────────────────────╮
-//   Caps     │  V   W   G   M   J  │                 │  #$  .:  /*  ,;  '] │ {
+//   Caps     │  V   W   G   M   Q  │                 │  #$  .:  /*  ,;  '] │ {
 //    esc     │  S   N   T   H   K  |      Paste      |  "[   A   E   I   C │ X
-//    tab     │  F   P   D   L   Q  │      Copy       │  -+   U   O   Y   B │ Z
+//    tab     │  F   P   D   L   J  │      Copy       │  -+   U   O   Y   B │ Z
 //            ╰───────────╮  R  bsp │                 │ ret  spc ╭──────────╯
 //                        ╰─────────╯                 ╰──────────╯
 //
@@ -86,7 +86,7 @@
 #define HD_LT3 HD_W
 #define HD_LT2 HD_G
 #define HD_LT1 HD_M
-#define HD_LT0 HD_J
+#define HD_LT0 HD_Q
 #define HD_LTA KC_NO // PQ xbows nature, was LT(L_CFG, KC_MUTE)
 #define HD_RTA KC_NO // PQ xbows nature, was LT(L_CFG, KC_MPLY)
 #define HD_RT0 KC_HASH
@@ -116,7 +116,7 @@
 #define HD_LB3 HD_P
 #define HD_LB2 HD_D
 #define HD_LB1 HD_L
-#define HD_LB0 HD_Q
+#define HD_LB0 HD_J
 #define HD_LBA SK_COPY // PQ xbows nature
 #define HD_LBB KC_NO   // PQ xbows nature
 #define HD_RBB KC_NO   // PQ xbows nature
