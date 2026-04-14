@@ -523,7 +523,8 @@ void matrix_scan_user_process_combo() {  // called from matrix_scan_user if comb
 #endif // EN_HDIGRAPH_COMBOS
 
                 case HC_AT:
-                    tap_SemKey(SK_No); // ordinal number symbol
+                    // tap_SemKey(SK_No); // ordinal number symbol
+                    send_string(".com");
                     break;
                 case HC_COLN: // held, so …
                     tap_SemKey(SK_ELPS); //

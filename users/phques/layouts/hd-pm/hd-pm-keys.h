@@ -111,7 +111,7 @@
 #define HD_RM4 HD_C
 #define HD_RM5 KC_X
 
-#define HD_LB5 RSFT_T(KC_TAB)
+#define HD_LB5 LSFT_T(KC_TAB)
 #define HD_LB4 HD_F
 #define HD_LB3 HD_P
 #define HD_LB2 HD_D

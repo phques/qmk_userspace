@@ -1,0 +1,27 @@
+[
+  ["ae", "au"],
+  ["ah", "au"],
+  ["uh", "ua"],
+  ["eh", "eo"],
+  ["oh", "oe"],
+  ["yh", "yi"],
+
+  ["rf", "rn"],
+
+  ["gg", "gth"],
+
+  ["/a", ", "],
+  ["-u", " - "],
+
+  [",'", ".com"],
+
+  ["cq", "cgi"],
+  ["gq", "gmail"],
+  ["qq", "quesnel"],
+  ["pq", "philippe"],
+  [".q", "philippe.quesnel"],
+  ["dq", "device"],
+  ["iq", "circuit"],
+  ["tq", "integration\\"],
+  ["sq", "select * from "]
+]
