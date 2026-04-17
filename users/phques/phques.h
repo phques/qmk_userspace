@@ -128,7 +128,7 @@ typedef union {
 #    define LAYOUT_ADAPTIVE_INC "layouts/hd-pm/hd-pm-adaptives.h"  // HandsDown Promethium adaptives (for processAdaptive.c)
 #    define LAYOUT_OVERRIDES_INC "layouts/hd-pm/hd-pm-overrides.h" // HandsDown Promethium overrides (for processKeyOverride.c)
 // Nordrassil
-#elif 1
+#elif 0
 #    define LAYOUT_HEADER_H "layouts/nordrassil/nordrassil-keys.h"
 #    define LAYOUT_ADAPTIVE_INC "layouts/nordrassil/nordrassil-adaptives.h"  // Nordrassil adaptives (for processAdaptive.c)
 #    undef KEYS_OVERRIDE_ENABLE // Nordrassil doesn't use key overrides, so disable the feature
@@ -138,7 +138,7 @@ typedef union {
 #    undef ADAPTIVE_ENABLE      // Caster doesn't use adaptive keys, so disable the feature
 #    undef KEYS_OVERRIDE_ENABLE // Caster doesn't use key overrides, so disable the feature
 // Sunlight (PQ ver-c)
-#elif 0
+#elif 1
 #    define LAYOUT_HEADER_H "layouts/sunlight/sunlight-keys-c.h"
 #    define LAYOUT_ADAPTIVE_INC "layouts/sunlight/sunlight-adaptives-c.h" // Sunlight adaptives (for processAdaptive.c)
 #    define LAYOUT_OVERRIDES_INC "layouts/sunlight/sunlight-overrides.h"  // Sunlight overrides (for processKeyOverride.c)

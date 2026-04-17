@@ -75,6 +75,7 @@ const uint16_t SemKeys_t[SK_count][OS_count] = {
     [SK_ndx(SK_PSTE)] = {G(KC_V),C(KC_V)},                // paste
     [SK_ndx(SK_PSTM)] = {G(S(A(KC_V))),C(S(A(KC_V)))},    // paste_match
     [SK_ndx(SK_SALL)] = {G(KC_A),C(KC_A)},                // select all
+    [SK_ndx(SK_SAVE)] = {G(KC_S),C(KC_S)},                // save
     [SK_ndx(SK_CLOZ)] = {G(KC_W),C(KC_W)},                // close
     [SK_ndx(SK_QUIT)] = {G(KC_Q),C(KC_Q)},                // quit
     [SK_ndx(SK_NEW)]  = {G(KC_N),C(KC_N)},                  // new

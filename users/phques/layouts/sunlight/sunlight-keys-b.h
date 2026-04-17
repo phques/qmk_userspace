@@ -205,6 +205,7 @@
 #define HD_redo_keys  HD_LB4, HD_LB3, HD_LB2   // redo
 #define HD_copy_keys  HD_LB3, HD_LB2   // copy (hold for cut)
 #define HD_pste_keys  HD_LB2, HD_LB1   // paste (hold for paste-match)
+#define HD_save_keys  HD_RM1,HD_RM2,HD_RM3 // save
 
 #define HD_tab_keys  HD_LT4, HD_LT3     // tab
 #define HD_stab_keys HD_LT4, HD_LT3, HD_LT2  // Shift-tab

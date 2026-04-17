@@ -61,6 +61,7 @@ enum my_keycodes {
     SK_CUT,     // cut
     SK_COPY,    // copy
     SK_PSTE,    // paste
+    SK_SAVE,    // save
     SK_PSTM,    // paste_match
     SK_SALL,    // select all
     SK_SWRD,    // select current word

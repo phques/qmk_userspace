@@ -106,7 +106,8 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
                 combo_on = combo_index; // may add "e" in matrix_scan_user_process_combo
                 break;
             case HC_CIRC:
-                 tap_code16(A(KC_6)); // this should use semkeys
+                 // PQ tap_code16(A(KC_6)); // this should use semkeys
+                 tap_code16(A(KC_I)); // this should use semkeys
                 combo_on = combo_index; // may add "e" in matrix_scan_user_process_combo
                 break;
 //            case HC_MACR:
@@ -361,6 +362,9 @@ ADD_HERE:
                     break;
                 case HC_PSTE: // not held, so simple paste
                     tap_SemKey(SK_PSTE);
+                    break;
+                case HC_SAVE: // not held, so simple save
+                    tap_SemKey(SK_SAVE);
                     break;
 
                 case HC_AT:

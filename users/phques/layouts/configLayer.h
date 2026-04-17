@@ -25,7 +25,7 @@
  RM_HUEU │  HD_AKTg L_0     L_1     KC_VOLU     KC_BRIU  |     RM_VALU    | SK_ZOOMOUT KC_MPRV KC_MUTE KC_MNXT EE_CLR      │ RM_SATU
  RM_HUED │  QK_BOOT AG_SWAP AG_NORM KC_VOLD     KC_BRID  │     RM_VALD    │ SK_ZOOMIN  KC_MRWD KC_MPLY KC_MFFD QK_BOOT     │ RM_SATD
          ╰──────────────────╮ MUTE  SK_ZOOMOUT SK_ZOOMIN │                │ SK_ZOOMIN  SK_ZOOMOUT  --  ╭───────────────────╯
-            RM_SPDD RM_SPDU ╰────────────────────────────╯                ╰────────────────────────────╯   __     __
+            ____    ____    ╰────────────────────────────╯                ╰────────────────────────────╯   __     __
 */
 
 #define LC_LT5 RM_TOGG
@@ -77,9 +77,9 @@
 #define LC_RB4 QK_BOOT
 #define LC_RB5 RM_SATD // was RGB_HUD
 
-#define LC_LH5 RM_SPDD
-#define LC_LH4 RM_SPDU
-#define LC_LH3 KC_MUTE
+#define LC_LH5 KC_LCTL // RM_SPDD
+#define LC_LH4 KC_LGUI  // RM_SPDU
+#define LC_LH3 KC_LALT  // KC_MUTE
 #define LC_LH2 SK_ZOOMOUT
 #define LC_LH1 SK_ZOOMIN
 #define LC_LH0 KC_NO

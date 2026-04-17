@@ -56,8 +56,7 @@ const uint16_t PROGMEM Hundo_combo[] = {HD_undo_keys, COMBO_END};   // undo
 const uint16_t PROGMEM Hredo_combo[] = {HD_redo_keys, COMBO_END};   // redo
 const uint16_t PROGMEM Hcopy_combo[] = {HD_copy_keys, COMBO_END};   // copy (linger/linger for cut)
 const uint16_t PROGMEM Hpste_combo[] = {HD_pste_keys, COMBO_END};   // paste (linger/hold for paste-match)
-
-
+const uint16_t PROGMEM Hsave_combo[] = {HD_save_keys, COMBO_END};   // save
 
 
 const uint16_t PROGMEM H_Left_combo[] = {HD_LT3, HD_LT2, HD_LT1, COMBO_END}; // TYPE LeftComboTapE
@@ -425,7 +424,10 @@ combo_t key_combos[] = {
     [HC_PSTM] = COMBO(Hpstm_combo, SK_PSTM),  // also hold paste (no longer used?)
 #endif
 #ifdef HD_pste_keys
-    [HC_PSTE] = COMBO_ACTION(Hpste_combo) // using hold for paste-match
+    [HC_PSTE] = COMBO_ACTION(Hpste_combo), // using hold for paste-match
+#endif
+#ifdef HD_save_keys
+    [HC_SAVE] = COMBO_ACTION(Hsave_combo),   // Save
 #endif
 
 };

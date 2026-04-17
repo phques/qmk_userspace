@@ -14,6 +14,8 @@ const adaptive_2key_t adaptive_2keys[] PROGMEM = {
     {KC_O, KC_Y, "oe"},                    /* oy -> oe */
     {KC_E, KC_QUOTE, "eo"},                /* e' -> eo */
     {KC_Y, KC_R, "y,"},                    /* yr -> y, */
+    {KC_L, KC_B, "lm"},                    /* lb -> lm */
+    {KC_M, KC_D, "ml"},                    /* md -> ml */
     {KC_H, KC_G, "hm"},                    /* hg -> hm */
     {KC_W, KC_G, "wn"},                    /* wg -> wn */
     {KC_D, KC_B, "dg"},                    /* db -> dg */

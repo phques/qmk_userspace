@@ -211,6 +211,7 @@ enum my_combos {
 //    HC_CUT,   // Do I use this anymore?
     HC_COPY,  // hold for cut
     HC_PSTE,  // hold for paste+match style
+    HC_SAVE,  // Save
 
 
     COMBO_LENGTH
