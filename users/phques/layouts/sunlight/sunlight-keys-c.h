@@ -1,5 +1,5 @@
 #pragma once
-// Sunlight layout key definitions.
+// Sunlight layout key definitions. version C for PQ's personal use.
 // Original: https://cyanophage.github.io/index.html#sunlight
 // https://cyanophage.github.io/playground.html?layout=vwhgq%3D.%2F%2C%27zsnltk%3Baeicxfbmdj-uoyp%5Cr&mode=ergo&lan=english&thumb=l
 

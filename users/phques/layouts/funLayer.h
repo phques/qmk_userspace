@@ -38,7 +38,7 @@
 #define LF_RM1 RSFT_T(KC_1)
 #define LF_RM2 RGUI_T(KC_2)
 #define LF_RM3 RALT_T(KC_3)
-#define LF_RM4 RCTL_T(KC_PPLS)
+#define LF_RM4 RCTL_T(KC_PLUS)  // wasKC_PPLS
 #define LF_RM5 RM_HUEU // was RGB_HUI
 
 #define LF_LB5 RM_VALD // was RGB_VAD

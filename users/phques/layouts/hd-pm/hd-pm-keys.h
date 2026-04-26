@@ -71,8 +71,8 @@
 //      that make Promethium what it is depend on the same-row neighbors
 //  ※ arguably, the inner column is less sensitive to this.
 //            ╭─────────────────────╮                 ╭─────────────────────╮
-//   Caps     │  V   W   G   M   Q  │                 │  #$  .:  /*  ,;  '] │ {
-//    esc     │  S   N   T   H   K  |      Paste      |  "[   A   E   I   C │ X
+//   Caps     │  V   W   G   M   Q  │                 │  #$  .:  /*  ,;  '> │ {
+//    esc     │  S   N   T   H   K  |      Paste      |  "<   A   E   I   C │ X
 //    tab     │  F   P   D   L   J  │      Copy       │  -+   U   O   Y   B │ Z
 //            ╰───────────╮  R  bsp │                 │ ret  spc ╭──────────╯
 //                        ╰─────────╯                 ╰──────────╯
