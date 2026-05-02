@@ -71,9 +71,9 @@
 //      that make Promethium what it is depend on the same-row neighbors
 //  ※ arguably, the inner column is less sensitive to this.
 //            ╭─────────────────────╮                 ╭─────────────────────╮
-//   Caps     │  V   W   G   M   Q  │                 │  #$  .:  /*  ,;  '> │ {
+//    Tab     │  V   W   G   M   Q  │                 │  #$  .:  /*  ,;  '> │ {
 //    esc     │  S   N   T   H   K  |      Paste      |  "<   A   E   I   C │ X
-//    tab     │  F   P   D   L   J  │      Copy       │  -+   U   O   Y   B │ Z
+//    LSHFT   │  F   P   D   L   J  │      Copy       │  -+   U   O   Y   B │ Z
 //            ╰───────────╮  R  bsp │                 │ ret  spc ╭──────────╯
 //                        ╰─────────╯                 ╰──────────╯
 //
@@ -81,7 +81,6 @@
 // and accessible combos (defined below)
 //
 
-#define HD_LT5 KC_CAPS
 #define HD_LT4 HD_V
 #define HD_LT3 HD_W
 #define HD_LT2 HD_G
@@ -96,7 +95,6 @@
 #define HD_RT4 KC_QUOTE
 #define HD_RT5 KC_LBRC
 
-#define HD_LM5 KC_ESC
 #define HD_LM4 HD_S
 #define HD_LM3 HD_N
 #define HD_LM2 HD_T
@@ -111,7 +109,6 @@
 #define HD_RM4 HD_C
 #define HD_RM5 KC_X
 
-#define HD_LB5 LSFT_T(KC_TAB)
 #define HD_LB4 HD_F
 #define HD_LB3 HD_P
 #define HD_LB2 HD_D
@@ -127,6 +124,11 @@
 #define HD_RB3 HD_Y
 #define HD_RB4 HD_B
 #define HD_RB5 HD_Z
+
+// the other outlying '5' keys (ie LT5 etc)
+#define HD_LT5 KC_TAB // KC_CAPS
+#define HD_LM5 KC_ESC
+#define HD_LB5 KC_LSFT
 
 // Primary Thumbs 1-3 (others are unique to the board)
 #define HD_LH5 SK_LCTL // PQ xbows nature

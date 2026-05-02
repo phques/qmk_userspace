@@ -74,7 +74,7 @@
 //  Base (alpha) Layer  Sunlight (HRMs /+ thumb mods)
 /*
               ╭─────────────────────╮                 ╭─────────────────────╮
-      Caps    │  V   W   H   G   Q  │                 │  #$  .:  / *  ,; '> │ Z
+      Tab     │  V   W   H   G   Q  │                 │  #$  .:  / *  ,; '> │ Z
       Esc     │  S   N   L   T   K  |      Paste      |  "<   A   E   I   C │ X
       LSHFT   │  F   B   M   D   J  │      Copy       │  -+   U   O   Y   P │ RSHFT
               ╰───────────╮  R  bsp │                 │ ret  spc ╭──────────╯
@@ -106,7 +106,7 @@
 #define HD_LBA SK_COPY // PQ xbows nature
 
 // the other outlying '5' keys (ie LT5 etc)
-#define HD_LT5 KC_CAPS
+#define HD_LT5 KC_TAB // KC_CAPS
 #define HD_LM5 KC_ESC
 #define HD_LB5 KC_LSFT
 
